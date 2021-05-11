@@ -6,3 +6,4 @@ public class Buyer implements User {
 		System.out.println("Inside Buyer::draw() method.");
 	}
 }
+   
