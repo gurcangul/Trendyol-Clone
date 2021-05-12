@@ -174,6 +174,4 @@ public class MenuPanel extends JPanel {
 		this.password = password;
 	}
 	
-	
-
 }
