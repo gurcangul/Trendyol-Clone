@@ -28,7 +28,7 @@ public class OnlineShoppingManager {
 	 } 
 	 
 	public void start(){ 
-		List<User> userList = parseUsersXML(); // gurcan bu hatali degismeli
+		//List<User> userList = parseUsersXML(); // gurcan bu hatali degismeli -- tamam sonra bakalım
 	    System.out.println(userList);
 	    UserFactory userFactory = new UserFactory();
 
