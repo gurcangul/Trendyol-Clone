@@ -1,0 +1,16 @@
+userID,userType,userName,email,password
+1,admin,aynuratis,aynuratis@gmail.com,1234
+2,seller,uykuperest,uykuperest@gmail.com,1234
+3,buyer,tugkantuglular,tugkantuglular@gmail.com,1234
+4,seller,pierrecardin,pierrecardin@gmail.com,123
+5,seller,renktuhafiye,renktuhafiye@gmail.com,123
+6,seller,cosargroup,cosargroup@gmail.com,123
+7,seller,lavandesus,lavandesus@gmail.com,123
+8,seller,viluxe,viluxe@gmail.com,123
+9,seller,byarievdekorasyon,byarievdekorasyon@gmail.com,123
+10,seller,dagosstore,dogastore@gmail.com,123
+11,seller,woodart,woodart@gmail.com,123
+13,buyer,gurcangul,gurcangul@gmail.com,123
+14,buyer,dilekozturk,dilekozturk@gmail.com,123
+15,buyer,serhatcaner,serhatcaner@gmail.com,123
+16,buyer,didemgenc,didemgenc@gmail.com,123
