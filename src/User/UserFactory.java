@@ -1,7 +1,7 @@
 package User;
 
 public class UserFactory {
-	   //use getShape method to get object of type shape 
+	   //factory pattern is used
 	   public User getUser(int userID, String userType, String userName, String email, String password){
 	      if(userType == null){
 	         return null;
