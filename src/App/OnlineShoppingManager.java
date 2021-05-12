@@ -32,7 +32,6 @@ public class OnlineShoppingManager {
 		List<User> userList = parseUsers(); 
 		for(User user : userList)
 			System.out.println(user);
-	    System.out.println("....");
 	    
 	    //call createObject method of Admin
 	    //user1.createObject();
@@ -46,7 +45,7 @@ public class OnlineShoppingManager {
 	}
 	public void setMainFrame(MainFrame mainFrame) {
 		this.mainFrame = mainFrame;
-	}
+	}s
 	
 
    public List<User> parseUsers() throws IOException {
