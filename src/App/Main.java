@@ -8,22 +8,22 @@ public class Main {
 		      UserFactory userFactory = new UserFactory();
 
 		      System.out.println("....");
-		      //get an object of Admin and call its draw method.
+		      //get an object of Admin and call its createObject method.
 		      User user1 = userFactory.getShape("Admin");
 		      
-		      //call draw method of Admin
-		      user1.draw();
+		      //call createObject method of Admin
+		      user1.createObject();
 
-		      //get an object of Buyer and call its draw method.
+		      //get an object of Buyer and call its createObject method.
 		      User user2 = userFactory.getShape("Buyer");
 
-		      //call draw method of Buyer
-		      user2.draw();
+		      //call createObject method of Buyer
+		      user2.createObject();
 
-		      //get an object of Square and call its draw method.
+		      //get an object of Square and call its createObject method.
 		      User user3 = userFactory.getShape("Seller");
 
-		      //call draw method of Seller
-		      user3.draw();
+		      //call createObject method of Seller
+		      user3.createObject();
 		   }
 }

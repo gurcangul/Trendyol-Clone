@@ -2,7 +2,7 @@ package User;
 
 public class Admin implements User {
 	   @Override
-	   public void draw() {
-	      System.out.println("Inside Admin::draw() method.");
+	   public void createObject() {
+	      System.out.println("Inside Admin::createObject() method.");
 	   }
 }

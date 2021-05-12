@@ -2,17 +2,17 @@ package User;
 
 public class UserFactory {
 	   //use getShape method to get object of type shape 
-	   public User getShape(String shapeType){
-	      if(shapeType == null){
+	   public User getShape(String userType){
+	      if(userType == null){
 	         return null;
 	      }		
-	      if(shapeType.equalsIgnoreCase("Admin")){
+	      if(userType.equalsIgnoreCase("Admin")){
 	         return new Admin();
 	         
-	      } else if(shapeType.equalsIgnoreCase("Admin")){
+	      } else if(userType.equalsIgnoreCase("Admin")){
 	         return new Admin();
 	         
-	      } else if(shapeType.equalsIgnoreCase("Seller")){
+	      } else if(userType.equalsIgnoreCase("Seller")){
 	         return new Seller();
 	      }
 	      
