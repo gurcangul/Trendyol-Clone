@@ -53,27 +53,27 @@ public class MenuPanel extends JPanel {
 		        
 
 		        
-		        JMenuItem mnıtmNewMenuItem_6 = new JMenuItem("Shopping Cart");
-		        myProfile.add(mnıtmNewMenuItem_6);
+		        JMenuItem shoppingCart = new JMenuItem("Shopping Cart");
+		        myProfile.add(shoppingCart);
 		        
-		        JMenuItem mnıtmNewMenuItem_7 = new JMenuItem("My Favorites");
-		        myProfile.add(mnıtmNewMenuItem_7);		        
-		        JMenuItem mnıtmNewMenuItem_5 = new JMenuItem("General Account Settings");
-		        myProfile.add(mnıtmNewMenuItem_5);
+		        JMenuItem myFavorites = new JMenuItem("My Favorites");
+		        myProfile.add(myFavorites);		        
+		        JMenuItem generalAccountSettings = new JMenuItem("General Account Settings");
+		        myProfile.add(generalAccountSettings);
 		        
-		        JMenu mnNewMenu_5 = new JMenu("Store");
-		        mnNewMenu_5.setBackground(Color.WHITE);
-		        menuBar.add(mnNewMenu_5);
+		        JMenu store = new JMenu("Store");
+		        store.setBackground(Color.WHITE);
+		        menuBar.add(store);
 		        
-		        JMenuItem mnıtmNewMenuItem_15 = new JMenuItem("All Categories");
-		        mnNewMenu_5.add(mnıtmNewMenuItem_15);
+		        JMenuItem allCategories = new JMenuItem("All Categories");
+		        store.add(allCategories);
 		        //User user = new User();
 		        //user.getserName
 		        
 		        JMenu userName = new JMenu("userName");
 		        menuBar.add(userName);
-		        JMenuItem mnıtmNewMenuItem_8_1 = new JMenuItem("My Shopping Cart");
-		        userName.add(mnıtmNewMenuItem_8_1);
+		        JMenuItem myShoppingCart = new JMenuItem("My Shopping Cart");
+		        userName.add(myShoppingCart);
 		        JMenuItem logOut = new JMenuItem("Log Out");
 		        logOut.setIcon(new ImageIcon("C:\\Users\\Gurcan\\eclipse-workspace\\G12_CENG431_HW3-v1\\src\\logout.png"));
 		        logOut.addActionListener(new ActionListener() {
@@ -102,10 +102,10 @@ public class MenuPanel extends JPanel {
 		        JMenu help = new JMenu("Help");
 		        menuBar.add(help);
 		        
-		        JMenuItem mnıtmNewMenuItem_14 = new JMenuItem("Help Contents");
-		        help.add(mnıtmNewMenuItem_14);
-		        JMenuItem mnıtmNewMenuItem_12 = new JMenuItem("Send Feedback");
-		        mnıtmNewMenuItem_12.addActionListener(new ActionListener() {
+		        JMenuItem helpContents = new JMenuItem("Help Contents");
+		        help.add(helpContents);
+		        JMenuItem sendFeedback = new JMenuItem("Send Feedback");
+		        sendFeedback.addActionListener(new ActionListener() {
 		        	public void actionPerformed(ActionEvent e) {
 		        		FeedbackPanel feedbackPanel = new FeedbackPanel(mainFrame);
 		        		mainFrame.addMenuPanel(feedbackPanel);
@@ -113,17 +113,17 @@ public class MenuPanel extends JPanel {
 		        	}
 		        });
 
-		        help.add(mnıtmNewMenuItem_12);
+		        help.add(sendFeedback);
 		        
-		        JMenuItem mnıtmNewMenuItem_13 = new JMenuItem("About");
-		        help.add(mnıtmNewMenuItem_13);
-		        
-		        
+		        JMenuItem about = new JMenuItem("About");
+		        help.add(about);
 		        
 		        
 		        
 		        
-		        mnıtmNewMenuItem_13.addActionListener(new ActionListener() {
+		        
+		        
+		        about.addActionListener(new ActionListener() {
 		        	public void actionPerformed(ActionEvent e) {
 		        		AboutAppPanel aboutPanel = new AboutAppPanel(mainFrame);
 		        		mainFrame.addMenuPanel(aboutPanel);

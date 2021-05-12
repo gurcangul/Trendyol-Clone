@@ -79,6 +79,12 @@ public class Buyer implements User {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	@Override
+	public String toString() {
+		return userID + ", " + userType + ", " + userName + ", " + email
+				+ ", " + password;
+	}
 
 }
    

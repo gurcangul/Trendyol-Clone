@@ -16,6 +16,7 @@ public class UserFactory {
 	      } else if(userType.equalsIgnoreCase("Seller")){
 	         return new Seller(userID, userType, userName, email, password);
 	      }
+	      
 		return null;
 	      
 	   }

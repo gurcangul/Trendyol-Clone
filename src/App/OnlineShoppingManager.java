@@ -30,7 +30,8 @@ public class OnlineShoppingManager {
 	 
 	public void start() throws IOException{ 
 		List<User> userList = parseUsers(); 
-	    System.out.println(userList);
+		for(User user : userList)
+			System.out.println(user);
 	    System.out.println("....");
 	    
 	    //call createObject method of Admin
