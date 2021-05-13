@@ -1,5 +1,5 @@
 package Observer;
 
-public interface IObserver{
+public interface Observer{
     public void update(Object arg);
 }

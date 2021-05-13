@@ -6,17 +6,23 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+
+import Contollers.LoginController;
+import Models.UserModel;
+import Observer.Observer;
+
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 
-public class BeforeLoginPanel extends JPanel {
+public class BeforeLoginPanel extends JPanel implements Observer  {
     private MainFrame mainFrame;
     private JButton btnNewButton;
     private JLabel lblNewLabel;
     private WelcomePanel welcomePanel;
     private LoginPanel loginPanel;
+    BeforeLoginPanel beforeLoginPanel;
 
 	/**
 	 * 
@@ -38,6 +44,10 @@ public class BeforeLoginPanel extends JPanel {
         		//do
         		loginPanel =  new LoginPanel(mainFrame);
         		mainFrame.addNewPanel(loginPanel);
+        		UserModel userModel = new UserModel();
+                LoginController loginController = new LoginController(loginPanel, beforeLoginPanel, userModel,mainFrame);//panel checker
+                loginController.showLoginPanel();
+
         	}
         });
         btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -93,6 +103,12 @@ public class BeforeLoginPanel extends JPanel {
 
 	public void setLblNewLabel(JLabel lblNewLabel) {
 		this.lblNewLabel = lblNewLabel;
+	}
+
+	@Override
+	public void update(Object arg) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

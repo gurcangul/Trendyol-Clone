@@ -2,9 +2,12 @@ package GUI;
 
 
 import javax.swing.*;
+
+import Observer.Observer;
+
 import java.awt.*;
 
-public class MainFrame extends JFrame {
+public class MainFrame extends JFrame implements Observer {
 	MenuPanel menuPanel=new MenuPanel(this);
 	
     /**
@@ -52,4 +55,9 @@ public class MainFrame extends JFrame {
     public JFrame getFrame() {
         return this;
     }
+	@Override
+	public void update(Object arg) {
+		// TODO Auto-generated method stub
+		
+	}
 }

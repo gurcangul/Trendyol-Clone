@@ -4,6 +4,9 @@ import java.awt.GridLayout;
 
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
+
+import Observer.Observer;
+
 import java.awt.Component;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -12,7 +15,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 
-public class HomePage extends JPanel {
+public class HomePage extends JPanel implements Observer{
 
 	  /**
 	 * 
@@ -86,5 +89,12 @@ public class HomePage extends JPanel {
 				popup.show(e.getComponent(), e.getX(), e.getY());
 			}
 		});
+	}
+
+
+	@Override
+	public void update(Object arg) {
+		// TODO Auto-generated method stub
+		
 	}
 }

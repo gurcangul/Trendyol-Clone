@@ -2,6 +2,9 @@ package GUI;
 
 import javax.swing.JPanel;
 import javax.swing.JToolBar;
+
+import Observer.Observer;
+
 import javax.swing.JButton;
 import javax.swing.JLayeredPane;
 
@@ -12,7 +15,7 @@ import java.awt.GridLayout;
 import java.awt.BorderLayout;
 import java.awt.Label;
 
-public class AboutAppPanel extends JPanel {
+public class AboutAppPanel extends JPanel implements Observer  {
 	
 	/**
 	 * 
@@ -42,6 +45,11 @@ public class AboutAppPanel extends JPanel {
 	}
 	public void setMainFrame(MainFrame mainFrame) {
 		this.mainFrame = mainFrame;
+	}
+	@Override
+	public void update(Object arg) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 

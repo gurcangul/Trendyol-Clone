@@ -2,12 +2,15 @@ package GUI;
 
 import javax.swing.*;
 
+import Contollers.LoginController;
+import Models.UserModel;
+import Observer.Observer;
 
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class WelcomePanel extends JPanel{
+public class WelcomePanel extends JPanel implements Observer {
 
     /**
 	 * 
@@ -34,6 +37,8 @@ public class WelcomePanel extends JPanel{
         	public void actionPerformed(ActionEvent e) {
         		beforeLoginPanel =  new BeforeLoginPanel(mainFrame);
         		mainFrame.addNewPanel(beforeLoginPanel);
+        		
+
         	}
         });
         btnNewButton.setBounds(293, 263, 110, 21);
@@ -75,5 +80,11 @@ public class WelcomePanel extends JPanel{
 
 	public void setMainFrame(MainFrame mainFrame) {
 		this.mainFrame = mainFrame;
+	}
+
+	@Override
+	public void update(Object arg) {
+		// TODO Auto-generated method stub
+		
 	}
 }

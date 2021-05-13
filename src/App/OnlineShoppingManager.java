@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import Contollers.LoginController;
 import FileIO.Reader;
 import GUI.MainFrame;
 import GUI.WelcomePanel;
@@ -20,13 +21,12 @@ public class OnlineShoppingManager {
 	public void start() throws IOException{ 
 		List<User> userList = parseUsers(); 
 		for(User user : userList)
-			System.out.println(user);
+			System.out.println(user.getUserName()+" "+user.getPassword());
 	    
 	    //call createObject method of Admin
 	    //user1.createObject();
         @SuppressWarnings("unused")
 		WelcomePanel welcomePanel = new WelcomePanel(mainFrame);//First Panel to welcome our users
-        //LoginController loginController = new LoginController(loginView);//panel checker
     }
 	
 	public MainFrame getMainFrame() {

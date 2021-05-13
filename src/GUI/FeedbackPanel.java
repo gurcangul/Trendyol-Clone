@@ -2,6 +2,7 @@ package GUI;
 
 import javax.swing.*;
 
+import Observer.Observer;
 
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -11,7 +12,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.awt.event.ActionEvent;
 
-public class FeedbackPanel extends JPanel{
+public class FeedbackPanel extends JPanel implements Observer{
 
     /**
 	 * 
@@ -117,5 +118,11 @@ public class FeedbackPanel extends JPanel{
         }
         catch(Exception e){
         }
+	}
+
+	@Override
+	public void update(Object arg) {
+		// TODO Auto-generated method stub
+		
 	}
 }

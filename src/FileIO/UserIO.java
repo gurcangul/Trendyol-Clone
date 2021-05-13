@@ -8,7 +8,7 @@ import User.User;
 import User.UserFactory;
 
 
-public class UserIO implements IUserIO{
+public class UserIO implements IUserIO{//for create user object from the csv file 
 
 	@Override
 	   public List<User> parseUsers() {
