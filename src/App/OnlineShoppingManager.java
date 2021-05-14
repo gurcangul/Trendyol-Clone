@@ -19,9 +19,9 @@ public class OnlineShoppingManager {
 	 } 
 	 
 	public void start() throws IOException{ 
-		List<User> userList = parseUsers(); 
+		/*List<User> userList = parseUsers(); 
 		for(User user : userList)
-			System.out.println(user.getUserName()+" "+user.getPassword());
+			System.out.println(user.getUserName()+" "+user.getPassword());*/
 	    
 	    //call createObject method of Admin
 	    //user1.createObject();
@@ -36,17 +36,5 @@ public class OnlineShoppingManager {
 		this.mainFrame = mainFrame;
 	}
 	
-   public List<User> parseUsers() throws IOException {
-      ArrayList<String> List = Reader.readFile("user.csv");
-      ArrayList<User> userList = new ArrayList<User>();
-      for(int i=1; i<List.size();i++) {
-			String str = List.get(i);
-			String[] split = str.split(","); 
-			UserFactory userFactory = new UserFactory();
-			User user = userFactory.getUser(Integer.parseInt(split[0]), split[1],split[2], split[3], split[4]);
-			userList.add(user);
-			
-		} 
-		return userList;
-   }		
+		
 }
