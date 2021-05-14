@@ -7,7 +7,7 @@ import Observer.Observer;
 
 import java.awt.*;
 
-public class MainFrame extends JFrame implements Observer {
+public class MainFrameView extends JFrame implements Observer {
 	MenuPanel menuPanel=new MenuPanel(this);
 	private static final long serialVersionUID = 1L;
 	
@@ -19,7 +19,7 @@ public class MainFrame extends JFrame implements Observer {
 			e.printStackTrace();
 		}
 	}
-    public MainFrame() {
+    public MainFrameView() {
         
 		setBounds(100, 100, 450, 300);
 		setTitle("Outfit Rating Platform");

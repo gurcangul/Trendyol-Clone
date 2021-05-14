@@ -8,9 +8,9 @@ import java.util.List;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
-import GUI.BeforeLoginPanel;
-import GUI.LoginPanel;
-import GUI.MainFrame;
+import GUI.BeforeLoginView;
+import GUI.LoginView;
+import GUI.MainFrameView;
 import GUI.MenuPanel;
 import Models.UserModel;
 import User.Admin;
@@ -20,15 +20,15 @@ import User.User;
 
 public class LoginController {
     private UserModel userModel;
-    private LoginPanel loginPanel;
-    private BeforeLoginPanel beforeLoginPanel;
+    private LoginView loginView;
+    private BeforeLoginView beforeLoginView;
     private MenuPanel menuPanel;
-    private MainFrame mainFrame;
+    private MainFrameView mainFrameView;
 
 
-    public LoginController(LoginPanel loginPanel, BeforeLoginPanel beforeLoginPanel, UserModel userModel,MainFrame mainFrame) {
-        this.loginPanel = loginPanel;
-        this.mainFrame=mainFrame;
+    public LoginController(LoginView loginView, BeforeLoginView beforeLoginView, UserModel userModel,MainFrameView mainFrameView) {
+        this.loginView = loginView;
+        this.mainFrameView=mainFrameView;
         this.userModel=userModel;
         //mainView.addProfileButtonListener(new MainProfileButtonListener());
     }
@@ -36,11 +36,11 @@ public class LoginController {
     public void login(String userName, String password) {
     	User user =  userModel.checkUserIsExist(userName, password);
         if (user != null) {
-            this.menuPanel=new MenuPanel(mainFrame);
+            this.menuPanel=new MenuPanel(mainFrameView);
             System.out.println("selam...."+userName+ password);
             //this.menuPanel.addOkButtonListener(new LoggedInOkButtonListener());
-            menuPanel =  new MenuPanel(mainFrame);
-    		mainFrame.addNewPanel(menuPanel);
+            menuPanel =  new MenuPanel(mainFrameView);
+    		mainFrameView.addNewPanel(menuPanel);
             //this.menuPanel.addCancelButtonListener(new LoggedInCancelButtonListener());
     		menuPanel.setUserName(user.getUserName());
     		System.out.println("helloo"+user.getUserName());
@@ -48,8 +48,8 @@ public class LoginController {
         } else {
             //loginPanel.passwordCheck();
     		//JLabel lblNewLabel2 = new JLabel("Wrong! Please try again!");
-    		loginPanel.getPassword().setBackground(Color.RED);
-    		loginPanel.getUserName().setBackground(Color.RED);
+    		loginView.getPassword().setBackground(Color.RED);
+    		loginView.getUserName().setBackground(Color.RED);
     		JOptionPane.showMessageDialog(null, "Wrong! Please try again! ");        		
             this.showLoginPanel();
 
@@ -59,26 +59,26 @@ public class LoginController {
 
  
     public void showLoginPanel() {
-		loginPanel.getPassword().setBackground(Color.white);
-		loginPanel.getUserName().setBackground(Color.white);
-        loginPanel.setVisible();
-        loginPanel.addLoginActionListener(new LoginButtonListener());
+		loginView.getPassword().setBackground(Color.white);
+		loginView.getUserName().setBackground(Color.white);
+        loginView.setVisible();
+        loginView.addLoginActionListener(new LoginButtonListener());
     }
     
     class LoginButtonListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            String username = loginPanel.getUserName().getText();
-            String password = loginPanel.getPassword().getText();
+            String username = loginView.getUserName().getText();
+            String password = loginView.getPassword().getText();
             login(username, password);
         }
     }
     class LoggedInOkButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-        	menuPanel =  new MenuPanel(mainFrame);
-    		mainFrame.addNewPanel(menuPanel);
+        	menuPanel =  new MenuPanel(mainFrameView);
+    		mainFrameView.addNewPanel(menuPanel);
         }
     }
     

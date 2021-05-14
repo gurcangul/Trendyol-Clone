@@ -16,27 +16,27 @@ public class WelcomePanel extends JPanel implements Observer {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-    private MainFrame mainFrame;
+    private MainFrameView mainFrameView;
     private JButton btnNewButton;
     private JLabel lblNewLabel;
-    private BeforeLoginPanel beforeLoginPanel;
+    private BeforeLoginView beforeLoginView;
     private JButton btnNewButton_1;
 
-    public WelcomePanel(MainFrame mainFrame) {
-        this.setMainFrame(mainFrame);
+    public WelcomePanel(MainFrameView mainFrameView) {
+        this.setMainFrame(mainFrameView);
 
         new JPanel(new GridLayout(3, 1));       
         setSize(760, 460);
         setLayout(null);
 
-        mainFrame.addNewPanel(this);
+        mainFrameView.addNewPanel(this);
         
         btnNewButton = new JButton("ENTER");
         btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
         btnNewButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		beforeLoginPanel =  new BeforeLoginPanel(mainFrame);
-        		mainFrame.addNewPanel(beforeLoginPanel);
+        		beforeLoginView =  new BeforeLoginView(mainFrameView);
+        		mainFrameView.addNewPanel(beforeLoginView);
         		
 
         	}
@@ -69,17 +69,17 @@ public class WelcomePanel extends JPanel implements Observer {
         add(btnNewButton_1);
     }
 
-    public MainFrame getFrame() {
-        return mainFrame;
+    public MainFrameView getFrame() {
+        return mainFrameView;
     }
 
 
-	public MainFrame getMainFrame() {
-		return mainFrame;
+	public MainFrameView getMainFrame() {
+		return mainFrameView;
 	}
 
-	public void setMainFrame(MainFrame mainFrame) {
-		this.mainFrame = mainFrame;
+	public void setMainFrame(MainFrameView mainFrameView) {
+		this.mainFrameView = mainFrameView;
 	}
 
 	@Override

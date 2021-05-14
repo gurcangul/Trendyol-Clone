@@ -9,22 +9,22 @@ public class MyProfile extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private MainFrame mainFrame;
+	private MainFrameView mainFrameView;
 
 	/**
 	 * Create the panel.
 	 */
-	public MyProfile(MainFrame mainFrame) {
-		this.setMainFrame(mainFrame);        
+	public MyProfile(MainFrameView mainFrameView) {
+		this.setMainFrame(mainFrameView);        
 		JPanel jP=  new JPanel(new GridLayout(3, 1));
 	}
 
-	public MainFrame getMainFrame() {
-		return mainFrame;
+	public MainFrameView getMainFrame() {
+		return mainFrameView;
 	}
 
-	public void setMainFrame(MainFrame mainFrame) {
-		this.mainFrame = mainFrame;
+	public void setMainFrame(MainFrameView mainFrameView) {
+		this.mainFrameView = mainFrameView;
 	}
 
 }

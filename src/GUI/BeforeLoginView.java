@@ -16,13 +16,13 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 
-public class BeforeLoginPanel extends JPanel implements Observer  {
-    private MainFrame mainFrame;
+public class BeforeLoginView extends JPanel implements Observer  {
+    private MainFrameView mainFrameView;
     private JButton btnNewButton;
     private JLabel lblNewLabel;
     private WelcomePanel welcomePanel;
-    private LoginPanel loginPanel;
-    BeforeLoginPanel beforeLoginPanel;
+    private LoginView loginView;
+    BeforeLoginView beforeLoginView;
 
 	/**
 	 * 
@@ -32,8 +32,8 @@ public class BeforeLoginPanel extends JPanel implements Observer  {
 	/**
 	 * Create the panel.
 	 */
-	public BeforeLoginPanel(MainFrame mainFrame) {
-		this.setMainFrame(mainFrame);        
+	public BeforeLoginView(MainFrameView mainFrameView) {
+		this.setMainFrame(mainFrameView);        
 		setSize(760, 460);
         new JPanel(new GridLayout(3, 1));
         setLayout(null);
@@ -42,10 +42,10 @@ public class BeforeLoginPanel extends JPanel implements Observer  {
         btnNewButton_1.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {//it goes to login page
         		//do
-        		loginPanel =  new LoginPanel(mainFrame);
-        		mainFrame.addNewPanel(loginPanel);
+        		loginView =  new LoginView(mainFrameView);
+        		mainFrameView.addNewPanel(loginView);
         		UserModel userModel = new UserModel();
-                LoginController loginController = new LoginController(loginPanel, beforeLoginPanel, userModel,mainFrame);//panel checker
+                LoginController loginController = new LoginController(loginView, beforeLoginView, userModel,mainFrameView);//panel checker
                 loginController.showLoginPanel();
 
         	}
@@ -71,8 +71,8 @@ public class BeforeLoginPanel extends JPanel implements Observer  {
         btnNewButton_2_1.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		
-        		welcomePanel =  new WelcomePanel(mainFrame);
-        		mainFrame.addNewPanel(welcomePanel);
+        		welcomePanel =  new WelcomePanel(mainFrameView);
+        		mainFrameView.addNewPanel(welcomePanel);
         		
         	}
         });
@@ -81,12 +81,12 @@ public class BeforeLoginPanel extends JPanel implements Observer  {
         add(btnNewButton_2_1);
 	}
 
-	public MainFrame getMainFrame() {
-		return mainFrame;
+	public MainFrameView getMainFrame() {
+		return mainFrameView;
 	}
 
-	public void setMainFrame(MainFrame mainFrame) {
-		this.mainFrame = mainFrame;
+	public void setMainFrame(MainFrameView mainFrameView) {
+		this.mainFrameView = mainFrameView;
 	}
 
 	public JButton getBtnNewButton() {

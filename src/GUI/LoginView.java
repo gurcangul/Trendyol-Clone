@@ -16,9 +16,9 @@ import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JPasswordField;
 
-public class LoginPanel extends JPanel implements Observer{
-    private MainFrame mainFrame;
-    private BeforeLoginPanel beforeLoginPanel;
+public class LoginView extends JPanel implements Observer{
+    private MainFrameView mainFrameView;
+    private BeforeLoginView beforeLoginView;
 	private static final long serialVersionUID = 1L;
 	private JTextField userName;
 	private JPasswordField password;
@@ -29,8 +29,8 @@ public class LoginPanel extends JPanel implements Observer{
 	 */
 	
 	
-	public LoginPanel(MainFrame mainFrame) {
-		this.setMainFrame(mainFrame);        
+	public LoginView(MainFrameView mainFrameView) {
+		this.setMainFrame(mainFrameView);        
         new JPanel(new GridLayout(3, 1));
         setLayout(null);
         
@@ -60,8 +60,8 @@ public class LoginPanel extends JPanel implements Observer{
         back.setIcon(new ImageIcon("\src\\back.png"));
         back.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		beforeLoginPanel =  new BeforeLoginPanel(mainFrame);
-        		mainFrame.addNewPanel(beforeLoginPanel);
+        		beforeLoginView =  new BeforeLoginView(mainFrameView);
+        		mainFrameView.addNewPanel(beforeLoginView);
         		
         	}
         });
@@ -80,23 +80,23 @@ public class LoginPanel extends JPanel implements Observer{
         add(login);               
 	}
 	public void setVisible() {
-		mainFrame.setVisible(true);
+		mainFrameView.setVisible(true);
 	}
 	  
-	public MainFrame getMainFrame() {
-		return mainFrame;
+	public MainFrameView getMainFrame() {
+		return mainFrameView;
 	}
 
-	public void setMainFrame(MainFrame mainFrame) {
-		this.mainFrame = mainFrame;
+	public void setMainFrame(MainFrameView mainFrameView) {
+		this.mainFrameView = mainFrameView;
 	}
 
-	public BeforeLoginPanel getBeforeLoginPanel() {
-		return beforeLoginPanel;
+	public BeforeLoginView getBeforeLoginPanel() {
+		return beforeLoginView;
 	}
 
-	public void setBeforeLoginPanel(BeforeLoginPanel beforeLoginPanel) {
-		this.beforeLoginPanel = beforeLoginPanel;
+	public void setBeforeLoginPanel(BeforeLoginView beforeLoginView) {
+		this.beforeLoginView = beforeLoginView;
 	}
 	
 	

@@ -24,12 +24,12 @@ import javax.swing.ImageIcon;
 public class MenuPanel extends JPanel implements Observer {
 	  private static final long serialVersionUID = 1L;
 
-	  private MainFrame mainFrame;
-	  private BeforeLoginPanel beforeLoginPanel;
+	  private MainFrameView mainFrameView;
+	  private BeforeLoginView beforeLoginView;
 	  private JPasswordField password;
 	  private String userName;
-	  public MenuPanel(MainFrame mainFrame ) {
-			setMainFrame(mainFrame);        
+	  public MenuPanel(MainFrameView mainFrameView ) {
+			setMainFrame(mainFrameView);        
 			JPanel jP=  new JPanel(new GridLayout(3, 1));
 	        
 	        JMenuBar menuBar = new JMenuBar();
@@ -44,8 +44,8 @@ public class MenuPanel extends JPanel implements Observer {
 	        
 	        homePage.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		HomePage homePage = new HomePage(mainFrame);
-        		mainFrame.addMenuPanel(homePage);
+        		HomePageView homePageView = new HomePageView(mainFrameView);
+        		mainFrameView.addMenuPanel(homePageView);
         	}
         });
 
@@ -79,13 +79,13 @@ public class MenuPanel extends JPanel implements Observer {
         logOut.addActionListener(new ActionListener() {
         	@Override
             public void actionPerformed(ActionEvent e) {
-               int result = JOptionPane.showConfirmDialog(mainFrame,"Sure? You want to exit?", "Swing Tester",
+               int result = JOptionPane.showConfirmDialog(mainFrameView,"Sure? You want to exit?", "Swing Tester",
                   JOptionPane.YES_NO_OPTION,
                   JOptionPane.QUESTION_MESSAGE);
                if(result == JOptionPane.YES_OPTION){
                   //mainFrame.setTitle("You selected: Yes");
-            	   beforeLoginPanel =  new BeforeLoginPanel(mainFrame);
-           			mainFrame.addNewPanel(beforeLoginPanel);
+            	   beforeLoginView =  new BeforeLoginView(mainFrameView);
+           			mainFrameView.addNewPanel(beforeLoginView);
                   
                }else if (result == JOptionPane.NO_OPTION){
             	   //mainFrame.setTitle("Outfit Rating Platform");
@@ -107,8 +107,8 @@ public class MenuPanel extends JPanel implements Observer {
         JMenuItem sendFeedback = new JMenuItem("Send Feedback");
         sendFeedback.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		FeedbackPanel feedbackPanel = new FeedbackPanel(mainFrame);
-        		mainFrame.addMenuPanel(feedbackPanel);
+        		FeedbackView feedbackView = new FeedbackView(mainFrameView);
+        		mainFrameView.addMenuPanel(feedbackView);
         		
         	}
         });
@@ -125,8 +125,8 @@ public class MenuPanel extends JPanel implements Observer {
         
         about.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		AboutAppPanel aboutPanel = new AboutAppPanel(mainFrame);
-        		mainFrame.addMenuPanel(aboutPanel);
+        		AboutAppView aboutPanel = new AboutAppView(mainFrameView);
+        		mainFrameView.addMenuPanel(aboutPanel);
         		
         	}
         });
@@ -134,29 +134,29 @@ public class MenuPanel extends JPanel implements Observer {
        
 	}
 	public void setVisible() {
-	        mainFrame.setVisible(true);
+	        mainFrameView.setVisible(true);
 	}
 
 
-	public BeforeLoginPanel getBeforeLoginPanel() {
-		return beforeLoginPanel;
+	public BeforeLoginView getBeforeLoginPanel() {
+		return beforeLoginView;
 	}
 
 
-	public void setBeforeLoginPanel(BeforeLoginPanel beforeLoginPanel) {
-		this.beforeLoginPanel = beforeLoginPanel;
+	public void setBeforeLoginPanel(BeforeLoginView beforeLoginView) {
+		this.beforeLoginView = beforeLoginView;
 	}
 
 
  
 
-	public MainFrame getMainFrame() {
-		return mainFrame;
+	public MainFrameView getMainFrame() {
+		return mainFrameView;
 	}
 
 
-	public void setMainFrame(MainFrame mainFrame) {
-		this.mainFrame = mainFrame;
+	public void setMainFrame(MainFrameView mainFrameView) {
+		this.mainFrameView = mainFrameView;
 	}
 
 
