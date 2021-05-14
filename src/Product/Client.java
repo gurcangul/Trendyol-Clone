@@ -30,7 +30,7 @@ public class Client {
 			// do something
 			// these categories are created automatically by Admin
 			
-			IProduct category = new Category(1, "Electronic", null);
+			/*IProduct category = new Category(1, "Electronic", null);
 			IProduct category1 = new Category(2, "Clothing", null);
 			IProduct category2 = new Category(3, "Shoes&Bags", null);
 			IProduct category3 = new Category(4, "Watch&Accesories", null);
@@ -42,7 +42,7 @@ public class Client {
 			productAndCategoryList.add(category2);
 			productAndCategoryList.add(category3);
 			productAndCategoryList.add(category4);
-			productAndCategoryList.add(category5);
+			productAndCategoryList.add(category5);*/
 		}
 	}
 

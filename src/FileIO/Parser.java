@@ -13,14 +13,21 @@ import java.util.Map.Entry;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.*;
+
+import App.OnlineShoppingManager;
+import Contollers.UserFinderHelper;
+import Product.Category;
+import Product.IProduct;
+import Product.Product;
+import User.Seller;
 import User.User;
 import User.UserFactory;
 
 
-public class Parser implements IParser{//for create user object from the csv file 
 
-	@Override
-	   public List<User> parseUsers() {
+public class Parser {//for create user object from the csv file 
+
+	   public static List<User> parseUsers() {
 		   ArrayList<String> List = Reader.readFile("user.csv");
 		   ArrayList<User> userList = new ArrayList<User>();
 		   for(int i=1; i<List.size();i++) {
@@ -33,21 +40,66 @@ public class Parser implements IParser{//for create user object from the csv fil
 			return userList;
 	   }
 	
-	{
-		
+	static  ArrayList<IProduct> productAndCategories = new ArrayList<IProduct>();
+	private static void parseProductObject(JSONObject category) 
+    {
+        //Get employee object within list
+        JSONObject categoryObject = (JSONObject) category.get("category");
+        JSONObject productObject = (JSONObject) category.get("product"); 
+        //Get employee first name
+        
+        if(productObject != null) {
+            String ID = (String) productObject.get("ID");
+            System.out.println(ID);
+            String name = (String) productObject.get("name");
+            System.out.println(name);
+            String price = (String) productObject.get("price");
+            System.out.println(price);
+            String seller = (String) productObject.get("seller");
+            System.out.println(seller);
+            User user = UserFinderHelper.findUserByUsername(parseUsers(), seller);
+            IProduct product1 = new Product(Integer.parseInt(ID), name, Double.parseDouble(price), (Seller)user);
+	        productAndCategories.add(product1);
+            
+        }
+        if(categoryObject != null) {
+	        String ID = (String) categoryObject.get("ID");    
+	        System.out.println(ID);
+	         
+	        //Get employee last name
+	        String name = (String) categoryObject.get("name");  
+	        System.out.println(name);
+	        JSONArray productList = (JSONArray) categoryObject.get("productList");
+	        IProduct category1 = new Category(Integer.parseInt(ID), name, null);
+	        productAndCategories.add(category1);
+	        for (Object c : productList) {
+	        	parseProductObject((JSONObject) c);
+	        }
+        }
+   }
+	
+	public static void readFile() {
+	      JSONParser jsonParser = new JSONParser();
+	         
+	        try (FileReader reader = new FileReader("example.json"))
+	        {
+	            //Read JSON file
+	            Object obj = jsonParser.parse(reader);
+	 
+	            JSONArray productAndCategoryList = (JSONArray) obj;
+	            System.out.println(productAndCategoryList);
+	             
+	            //Iterate over employee array
+	            productAndCategoryList.forEach( prd -> parseProductObject( (JSONObject) prd ) );
+	 
+	        } catch (FileNotFoundException e) {
+	            e.printStackTrace();
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        } catch (ParseException e) {
+	            e.printStackTrace();
+	        }
 	}
-
-	@Override
-	public Map parseProductAndCategory() throws FileNotFoundException, IOException, ParseException {
-		Object obj = new JSONParser().parse(new FileReader("products.json"));
-		JSONObject jo = (JSONObject) obj;
-		Map category = jo;
-		Iterator<Map.Entry> itr1 = category.entrySet().iterator();
-		while(itr1.hasNext()) {
-			Map.Entry pair = itr1.next();
-			System.out.println(pair.getKey() + " : " + pair.getValue());
-		}
-		return null;
-	}
+	
 
 }

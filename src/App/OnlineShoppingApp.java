@@ -11,7 +11,7 @@ public class OnlineShoppingApp {
 	public static void main(String args[]) throws FileNotFoundException, IOException, ParseException {
     	OnlineShoppingManager onlineShoppingManager = new OnlineShoppingManager();
     	onlineShoppingManager.start();
-    	Parser p = new Parser();
-    	p.parseProductAndCategory();
+    	/*Parser p = new Parser();
+    	p.parseProductAndCategory();*/
 	}
 }
