@@ -12,20 +12,21 @@
 								"category": {
           				   				    "ID": "1000",
             								    "name": "broom",
-            								    "productList": [ {
+            								    "productList": [	{
 												"product": {
 														"ID": "10000",
 														"name": "XiaomiMi Robot Vacuum Mop Pro Cleaner",
-														"price": "2705,33"
+														"price": "2705.33"
 														"seller": "markadayim"
-													   },
+													   }
+												},{
 												"product": {
 														"ID": "10001",
 														"name": "Arnica Bora Mor Et11133",
-														"price": "987,84",
+														"price": "987.84",
 														"seller": "trendFix"
 													   }		
-											      }
+											     }
 											   ]
         								     }
 								}
