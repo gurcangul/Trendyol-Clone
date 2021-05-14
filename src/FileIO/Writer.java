@@ -10,7 +10,7 @@ import Product.Product;
 
 public class Writer {
 	
-	public static void jsonProductWriter(List<IProduct> products) throws JSONException, IOException {
+	public static void jsonProductWriter(List<Product> products) throws JSONException, IOException {
 		JSONObject productObject = new JSONObject();
 		for(Product product: products){
 			productObject.put(product.getName(), product);
