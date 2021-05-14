@@ -7,7 +7,7 @@ public interface IProduct {//Component == Product  (Composite Design Pattern)
 	public String getName();	
 	public double getPrice();	
     public void print();	
-	public void add(Product product);	
-    public void remove(Product product);    
-    public List<Product> getChild();
+	public void add(IProduct product);	
+    public void remove(IProduct product);    
+    public List<IProduct> getChild();
 }

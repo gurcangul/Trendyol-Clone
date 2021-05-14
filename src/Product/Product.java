@@ -14,12 +14,12 @@ public class Product implements IProduct{
     }
     
     @Override
-    public void add(Product product) {
+    public void add(IProduct product) {
         //this is leaf node so this method is not applicable to this class.
     }
 
     @Override
-    public List<Product> getChild() {
+    public List<IProduct> getChild() {
         //this is leaf node so this method is not applicable to this class.
         return null;
     }
@@ -50,7 +50,7 @@ public class Product implements IProduct{
     }
 
     @Override
-    public void remove(Product product) {
+    public void remove(IProduct product) {
         //this is leaf node so this method is not applicable to this class.
     }
 
