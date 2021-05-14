@@ -22,7 +22,7 @@ public class LoginView extends JPanel implements Observer{
 	private static final long serialVersionUID = 1L;
 	private JTextField userName;
 	private JPasswordField password;
-	private MenuPanel menuPanel;
+	private MenuView menuView;
 	JButton login;
 	/**
 	 * Create the panel.

@@ -8,7 +8,7 @@ import Observer.Observer;
 import java.awt.*;
 
 public class MainFrameView extends JFrame implements Observer {
-	MenuPanel menuPanel=new MenuPanel(this);
+	MenuView menuView=new MenuView(this);
 	private static final long serialVersionUID = 1L;
 	
 	public void run() {
@@ -36,7 +36,7 @@ public class MainFrameView extends JFrame implements Observer {
     }
     public void addMenu(){
     	getContentPane().removeAll();
-        getContentPane().add(menuPanel, BorderLayout.PAGE_START);
+        getContentPane().add(menuView, BorderLayout.PAGE_START);
         revalidate();
         repaint();
     }

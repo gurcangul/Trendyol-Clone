@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 import GUI.BeforeLoginView;
 import GUI.LoginView;
 import GUI.MainFrameView;
-import GUI.MenuPanel;
+import GUI.MenuView;
 import Models.UserModel;
 import User.Admin;
 import User.Buyer;
@@ -22,7 +22,7 @@ public class LoginController {
     private UserModel userModel;
     private LoginView loginView;
     private BeforeLoginView beforeLoginView;
-    private MenuPanel menuPanel;
+    private MenuView menuView;
     private MainFrameView mainFrameView;
 
 
@@ -36,13 +36,13 @@ public class LoginController {
     public void login(String userName, String password) {
     	User user =  userModel.checkUserIsExist(userName, password);
         if (user != null) {
-            this.menuPanel=new MenuPanel(mainFrameView);
+            this.menuView=new MenuView(mainFrameView);
             System.out.println("selam...."+userName+ password);
             //this.menuPanel.addOkButtonListener(new LoggedInOkButtonListener());
-            menuPanel =  new MenuPanel(mainFrameView);
-    		mainFrameView.addNewPanel(menuPanel);
+            menuView =  new MenuView(mainFrameView);
+    		mainFrameView.addNewPanel(menuView);
             //this.menuPanel.addCancelButtonListener(new LoggedInCancelButtonListener());
-    		menuPanel.setUserName(user.getUserName());
+    		menuView.setUserName(user.getUserName());
     		System.out.println("helloo"+user.getUserName());
             this.userModel.setLoggedInUser(user);//*****
         } else {
@@ -77,8 +77,8 @@ public class LoginController {
     class LoggedInOkButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-        	menuPanel =  new MenuPanel(mainFrameView);
-    		mainFrameView.addNewPanel(menuPanel);
+        	menuView =  new MenuView(mainFrameView);
+    		mainFrameView.addNewPanel(menuView);
         }
     }
     

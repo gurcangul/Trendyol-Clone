@@ -39,8 +39,8 @@ public class HomePageView extends JPanel implements Observer{
         JButton btnNewButton_1_1 = new JButton("My Profile");
         btnNewButton_1_1.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		MyProfile myProfile = new MyProfile(mainFrameView);
-        		mainFrameView.addMenuPanel(myProfile);
+        		MyProfileView myProfileView = new MyProfileView(mainFrameView);
+        		mainFrameView.addMenuPanel(myProfileView);
         	}
         });
         btnNewButton_1_1.setBounds(456, 63, 195, 21);

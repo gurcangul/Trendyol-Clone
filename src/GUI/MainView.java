@@ -2,12 +2,12 @@ package GUI;
 
 import javax.swing.JPanel;
 
-public class MainPanel extends JPanel {
+public class MainView extends JPanel {
 
 	/**
 	 * Create the panel.
 	 */
-	public MainPanel() {
+	public MainView() {
 
 	}
 

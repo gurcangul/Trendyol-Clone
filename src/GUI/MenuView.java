@@ -21,14 +21,14 @@ import java.awt.event.ActionEvent;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
 
-public class MenuPanel extends JPanel implements Observer {
+public class MenuView extends JPanel implements Observer {
 	  private static final long serialVersionUID = 1L;
 
 	  private MainFrameView mainFrameView;
 	  private BeforeLoginView beforeLoginView;
 	  private JPasswordField password;
 	  private String userName;
-	  public MenuPanel(MainFrameView mainFrameView ) {
+	  public MenuView(MainFrameView mainFrameView ) {
 			setMainFrame(mainFrameView);        
 			JPanel jP=  new JPanel(new GridLayout(3, 1));
 	        
