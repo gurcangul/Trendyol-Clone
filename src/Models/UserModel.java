@@ -5,7 +5,7 @@ import java.util.List;
 
 import Contollers.UserFinderHelper;
 import FileIO.IParser;
-import FileIO.Parser;
+import FileIO.DataHandler;
 import Observer.Observer;
 import Observer.Subject;
 import User.User;
@@ -22,7 +22,7 @@ public class UserModel implements Subject {
 	 */
     
 	public UserModel() {
-        setUserIO(new Parser());
+        setUserIO(new DataHandler());
         setUsers(getUserIO().parseUsers());
         for(User user : users)
 			System.out.println(user + "   " + users.get(0).getUserName());

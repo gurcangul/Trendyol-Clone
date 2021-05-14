@@ -5,16 +5,13 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Map.Entry;
 
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.*;
 
-import App.OnlineShoppingManager;
+
 import Contollers.UserFinderHelper;
 import Product.Category;
 import Product.IProduct;
@@ -25,9 +22,9 @@ import User.UserFactory;
 
 
 
-public class Parser {//for create user object from the csv file 
-
-	   public static List<User> parseUsers() {
+public class DataHandler {//for create user object from the csv file 
+	static  ArrayList<User> userList = parseUsers();
+	   public static ArrayList<User> parseUsers() {
 		   ArrayList<String> List = Reader.readFile("user.csv");
 		   ArrayList<User> userList = new ArrayList<User>();
 		   for(int i=1; i<List.size();i++) {
@@ -49,6 +46,7 @@ public class Parser {//for create user object from the csv file
         //Get employee first name
         
         if(productObject != null) {
+        	//for (Object o : )
             String ID = (String) productObject.get("ID");
             System.out.println(ID);
             String name = (String) productObject.get("name");
@@ -57,9 +55,10 @@ public class Parser {//for create user object from the csv file
             System.out.println(price);
             String seller = (String) productObject.get("seller");
             System.out.println(seller);
-            User user = UserFinderHelper.findUserByUsername(parseUsers(), seller);
+           /* User user = UserFinderHelper.findUserByUsername(userList, seller);
             IProduct product1 = new Product(Integer.parseInt(ID), name, Double.parseDouble(price), (Seller)user);
-	        productAndCategories.add(product1);
+	        productAndCategories.add(product1);*/
+            productObject = (JSONObject) category.get("product"); 
             
         }
         if(categoryObject != null) {
@@ -70,9 +69,10 @@ public class Parser {//for create user object from the csv file
 	        String name = (String) categoryObject.get("name");  
 	        System.out.println(name);
 	        JSONArray productList = (JSONArray) categoryObject.get("productList");
-	        IProduct category1 = new Category(Integer.parseInt(ID), name, null);
-	        productAndCategories.add(category1);
+	       /* IProduct category1 = new Category(Integer.parseInt(ID), name, null);
+	        productAndCategories.add(category1);*/
 	        for (Object c : productList) {
+	        	
 	        	parseProductObject((JSONObject) c);
 	        }
         }
@@ -88,10 +88,10 @@ public class Parser {//for create user object from the csv file
 	 
 	            JSONArray productAndCategoryList = (JSONArray) obj;
 	            System.out.println(productAndCategoryList);
-	             
+	            
 	            //Iterate over employee array
 	            productAndCategoryList.forEach( prd -> parseProductObject( (JSONObject) prd ) );
-	 
+	            System.out.println(productAndCategories);
 	        } catch (FileNotFoundException e) {
 	            e.printStackTrace();
 	        } catch (IOException e) {

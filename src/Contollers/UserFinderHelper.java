@@ -2,7 +2,7 @@ package Contollers;
 
 import java.util.List;
 
-import FileIO.Parser;
+import FileIO.DataHandler;
 import User.User;
 
 public class UserFinderHelper {
