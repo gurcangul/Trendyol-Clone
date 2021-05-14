@@ -10,7 +10,7 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class WelcomePanel extends JPanel implements Observer {
+public class WelcomeView extends JPanel implements Observer {
 
     /**
 	 * 
@@ -22,7 +22,7 @@ public class WelcomePanel extends JPanel implements Observer {
     private BeforeLoginView beforeLoginView;
     private JButton btnNewButton_1;
 
-    public WelcomePanel(MainFrameView mainFrameView) {
+    public WelcomeView(MainFrameView mainFrameView) {
         this.setMainFrame(mainFrameView);
 
         new JPanel(new GridLayout(3, 1));       

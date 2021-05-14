@@ -20,7 +20,7 @@ public class BeforeLoginView extends JPanel implements Observer  {
     private MainFrameView mainFrameView;
     private JButton btnNewButton;
     private JLabel lblNewLabel;
-    private WelcomePanel welcomePanel;
+    private WelcomeView welcomeView;
     private LoginView loginView;
     BeforeLoginView beforeLoginView;
 
@@ -71,8 +71,8 @@ public class BeforeLoginView extends JPanel implements Observer  {
         btnNewButton_2_1.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		
-        		welcomePanel =  new WelcomePanel(mainFrameView);
-        		mainFrameView.addNewPanel(welcomePanel);
+        		welcomeView =  new WelcomeView(mainFrameView);
+        		mainFrameView.addNewPanel(welcomeView);
         		
         	}
         });

@@ -7,7 +7,7 @@ import java.util.List;
 import Contollers.LoginController;
 import FileIO.Reader;
 import GUI.MainFrameView;
-import GUI.WelcomePanel;
+import GUI.WelcomeView;
 import User.User;
 import User.UserFactory;
 
@@ -26,7 +26,7 @@ public class OnlineShoppingManager {
 	    //call createObject method of Admin
 	    //user1.createObject();
         @SuppressWarnings("unused")
-		WelcomePanel welcomePanel = new WelcomePanel(mainFrameView);//First Panel to welcome our users
+		WelcomeView welcomeView = new WelcomeView(mainFrameView);//First Panel to welcome our users
     }
 	
 	public MainFrameView getMainFrame() {
