@@ -15,7 +15,7 @@ import java.awt.GridLayout;
 import java.awt.BorderLayout;
 import java.awt.Label;
 
-public class AboutAppPanel extends JPanel implements Observer  {
+public class AboutAppPanel extends JPanel implements Observer {
 	
 	/**
 	 * 

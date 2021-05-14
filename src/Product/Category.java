@@ -8,7 +8,7 @@ public class Category implements IProduct {//Composite==Category  (Composite Des
 	 private int ID;
 	 private String name;
 	 private double price;
-	 List<Product> productList = new ArrayList<Product>();
+	 List<IProduct> productList = new ArrayList<IProduct>();
 
 	 public Category(int ID,String name,double price)
 	 {
@@ -19,19 +19,19 @@ public class Category implements IProduct {//Composite==Category  (Composite Des
 	 
 	 
 	 @Override
-	 public void add(Product product) 
+	 public void add(IProduct product) 
 	 {
 		 productList.add(product);
 	 }
 
 	 @Override
-	 public List<Product> getChild() 
+	 public List<IProduct> getChild() 
 	 {
 	  return productList;
 	 }
 
 	 @Override
-	 public void remove(Product employee) {
+	 public void remove(IProduct employee) {
 		 productList.remove(employee);
 	 }	
 	 
@@ -63,12 +63,12 @@ public class Category implements IProduct {//Composite==Category  (Composite Des
 	  System.out.println("Price ="+getPrice());
 	  System.out.println("==========================");
 	  
-	  Iterator<Product> it = productList.iterator();
+	  Iterator<IProduct> it = productList.iterator();
 	  
 	      while(it.hasNext())
 	     {
-	    	  Product employee = it.next();
-	        employee.print();
+	    	  IProduct product = it.next();
+	    	  product.print();
 	     }
 	 }
 

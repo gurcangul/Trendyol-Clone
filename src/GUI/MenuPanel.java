@@ -1,14 +1,11 @@
 package GUI;
 
 import java.awt.GridLayout;
-
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-
 import Observer.Observer;
 import User.User;
-
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;

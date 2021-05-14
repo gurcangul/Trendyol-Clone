@@ -44,6 +44,7 @@ public class UserModel implements Subject {
         }		
 	}
     public User checkUserIsExist(String username, String password){
+    	
 		for(User user : users)
 			System.out.println(user);
         return UserFinderHelper.checkUserIsExist(username,password,getUsers());
