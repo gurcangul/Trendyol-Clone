@@ -54,7 +54,7 @@ public class LoginPanel extends JPanel implements Observer{
         password = new JPasswordField();
         password.setBounds(424, 182, 108, 19);
         add(password);
-        
+
         
         JButton back = new JButton("BACK");//this is go back button
         back.setIcon(new ImageIcon("\src\\back.png"));
@@ -100,9 +100,9 @@ public class LoginPanel extends JPanel implements Observer{
 	}
 	
 	
-	public void passwordCheck(){
+	/*public void passwordCheck(){
 		JLabel lblNewLabel2 = new JLabel("Wrong! Please try again!");
-    }
+    }*/
 	
 	public void allActionPerformed(ActionListener actionListener, JButton button ){
         if(button.getText().equals("login"))

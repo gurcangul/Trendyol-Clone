@@ -7,6 +7,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import Observer.Observer;
+import User.User;
 
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -28,25 +29,23 @@ public class MenuPanel extends JPanel implements Observer {
 
 	  private MainFrame mainFrame;
 	  private BeforeLoginPanel beforeLoginPanel;
-	  private JTextField userName;
 	  private JPasswordField password;
-
-	public MenuPanel(MainFrame mainFrame) {
-
-		this.setMainFrame(mainFrame);        
-		JPanel jP=  new JPanel(new GridLayout(3, 1));
-        
-        JMenuBar menuBar = new JMenuBar();
-        menuBar.setBackground(Color.WHITE);
-        menuBar.setBounds(10, 10, 424, 22);
-        add(menuBar);
-
-        JMenu home = new JMenu("Home");
-        menuBar.add(home);
-        JMenuItem homePage = new JMenuItem("Home Page");
-        home.add(homePage);
-        
-        homePage.addActionListener(new ActionListener() {
+	  private String userName;
+	  public MenuPanel(MainFrame mainFrame ) {
+			setMainFrame(mainFrame);        
+			JPanel jP=  new JPanel(new GridLayout(3, 1));
+	        
+	        JMenuBar menuBar = new JMenuBar();
+	        menuBar.setBackground(Color.WHITE);
+	        menuBar.setBounds(10, 10, 424, 22);
+	        add(menuBar);
+	
+	        JMenu home = new JMenu("Home");
+	        menuBar.add(home);
+	        JMenuItem homePage = new JMenuItem("Home Page");
+	        home.add(homePage);
+	        
+	        homePage.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		HomePage homePage = new HomePage(mainFrame);
         		mainFrame.addMenuPanel(homePage);
@@ -72,10 +71,11 @@ public class MenuPanel extends JPanel implements Observer {
         store.add(allCategories);
         //User user = new User();
         //user.getserName
-        
-        JMenu userName = new JMenu("userName");
+        String name=getUserName();
+        System.out.println(" asadasfdafsaf"+getUserName());
+        JMenu userName = new JMenu("sadfsdf");
         menuBar.add(userName);
-        JMenuItem myShoppingCart = new JMenuItem("My Shopping Cart");
+        JMenuItem myShoppingCart = new JMenuItem(name);
         userName.add(myShoppingCart);
         JMenuItem logOut = new JMenuItem("Log Out");
         logOut.setIcon(new ImageIcon("C:\\Users\\Gurcan\\eclipse-workspace\\G12_CENG431_HW3-v1\\src\\logout.png"));
@@ -151,15 +151,7 @@ public class MenuPanel extends JPanel implements Observer {
 	}
 
 
-	public JTextField getUserName() {
-		return userName;
-	}
-
-
-	public void setUserName(JTextField userName) {
-		this.userName = userName;
-	}
-    
+ 
 
 	public MainFrame getMainFrame() {
 		return mainFrame;
@@ -186,6 +178,14 @@ public class MenuPanel extends JPanel implements Observer {
 		// TODO Auto-generated method stub
 		
 	}
-	  public void addOkButtonListener(ActionListener actionListener){
-	    }
+	public void addOkButtonListener(ActionListener actionListener){
+	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+
 }

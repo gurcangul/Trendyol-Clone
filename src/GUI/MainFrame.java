@@ -9,11 +9,8 @@ import java.awt.*;
 
 public class MainFrame extends JFrame implements Observer {
 	MenuPanel menuPanel=new MenuPanel(this);
-	
-    /**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
+	
 	public void run() {
 		try {
 			Frame frame = new Frame();

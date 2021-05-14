@@ -1,8 +1,12 @@
 package Contollers;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
+
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 import GUI.BeforeLoginPanel;
 import GUI.LoginPanel;
@@ -34,18 +38,29 @@ public class LoginController {
         if (user != null) {
             this.menuPanel=new MenuPanel(mainFrame);
             System.out.println("selam...."+userName+ password);
-            this.menuPanel.addOkButtonListener(new LoggedInOkButtonListener());
+            //this.menuPanel.addOkButtonListener(new LoggedInOkButtonListener());
             menuPanel =  new MenuPanel(mainFrame);
     		mainFrame.addNewPanel(menuPanel);
             //this.menuPanel.addCancelButtonListener(new LoggedInCancelButtonListener());
-            this.userModel.setLoggedInUser(user);
+    		menuPanel.setUserName(user.getUserName());
+    		System.out.println("helloo"+user.getUserName());
+            this.userModel.setLoggedInUser(user);//*****
         } else {
+            //loginPanel.passwordCheck();
+    		//JLabel lblNewLabel2 = new JLabel("Wrong! Please try again!");
+    		loginPanel.getPassword().setBackground(Color.RED);
+    		loginPanel.getUserName().setBackground(Color.RED);
+    		JOptionPane.showMessageDialog(null, "Wrong! Please try again! ");        		
             this.showLoginPanel();
+
+            
         }
     }
 
  
     public void showLoginPanel() {
+		loginPanel.getPassword().setBackground(Color.white);
+		loginPanel.getUserName().setBackground(Color.white);
         loginPanel.setVisible();
         loginPanel.addLoginActionListener(new LoginButtonListener());
     }
@@ -57,8 +72,6 @@ public class LoginController {
             String username = loginPanel.getUserName().getText();
             String password = loginPanel.getPassword().getText();
             login(username, password);
-            /*menuPanel =  new MenuPanel(mainFrame);
-    		mainFrame.addNewPanel(menuPanel);*/
         }
     }
     class LoggedInOkButtonListener implements ActionListener {
@@ -67,12 +80,6 @@ public class LoginController {
         	menuPanel =  new MenuPanel(mainFrame);
     		mainFrame.addNewPanel(menuPanel);
         }
-        /*
-        /*Login.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		
-        	}
-        });*/
     }
     
 }
