@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Contollers.UserFinderHelper;
-import FileIO.IUserIO;
-import FileIO.UserIO;
+import FileIO.IParser;
+import FileIO.Parser;
 import Observer.Observer;
 import Observer.Subject;
 import User.User;
@@ -14,7 +14,7 @@ import User.User;
 public class UserModel implements Subject {
 	private List<User> users;
     private List<Observer> observerList = new ArrayList<>();
-    private IUserIO userIO;
+    private IParser userIO;
     private User loggedInUser;
     /**
 	 * @param users
@@ -22,7 +22,7 @@ public class UserModel implements Subject {
 	 */
     
 	public UserModel() {
-        setUserIO(new UserIO());
+        setUserIO(new Parser());
         setUsers(getUserIO().parseUsers());
         for(User user : users)
 			System.out.println(user + "   " + users.get(0).getUserName());
@@ -70,10 +70,10 @@ public class UserModel implements Subject {
 	public void setUsers(List<User> users) {
 		this.users = users;
 	}
-	public IUserIO getUserIO() {
+	public IParser getUserIO() {
 		return userIO;
 	}
-	public void setUserIO(IUserIO userIO) {
+	public void setUserIO(IParser userIO) {
 		this.userIO = userIO;
 	}
 

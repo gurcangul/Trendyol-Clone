@@ -2,15 +2,19 @@ package Product;
 
 import java.util.List;
 
+import User.Seller;
+
 public class Product implements IProduct{
 	private int ID;
 	private String name;
 	private double price;
+	private Seller seller;
 
-    public Product(int ID,String name,double price){
+    public Product(int ID,String name,double price, Seller seller){
     	setID(ID);
         setName(name);
         setPrice(price);
+        setSeller(seller);
     }
     
     @Override
@@ -39,8 +43,17 @@ public class Product implements IProduct{
     public double getPrice() {
         return price;
     }
+    
+    
+    public Seller getSeller() {
+		return seller;
+	}
 
-    @Override
+	public void setSeller(Seller seller) {
+		this.seller = seller;
+	}
+
+	@Override
     public void print() {
         System.out.println("==========================");
         System.out.println("Id ="+getID());
