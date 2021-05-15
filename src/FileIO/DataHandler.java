@@ -79,6 +79,7 @@ public class DataHandler {//for create user object from the csv file
 	        	
 	        	parseProduct((JSONObject) c, category1);
 	        }
+		// objects
         }
    }
 	
