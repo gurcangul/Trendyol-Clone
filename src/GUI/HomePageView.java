@@ -15,16 +15,16 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 
-public class HomePage extends JPanel implements Observer{
+public class HomePageView extends JPanel implements Observer{
 
 	  /**
 	 * 
 	 */
 	private static final long serialVersionUID = -5277901207402632648L;
-	private MainFrame mainFrame;
+	private MainFrameView mainFrameView;
 
 	  
-	public HomePage(MainFrame mainFrame) {
+	public HomePageView(MainFrameView mainFrameView) {
 		JPanel jP=  new JPanel(new GridLayout(3, 1));
         setLayout(null);
         
@@ -39,8 +39,8 @@ public class HomePage extends JPanel implements Observer{
         JButton btnNewButton_1_1 = new JButton("My Profile");
         btnNewButton_1_1.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		MyProfile myProfile = new MyProfile(mainFrame);
-        		mainFrame.addMenuPanel(myProfile);
+        		MyProfileView myProfileView = new MyProfileView(mainFrameView);
+        		mainFrameView.addMenuPanel(myProfileView);
         	}
         });
         btnNewButton_1_1.setBounds(456, 63, 195, 21);
@@ -58,20 +58,20 @@ public class HomePage extends JPanel implements Observer{
         });
         btnNewButton_1_3.setBounds(239, 111, 207, 21);
         add(btnNewButton_1_3);
-		this.setMainFrame(mainFrame);        
+		this.setMainFrame(mainFrameView);        
 
 		
 		
 	}
 
 
-	public MainFrame getMainFrame() {
-		return mainFrame;
+	public MainFrameView getMainFrame() {
+		return mainFrameView;
 	}
 
 
-	public void setMainFrame(MainFrame mainFrame) {
-		this.mainFrame = mainFrame;
+	public void setMainFrame(MainFrameView mainFrameView) {
+		this.mainFrameView = mainFrameView;
 	}
 	private static void addPopup(Component component, final JPopupMenu popup) {
 		component.addMouseListener(new MouseAdapter() {

@@ -15,20 +15,20 @@ import java.awt.GridLayout;
 import java.awt.BorderLayout;
 import java.awt.Label;
 
-public class AboutAppPanel extends JPanel implements Observer {
+public class AboutAppView extends JPanel implements Observer {
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 3847238445785672779L;
-	private MainFrame mainFrame ;
+	private MainFrameView mainFrameView ;
 	//MenuPanel menuPanel;
 	/**
 	 * Create the panel.
 	 * @param jP 
 	 */
-	public AboutAppPanel(MainFrame mainFrame ) {
-		this.setMainFrame(mainFrame);        
+	public AboutAppView(MainFrameView mainFrameView ) {
+		this.setMainFrame(mainFrameView);        
 		JPanel jP=  new JPanel(new GridLayout(3, 1));
 		String info="This Application created by \nAynur Atış  and \nGürcan Gül";
 		setLayout(new BorderLayout(0, 0));Label label = new Label(info);
@@ -40,11 +40,11 @@ public class AboutAppPanel extends JPanel implements Observer {
 		add(lblNewLabel2);
 
 	}
-	public MainFrame getMainFrame() {
-		return mainFrame;
+	public MainFrameView getMainFrame() {
+		return mainFrameView;
 	}
-	public void setMainFrame(MainFrame mainFrame) {
-		this.mainFrame = mainFrame;
+	public void setMainFrame(MainFrameView mainFrameView) {
+		this.mainFrameView = mainFrameView;
 	}
 	@Override
 	public void update(Object arg) {

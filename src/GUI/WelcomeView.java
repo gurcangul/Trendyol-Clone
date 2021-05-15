@@ -3,46 +3,38 @@ package GUI;
 import javax.swing.*;
 
 import Contollers.LoginController;
-import Models.UserModel;
 import Observer.Observer;
 
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class WelcomePanel extends JPanel implements Observer {
+public class WelcomeView extends JPanel implements Observer {
 
     /**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-    private MainFrame mainFrame;
-    private JButton btnNewButton;
+    private MainFrameView mainFrameView;
+    private JButton enterButton;
     private JLabel lblNewLabel;
-    private BeforeLoginPanel beforeLoginPanel;
+    private BeforeLoginView beforeLoginView;
     private JButton btnNewButton_1;
 
-    public WelcomePanel(MainFrame mainFrame) {
-        this.setMainFrame(mainFrame);
+    public WelcomeView(MainFrameView mainFrameView) {
+        this.setMainFrame(mainFrameView);
 
         new JPanel(new GridLayout(3, 1));       
         setSize(760, 460);
         setLayout(null);
 
-        mainFrame.addNewPanel(this);
+        mainFrameView.addNewPanel(this);
         
-        btnNewButton = new JButton("ENTER");
-        btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
-        btnNewButton.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		beforeLoginPanel =  new BeforeLoginPanel(mainFrame);
-        		mainFrame.addNewPanel(beforeLoginPanel);
-        		
+        enterButton = new JButton("ENTER");
+        enterButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
 
-        	}
-        });
-        btnNewButton.setBounds(293, 263, 110, 21);
-        add(btnNewButton);
+        enterButton.setBounds(293, 263, 110, 21);
+        add(enterButton);
         
         lblNewLabel = new JLabel("");
         lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -58,33 +50,39 @@ public class WelcomePanel extends JPanel implements Observer {
         
         btnNewButton_1 = new JButton("About");
         btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 8));
-        btnNewButton_1.addActionListener(new ActionListener() {
+        /*btnNewButton_1.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		JOptionPane.showMessageDialog(null, "Copyright© 2021 All rights reserved. ");        		
         	}
-        });
+        });*/
         btnNewButton_1.setForeground(Color.BLACK);
         btnNewButton_1.setBackground(Color.LIGHT_GRAY);
         btnNewButton_1.setBounds(317, 392, 59, 21);
         add(btnNewButton_1);
+        mainFrameView.addNewPanel(this);
     }
 
-    public MainFrame getFrame() {
-        return mainFrame;
+    public MainFrameView getFrame() {
+        return mainFrameView;
     }
 
 
-	public MainFrame getMainFrame() {
-		return mainFrame;
+	public MainFrameView getMainFrame() {
+		return mainFrameView;
 	}
 
-	public void setMainFrame(MainFrame mainFrame) {
-		this.mainFrame = mainFrame;
+	public void setMainFrame(MainFrameView mainFrameView) {
+		this.mainFrameView = mainFrameView;
 	}
 
 	@Override
 	public void update(Object arg) {
 		// TODO Auto-generated method stub
+		
+	}
+
+	public void addEnterButton(ActionListener actionListener) {
+        enterButton.addActionListener(actionListener);
 		
 	}
 }

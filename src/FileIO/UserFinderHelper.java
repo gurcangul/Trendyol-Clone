@@ -1,14 +1,11 @@
-package Contollers;
+package FileIO;
 
 import java.util.List;
 
-import FileIO.UserIO;
 import User.User;
-
 
 public class UserFinderHelper {
 
-	
     public static User findUserByUsername(String username,List<User> users){
         for (User user: users) {
             if (user.getUserName().equals(username))

@@ -12,26 +12,26 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.awt.event.ActionEvent;
 
-public class FeedbackPanel extends JPanel implements Observer{
+public class FeedbackView extends JPanel implements Observer{
 
     /**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-    private MainFrame mainFrame;
+    private MainFrameView mainFrameView;
     private JButton btnNewButton;
-    private BeforeLoginPanel beforeLoginPanel;
+    private BeforeLoginView beforeLoginView;
     private JButton btnNewButton_1;
     private JTextField textField;
     private JTextField textField_1;
 
-    public FeedbackPanel(MainFrame mainFrame) {
-        this.setMainFrame(mainFrame);
+    public FeedbackView(MainFrameView mainFrameView) {
+        this.setMainFrame(mainFrameView);
 
         new JPanel(new GridLayout(3, 1));       
         setSize(760, 460);
 
-        mainFrame.addNewPanel(this);
+        mainFrameView.addNewPanel(this);
 		setLayout(null);
         
 		Label label = new Label("User Name");
@@ -87,12 +87,12 @@ public class FeedbackPanel extends JPanel implements Observer{
 		
 	}
 
-	public MainFrame getMainFrame() {
-		return mainFrame;
+	public MainFrameView getMainFrame() {
+		return mainFrameView;
 	}
 
-	public void setMainFrame(MainFrame mainFrame) {
-		this.mainFrame = mainFrame;
+	public void setMainFrame(MainFrameView mainFrameView) {
+		this.mainFrameView = mainFrameView;
 	}  
 	 private boolean check(TextArea textArea) {
 	        if (textArea.getText().length() <4 ) {

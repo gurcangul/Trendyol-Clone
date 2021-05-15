@@ -8,48 +8,49 @@ import java.util.List;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
-import GUI.BeforeLoginPanel;
-import GUI.LoginPanel;
-import GUI.MainFrame;
-import GUI.MenuPanel;
-import Models.UserModel;
+import FileIO.DataHandler;
+import GUI.BeforeLoginView;
+import GUI.LoginView;
+import GUI.MainFrameView;
+import GUI.MenuView;
 import User.Admin;
 import User.Buyer;
 import User.User;
 
 
 public class LoginController {
-    private UserModel userModel;
-    private LoginPanel loginPanel;
-    private BeforeLoginPanel beforeLoginPanel;
-    private MenuPanel menuPanel;
-    private MainFrame mainFrame;
+    private LoginView loginView;
+    private BeforeLoginView beforeLoginView;
+    private MenuView menuView;
+    private MainFrameView mainFrameView;
 
 
-    public LoginController(LoginPanel loginPanel, BeforeLoginPanel beforeLoginPanel, UserModel userModel,MainFrame mainFrame) {
-        this.loginPanel = loginPanel;
-        this.mainFrame=mainFrame;
-        this.userModel=userModel;
-        //mainView.addProfileButtonListener(new MainProfileButtonListener());
+    public LoginController(MainFrameView mainFrameView,LoginView loginView) {
+        this.loginView = loginView;
+        this.mainFrameView=mainFrameView;
+        loginView.addLoginActionListener(new LoginButtonListener());
     }
 
     public void login(String userName, String password) {
-    	User user =  userModel.checkUserIsExist(userName, password);
+        DataHandler dataHandler = new DataHandler();
+    	User user =  dataHandler.checkUserIsExist(userName, password);
         if (user != null) {
-            this.menuPanel=new MenuPanel(mainFrame);
-            System.out.println("selam...."+userName+ password);
+            this.menuView=new MenuView(mainFrameView);
+            System.out.println("giriş yapıldı...."+userName+ password);
             //this.menuPanel.addOkButtonListener(new LoggedInOkButtonListener());
-            menuPanel =  new MenuPanel(mainFrame);
-    		mainFrame.addNewPanel(menuPanel);
+           // MenuController menuController = new MenuController(menuView, user);
+          
+            menuView =  new MenuView(mainFrameView);
+    		mainFrameView.addNewPanel(menuView);
             //this.menuPanel.addCancelButtonListener(new LoggedInCancelButtonListener());
-    		menuPanel.setUserName(user.getUserName());
+    		menuView.setUserName(user.getUserName());
     		System.out.println("helloo"+user.getUserName());
-            this.userModel.setLoggedInUser(user);//*****
+           // this.userModel.setLoggedInUser(user);//*****
         } else {
             //loginPanel.passwordCheck();
     		//JLabel lblNewLabel2 = new JLabel("Wrong! Please try again!");
-    		loginPanel.getPassword().setBackground(Color.RED);
-    		loginPanel.getUserName().setBackground(Color.RED);
+    		loginView.getPassword().setBackground(Color.RED);
+    		loginView.getUserName().setBackground(Color.RED);
     		JOptionPane.showMessageDialog(null, "Wrong! Please try again! ");        		
             this.showLoginPanel();
 
@@ -59,26 +60,26 @@ public class LoginController {
 
  
     public void showLoginPanel() {
-		loginPanel.getPassword().setBackground(Color.white);
-		loginPanel.getUserName().setBackground(Color.white);
-        loginPanel.setVisible();
-        loginPanel.addLoginActionListener(new LoginButtonListener());
+		loginView.getPassword().setBackground(Color.white);
+		loginView.getUserName().setBackground(Color.white);
+        loginView.setVisible();
+        loginView.addLoginActionListener(new LoginButtonListener());
     }
     
     class LoginButtonListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            String username = loginPanel.getUserName().getText();
-            String password = loginPanel.getPassword().getText();
+            String username = loginView.getUserName().getText();
+            String password = loginView.getPassword().getText();
             login(username, password);
         }
     }
     class LoggedInOkButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-        	menuPanel =  new MenuPanel(mainFrame);
-    		mainFrame.addNewPanel(menuPanel);
+        	menuView =  new MenuView(mainFrameView);
+    		mainFrameView.addNewPanel(menuView);
         }
     }
     
