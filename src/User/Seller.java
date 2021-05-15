@@ -16,14 +16,6 @@ public class Seller implements User{
 		setPassword(password);
 		
 	}
-	public Seller(){
-		setUserID(0);
-		setUserType("");
-		setUserName("");
-		setEmail("");
-		setPassword("");
-		
-	}
 	
 	@Override
 	public void setUserID(int userID) {

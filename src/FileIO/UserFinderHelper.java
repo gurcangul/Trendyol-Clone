@@ -1,8 +1,7 @@
-package Contollers;
+package FileIO;
 
 import java.util.List;
 
-import FileIO.DataHandler;
 import User.User;
 
 public class UserFinderHelper {

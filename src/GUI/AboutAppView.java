@@ -21,7 +21,7 @@ public class AboutAppView extends JPanel implements Observer {
 	 * 
 	 */
 	private static final long serialVersionUID = 3847238445785672779L;
-	private MainFrameView mainFrameView ;
+	MainFrameView mainFrameView ;
 	//MenuPanel menuPanel;
 	/**
 	 * Create the panel.

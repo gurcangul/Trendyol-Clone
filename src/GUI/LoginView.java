@@ -33,8 +33,13 @@ public class LoginView extends JPanel implements Observer{
 		this.setMainFrame(mainFrameView);        
         new JPanel(new GridLayout(3, 1));
         setLayout(null);
-        
-        userName = new JTextField();
+
+        showPanel();
+	}
+	
+    public void showPanel(){
+    
+    	userName = new JTextField();
         userName.setBounds(222, 182, 96, 19);
         add(userName);
         userName.setColumns(10);
@@ -77,8 +82,10 @@ public class LoginView extends JPanel implements Observer{
         	}
         });*/
         login.setBounds(295, 233, 85, 21);
-        add(login);               
-	}
+        add(login);           
+        mainFrameView.addNewPanel(this);
+    
+    }
 	public void setVisible() {
 		mainFrameView.setVisible(true);
 	}

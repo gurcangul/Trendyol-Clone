@@ -11,8 +11,6 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.*;
 
-
-import Contollers.UserFinderHelper;
 import Product.Category;
 import Product.IProduct;
 import Product.Product;
@@ -23,7 +21,11 @@ import User.UserFactory;
 
 
 public class DataHandler {//for create user object from the csv file 
+	
 	static  ArrayList<User> userList = parseUsers();
+	static  ArrayList<IProduct> productAndCategories = new ArrayList<IProduct>();
+
+	
 	   public static ArrayList<User> parseUsers() {
 		   ArrayList<String> List = Reader.readFile("user.csv");
 		   ArrayList<User> userList = new ArrayList<User>();
@@ -37,7 +39,6 @@ public class DataHandler {//for create user object from the csv file
 			return userList;
 	   }
 	
-	static  ArrayList<IProduct> productAndCategories = new ArrayList<IProduct>();
 	
 	private static void parseProduct(JSONObject category) {
 		JSONObject productObject = (JSONObject) category.get("product");
@@ -124,7 +125,15 @@ public class DataHandler {//for create user object from the csv file
 		DataHandler.productAndCategories = readFile();
 	}
 	
-	
+	public User checkUserIsExist(String username, String password){
+		for(User user : userList)
+			System.out.println(user);
+	    return UserFinderHelper.checkUserIsExist(username,password,userList);
+	}
 	
 
 }
+
+/*
+
+*/

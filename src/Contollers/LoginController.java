@@ -8,43 +8,44 @@ import java.util.List;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
+import FileIO.DataHandler;
 import GUI.BeforeLoginView;
 import GUI.LoginView;
 import GUI.MainFrameView;
 import GUI.MenuView;
-import Models.UserModel;
 import User.Admin;
 import User.Buyer;
 import User.User;
 
 
 public class LoginController {
-    private UserModel userModel;
     private LoginView loginView;
     private BeforeLoginView beforeLoginView;
     private MenuView menuView;
     private MainFrameView mainFrameView;
 
 
-    public LoginController(LoginView loginView, BeforeLoginView beforeLoginView, UserModel userModel,MainFrameView mainFrameView) {
+    public LoginController(MainFrameView mainFrameView,LoginView loginView) {
         this.loginView = loginView;
         this.mainFrameView=mainFrameView;
-        this.userModel=userModel;
-        //mainView.addProfileButtonListener(new MainProfileButtonListener());
+        loginView.addLoginActionListener(new LoginButtonListener());
     }
 
     public void login(String userName, String password) {
-    	User user =  userModel.checkUserIsExist(userName, password);
+        DataHandler dataHandler = new DataHandler();
+    	User user =  dataHandler.checkUserIsExist(userName, password);
         if (user != null) {
             this.menuView=new MenuView(mainFrameView);
-            System.out.println("selam...."+userName+ password);
+            System.out.println("giriş yapıldı...."+userName+ password);
             //this.menuPanel.addOkButtonListener(new LoggedInOkButtonListener());
+           // MenuController menuController = new MenuController(menuView, user);
+          
             menuView =  new MenuView(mainFrameView);
     		mainFrameView.addNewPanel(menuView);
             //this.menuPanel.addCancelButtonListener(new LoggedInCancelButtonListener());
     		menuView.setUserName(user.getUserName());
     		System.out.println("helloo"+user.getUserName());
-            this.userModel.setLoggedInUser(user);//*****
+           // this.userModel.setLoggedInUser(user);//*****
         } else {
             //loginPanel.passwordCheck();
     		//JLabel lblNewLabel2 = new JLabel("Wrong! Please try again!");
