@@ -21,7 +21,7 @@ import User.UserFactory;
 
 
 public class DataHandler {//for create user object from the csv file 
-	
+	//for create user object from the csv file 	
 	static  ArrayList<User> userList = parseUsers();
 	static  ArrayList<IProduct> productAndCategories = new ArrayList<IProduct>();
 
