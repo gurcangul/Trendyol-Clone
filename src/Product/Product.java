@@ -45,9 +45,6 @@ public class Product implements IProduct{
     }
     
     
-    public Seller getSeller() {
-		return seller;
-	}
 
 	public void setSeller(Seller seller) {
 		this.seller = seller;
@@ -67,12 +64,14 @@ public class Product implements IProduct{
         //this is leaf node so this method is not applicable to this class.
     }
 
-	@Override
-	public String toString() {
-		return "Part [id=" + ID + ", name=" + name + ", salary=" + price + "]";
-	}
+    
 
 	
+
+	@Override
+	public String toString() {
+		return "Product [" + ID + ", " + name + ", " + price + ", " + seller.getUserName() + "]";
+	}
 
 	public void setID(int ID) {
 		this.ID = ID;
@@ -84,6 +83,12 @@ public class Product implements IProduct{
 
 	public void setPrice(double price) {
 		this.price = price;
+	}
+
+	@Override
+	public Seller getSeller() {
+		// TODO Auto-generated method stub
+		return seller;
 	}
 	
 }

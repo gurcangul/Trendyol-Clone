@@ -18,7 +18,9 @@ public class OnlineShoppingApp {
 		//DataHandler.getProductAndCategories();
 		ArrayList<IProduct> products = DataHandler.getProductAndCategories();
 		System.out.println(products);
-		
+		System.out.println(products.get(0).getChild().get(0).getChild().get(0).getChild().get(0).getSeller().getEmail());
+		System.out.println(products.get(0).getChild().get(1));
+
     	OnlineShoppingManager onlineShoppingManager = new OnlineShoppingManager();
     	onlineShoppingManager.start();
     	/*Parser p = new Parser();

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import User.Seller;
+
 public class Category implements IProduct {//Composite==Category  (Composite Design Pattern)
 	 private int ID;
 	 private String name;
@@ -15,7 +17,11 @@ public class Category implements IProduct {//Composite==Category  (Composite Des
 	  this.name = name;
 	  this.productList = productList;
 	 }
-	 
+	 public Category(int ID,String name )
+	 {
+	  this.ID=ID;	 
+	  this.name = name;
+	 }
 	 
 	 @Override
 	 public void add(IProduct product) 
@@ -65,9 +71,11 @@ public class Category implements IProduct {//Composite==Category  (Composite Des
 	     }
 	 }
 
+
+
 	@Override
 	public String toString() {
-		return "Assembly [ID=" + ID + ", name=" + name +  ", productList=" + productList + "]";
+		return "Category [" + ID + ", " + name + ", " + productList + "]";
 	}
 
 
@@ -75,5 +83,10 @@ public class Category implements IProduct {//Composite==Category  (Composite Des
 	public double getPrice() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+	@Override
+	public Seller getSeller() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
