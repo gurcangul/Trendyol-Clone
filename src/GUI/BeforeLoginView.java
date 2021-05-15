@@ -16,7 +16,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 
 public class BeforeLoginView extends JPanel    {
-    private MainFrameView mainFrameView;
+    MainFrameView mainFrameView;
     private JButton btnNewButton;
     private JLabel lblNewLabel;
     private WelcomeView welcomeView;
