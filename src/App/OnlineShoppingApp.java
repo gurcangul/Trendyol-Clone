@@ -11,6 +11,7 @@ import Product.IProduct;
 
 public class OnlineShoppingApp {
 	/*
+	 * Arayüzdeki Buttonlar sadece birer kere çalışıyor, tıklanıldıktan sonra bir daha çalışmıyor, ufak bir sorun fakat bulamadım. yarın tekrar deneyecegim. 
 	 ** */
 	
 	public static void main(String args[]) throws FileNotFoundException, IOException, ParseException {
