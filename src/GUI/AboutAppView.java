@@ -16,10 +16,6 @@ import java.awt.BorderLayout;
 import java.awt.Label;
 
 public class AboutAppView extends JPanel implements Observer {
-	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 3847238445785672779L;
 	MainFrameView mainFrameView ;
 	/**
