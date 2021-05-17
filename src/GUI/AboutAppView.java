@@ -18,10 +18,6 @@ import java.awt.Label;
 public class AboutAppView extends JPanel implements Observer {
 	private static final long serialVersionUID = 3847238445785672779L;
 	MainFrameView mainFrameView ;
-	/**
-	 * Create the panel.
-	 * @param jP 
-	 */
 	public AboutAppView(MainFrameView mainFrameView ) {
 		this.setMainFrame(mainFrameView);        
 		JPanel jP=  new JPanel(new GridLayout(3, 1));
