@@ -39,6 +39,7 @@ public class AboutAppView extends JPanel implements Observer {
 	}
 	@Override
 	public void update(Object arg) {
+		// TODO Auto-generated method stub
 		
 	}
 	
