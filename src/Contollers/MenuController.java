@@ -35,7 +35,6 @@ public class MenuController {
         menuView.addHelpButton(new BrowseUsersActionListener());
         menuView.addSendFeedbackButton(new BrowseUsersActionListener());
         menuView.addSendFeedbackButton(new BrowseUsersActionListener());
-
         
     }
     

@@ -25,10 +25,10 @@ public class AboutAppView extends JPanel implements Observer {
 		setLayout(new BorderLayout(0, 0));Label label = new Label(info);
 		label.setAlignment(Label.CENTER);
 		add(label, BorderLayout.NORTH);
-		JLabel lblNewLabel2 = new JLabel("Copyright© 2021 All rights reserved.");
+		JLabel copyrightLabel = new JLabel("Copyright 2021 All rights reserved.");
 
-		info="Copyright© 2021 All rights reserved.";
-		add(lblNewLabel2);
+		info="Copyright 2021 All rights reserved.";
+		add(copyrightLabel);
 
 	}
 	public MainFrameView getMainFrame() {

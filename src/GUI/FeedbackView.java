@@ -34,9 +34,9 @@ public class FeedbackView extends JPanel implements Observer{
         mainFrameView.addNewPanel(this);
 		setLayout(null);
         
-		Label label = new Label("User Name");
-		label.setBounds(79, 71, 66, 21);
-		add(label);
+		Label userNameLabel = new Label("User Name");
+		userNameLabel.setBounds(79, 71, 66, 21);
+		add(userNameLabel);
 		
 		TextField textField = new TextField();
 		textField.setBounds(172, 71, 96, 21);
@@ -45,17 +45,17 @@ public class FeedbackView extends JPanel implements Observer{
 		textField.setEditable(false);
 		textField.setEnabled(false);
 		
-		Label label_1 = new Label("Message");
-		label_1.setBounds(79, 153, 56, 21);
-		add(label_1);
+		Label messageLabel = new Label("Message");
+		messageLabel.setBounds(79, 153, 56, 21);
+		add(messageLabel);
 		
 		TextArea textArea = new TextArea();
 		textArea.setBounds(172, 171, 440, 150);
 		add(textArea);
 		
-		Label label_1_1 = new Label("Subject");
-		label_1_1.setBounds(79, 108, 49, 21);
-		add(label_1_1);
+		Label subjectLabel = new Label("Subject");
+		subjectLabel.setBounds(79, 108, 49, 21);
+		add(subjectLabel);
 		
 		final Choice choice = new Choice();
 		choice.setBounds(172, 111, 96, 18);
@@ -65,14 +65,14 @@ public class FeedbackView extends JPanel implements Observer{
 		choice.add("Item 2");  
 		choice.add("Item 3");
         
-        JButton btnNewButton = new JButton("Send");
-        btnNewButton.setBounds(346, 344, 55, 21);
-        add(btnNewButton, "cell 0 3");
-        btnNewButton.addActionListener(new ActionListener() {
+        JButton sendButton = new JButton("Send");
+        sendButton.setBounds(346, 344, 55, 21);
+        add(sendButton, "cell 0 3");
+        sendButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		if(check(textArea))
         		{
-	        		String toBewrite = label.getText() + "," + textArea.getText();
+	        		String toBewrite = userNameLabel.getText() + "," + textArea.getText();
 		            try {
 						writeToFile(toBewrite);
 					} catch (IOException e1) {
@@ -83,7 +83,7 @@ public class FeedbackView extends JPanel implements Observer{
         		
         	}
         });
-        add(btnNewButton);
+        add(sendButton);
 		
 	}
 
