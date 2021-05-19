@@ -6,8 +6,8 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="E:/Eclipse_Project/Trendyol-Clone/java-json.jar"/>
-	<classpathentry kind="lib" path="E:/Eclipse_Project/Trendyol-Clone/json-simple-1.1.jar"/>
-	<classpathentry kind="lib" path="E:/Eclipse_Project/Trendyol-Clone/org.json.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Gurcan/eclipse-workspace/G12_CENG431_HW4/java-json.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Gurcan/eclipse-workspace/G12_CENG431_HW4/json-simple-1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Gurcan/eclipse-workspace/G12_CENG431_HW4/org.json.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

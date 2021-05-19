@@ -28,39 +28,37 @@ public class HomePageView extends JPanel implements Observer{
 		JPanel jP=  new JPanel(new GridLayout(3, 1));
         setLayout(null);
         
-        JButton btnNewButton = new JButton("Create Collection");
-        btnNewButton.setBounds(27, 63, 202, 21);
-        add(btnNewButton);
+        JButton createCollectionButton = new JButton("Create Collection");
+        createCollectionButton.setBounds(27, 63, 202, 21);
+        add(createCollectionButton);
         
-        JButton btnNewButton_1 = new JButton("See All Collections");
-        btnNewButton_1.setBounds(239, 63, 207, 21);
-        add(btnNewButton_1);
+        JButton seeAllCollectionButton = new JButton("See All Collections");
+        seeAllCollectionButton.setBounds(239, 63, 207, 21);
+        add(seeAllCollectionButton);
         
-        JButton btnNewButton_1_1 = new JButton("My Profile");
-        btnNewButton_1_1.addActionListener(new ActionListener() {
+        JButton myProfileButton = new JButton("My Profile");
+        myProfileButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		MyProfileView myProfileView = new MyProfileView(mainFrameView);
         		mainFrameView.addMenuPanel(myProfileView);
         	}
         });
-        btnNewButton_1_1.setBounds(456, 63, 195, 21);
-        add(btnNewButton_1_1);
+        myProfileButton.setBounds(456, 63, 195, 21);
+        add(myProfileButton);
         
-        JButton btnNewButton_1_2 = new JButton("Trends");
-        btnNewButton_1_2.setIcon(new ImageIcon("C:\\Users\\Gurcan\\eclipse-workspace\\G12_CENG431_HW3-v1\\src\\trends.png"));
-        btnNewButton_1_2.setBounds(285, 148, 109, 21);
-        add(btnNewButton_1_2);
+        JButton trendsButton = new JButton("Trends");
+        trendsButton.setIcon(new ImageIcon("C:\\Users\\Gurcan\\eclipse-workspace\\G12_CENG431_HW3-v1\\src\\trends.png"));
+        trendsButton.setBounds(285, 148, 109, 21);
+        add(trendsButton);
         
-        JButton btnNewButton_1_3 = new JButton("View All Users");
-        btnNewButton_1_3.addActionListener(new ActionListener() {
+        JButton viewAllUsersButton = new JButton("View All Users");
+        viewAllUsersButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         	}
         });
-        btnNewButton_1_3.setBounds(239, 111, 207, 21);
-        add(btnNewButton_1_3);
-		this.setMainFrame(mainFrameView);        
-
-		
+        viewAllUsersButton.setBounds(239, 111, 207, 21);
+        add(viewAllUsersButton);
+		this.setMainFrame(mainFrameView);        	
 		
 	}
 
