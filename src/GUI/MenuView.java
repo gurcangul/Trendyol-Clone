@@ -4,6 +4,8 @@ import java.awt.GridLayout;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.event.AncestorListener;
+
 import Observer.Observer;
 import User.User;
 import javax.swing.JMenuBar;
@@ -29,40 +31,43 @@ public class MenuView extends JPanel implements Observer {
 	private BeforeLoginView beforeLoginView;
 	private JPasswordField password;
 	private String userName;
+	JMenu myProfile,home,store;JMenuItem shoppingCart, homePage ;
+	JMenuBar menuBar;JMenuItem myFavorites;
+	JMenuItem helpContents;  JMenu help;  JMenuItem sendFeedback;
 	public MenuView(MainFrameView mainFrameView ) {
-		mainFrameView=mainFrameView;                
+		this.mainFrameView=mainFrameView;                
         showPanel();
 	}
 	public void showPanel(){
-        JMenuBar menuBar = new JMenuBar();
+        menuBar = new JMenuBar();
         menuBar.setBackground(Color.WHITE);
         menuBar.setBounds(10, 10, 424, 22);
         add(menuBar);
 
-        JMenu home = new JMenu("Home");
+        home = new JMenu("Home");
         menuBar.add(home);
-        JMenuItem homePage = new JMenuItem("Home Page");
+        homePage = new JMenuItem("Home Page");
         home.add(homePage);
         
-        homePage.addActionListener(new ActionListener() {
+       /* homePage.addActionListener(new ActionListener() {
     	public void actionPerformed(ActionEvent e) {
     		HomePageView homePageView = new HomePageView(mainFrameView);
     		mainFrameView.addMenuPanel(homePageView);
     	}
-    });
+    });*/
 
-    JMenu myProfile = new JMenu("My Profile");
+    myProfile = new JMenu("My Profile");
     menuBar.add(myProfile);
            
-    JMenuItem shoppingCart = new JMenuItem("Shopping Cart");
+    shoppingCart = new JMenuItem("Shopping Cart");
     myProfile.add(shoppingCart);
     
-    JMenuItem myFavorites = new JMenuItem("My Favorites");
+    myFavorites = new JMenuItem("My Favorites");
     myProfile.add(myFavorites);		        
     JMenuItem generalAccountSettings = new JMenuItem("General Account Settings");
     myProfile.add(generalAccountSettings);
     
-    JMenu store = new JMenu("Store");
+    store = new JMenu("Store");
     store.setBackground(Color.WHITE);
     menuBar.add(store);
     
@@ -101,12 +106,12 @@ public class MenuView extends JPanel implements Observer {
     
    
     
-    JMenu help = new JMenu("Help");
+    help = new JMenu("Help");
     menuBar.add(help);
     
-    JMenuItem helpContents = new JMenuItem("Help Contents");
+    helpContents = new JMenuItem("Help Contents");
     help.add(helpContents);
-    JMenuItem sendFeedback = new JMenuItem("Send Feedback");
+    sendFeedback = new JMenuItem("Send Feedback");
     sendFeedback.addActionListener(new ActionListener() {
     	public void actionPerformed(ActionEvent e) {
     		FeedbackView feedbackView = new FeedbackView(mainFrameView);
@@ -184,6 +189,37 @@ public class MenuView extends JPanel implements Observer {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-
-
+	
+	public void addMyProfileButton(ActionListener actionListener) {
+		myProfile.addActionListener(actionListener);
+		
+	}	
+	public void addHomeButton(ActionListener actionListener) {
+		home.addActionListener(actionListener);
+		
+	}
+	public void addStoreButton(ActionListener actionListener) {
+		store.addActionListener(actionListener);		
+	}
+	public void addShoppingCartButton(ActionListener actionListener) {
+		shoppingCart.addActionListener(actionListener);		
+	}
+	public void addHomePageButton(ActionListener actionListener) {
+		homePage.addActionListener(actionListener);		
+	}
+	public void addMenuBarButton(ActionListener actionListener) {
+		menuBar.addAncestorListener((AncestorListener) actionListener);		
+	}
+	public void addMyFavoritesButton(ActionListener actionListener) {
+		myFavorites.addActionListener(actionListener);		
+	}
+	public void addHelpContentsButton(ActionListener actionListener) {
+		helpContents.addActionListener(actionListener);		
+	}
+	public void addHelpButton(ActionListener actionListener) {
+		help.addActionListener(actionListener);		
+	}//sendFeedback
+	public void addSendFeedbackButton(ActionListener actionListener) {
+		sendFeedback.addActionListener(actionListener);		
+	}
 }
