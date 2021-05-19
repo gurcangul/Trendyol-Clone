@@ -10,10 +10,7 @@ import GUI.LoginView;
 import GUI.MainFrameView;
 import GUI.MenuView;
 import User.User;
-import tube.BrowseUsersController;
-import tube.BrowseUsersView;
-import tube.DataHandler;
-import tube.IDataHandler;
+
 
 public class MenuController {
     private LoginView loginView;
@@ -24,61 +21,72 @@ public class MenuController {
     public MenuController(MenuView menuView, User user) {
         this.menuView = menuView;
         this.user = user;
-        menuView.addMyProfileButton(new BrowseUsersActionListener());
-        menuView.addHomeButton(new BrowseUsersActionListener());
-        menuView.addStoreButton(new BrowseUsersActionListener());
-        menuView.addShoppingCartButton(new BrowseUsersActionListener());
-        menuView.addHomePageButton(new BrowseUsersActionListener());
-        menuView.addMenuBarButton(new BrowseUsersActionListener());
-        menuView.addMyFavoritesButton(new BrowseUsersActionListener());
-        menuView.addHelpContentsButton(new BrowseUsersActionListener());
-        menuView.addHelpButton(new BrowseUsersActionListener());
-        menuView.addSendFeedbackButton(new BrowseUsersActionListener());
-        menuView.addSendFeedbackButton(new BrowseUsersActionListener());
-        
+        menuView.addMyProfileButton(new MyProfileButtonActionListener());
+        menuView.addHomeButton(new HomeButtonActionListener());
+        menuView.addStoreButton(new StoreButtonActionListener());
+        menuView.addShoppingCartButton(new ShoppingCartButtonActionListener());
+        menuView.addHomePageButton(new HomePageButtonActionListener());
+        menuView.addMenuBarButton(new MenuBarButtonActionListener());
+        menuView.addMyFavoritesButton(new MyFavoritesButtonActionListener());
+        menuView.addHelpContentsButton(new HelpContentsButtonActionListener());
+        menuView.addHelpButton(new HelpButtonActionListener());
+        menuView.addSendFeedbackButton(new SendFeedbackButtonActionListener());
+       
     }
     
-    private class BrowseUsersActionListener implements ActionListener {
+    private class MyProfileButtonActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            IDataHandler dataHandler = new DataHandler();
-            BrowseUsersView browseUsersView = new BrowseUsersView(menuView.getFrame(), dataHandler.getUsernames(), user);
-            BrowseUsersController browseUsersController = new BrowseUsersController(browseUsersView, user);
         }
     } 
-	/*public void addMyProfileButton(ActionListener actionListener) {
-		myProfile.addActionListener(actionListener);
-		
-	}	
-	public void addHomeButton(ActionListener actionListener) {
-		home.addActionListener(actionListener);
-		
-	}
-	public void addStoreButton(ActionListener actionListener) {
-		store.addActionListener(actionListener);		
-	}
-	public void addShoppingCartButton(ActionListener actionListener) {
-		shoppingCart.addActionListener(actionListener);		
-	}
-	public void (ActionListener actionListener) {
-		homePage.addActionListener(actionListener);		
-	}
-	public void (ActionListener actionListener) {
-		menuBar.addAncestorListener((AncestorListener) actionListener);		
-	}
-	public void (ActionListener actionListener) {
-		myFavorites.addActionListener(actionListener);		
-	}
-	public void (ActionListener actionListener) {
-		helpContents.addActionListener(actionListener);		
-	}
-	public void (ActionListener actionListener) {
-		help.addActionListener(actionListener);		
-	}//sendFeedback
-	public void addSendFeedbackButton(ActionListener actionListener) {
-		sendFeedback.addActionListener(actionListener);		
-	}*/
     
+    private class HomeButtonActionListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+        }
+    } 
+    private class StoreButtonActionListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+        }
+    }    
     
+    private class ShoppingCartButtonActionListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+        }
+    } 
+    private class HomePageButtonActionListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+        }
+    }     
+    private class MenuBarButtonActionListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+        }
+    }    
+    private class MyFavoritesButtonActionListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+        }
+    }    
+    private class HelpContentsButtonActionListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+        }
+    }  
+    
+    private class HelpButtonActionListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+        }
+    }
+    private class SendFeedbackButtonActionListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+        }
+    }
+
     
 }
