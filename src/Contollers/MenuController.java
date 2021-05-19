@@ -31,8 +31,7 @@ public class MenuController {
         menuView.addHelpContentsButton(new HelpContentsButtonActionListener());
         menuView.addHelpButton(new HelpButtonActionListener());
         menuView.addSendFeedbackButton(new SendFeedbackButtonActionListener());
-
-        
+       
     }
     
     private class MyProfileButtonActionListener implements ActionListener {
