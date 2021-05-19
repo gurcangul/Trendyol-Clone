@@ -36,7 +36,7 @@ public class LoginController {
     	User user =  dataHandler.checkUserIsExist(userName, password);
         if (user != null) {
             this.menuView=new MenuView(mainFrameView);
-            System.out.println("giriş yapıldı...."+userName+ password);
+            System.out.println("giris yapildi...."+userName+ password);
             //this.menuPanel.addOkButtonListener(new LoggedInOkButtonListener());
            // MenuController menuController = new MenuController(menuView, user);
           
