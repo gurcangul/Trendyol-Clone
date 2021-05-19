@@ -12,6 +12,7 @@ import Product.IProduct;
 public class OnlineShoppingApp {
 	public static void main(String args[]) throws FileNotFoundException, IOException, ParseException {
 		//DataHandler.getProductAndCategories();
+		// Umarım artık olmuştur
 		ArrayList<IProduct> products = DataHandler.getProductAndCategories();
 		System.out.println(products);
 		System.out.println(products.get(0).getChild().get(0).getChild().get(0).getChild().get(0).getSeller().getEmail());
