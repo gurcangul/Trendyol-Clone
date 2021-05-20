@@ -13,7 +13,7 @@ import GUI.WelcomeView;
 
 public class BeforeLoginController {
     private final BeforeLoginView beforeLoginView;
-    private MainFrameView mainFrameView;
+    private final  MainFrameView mainFrameView;
 
     public BeforeLoginController(MainFrameView mainFrameView, BeforeLoginView beforeLoginView){
 		this.mainFrameView=mainFrameView;
@@ -29,9 +29,8 @@ public class BeforeLoginController {
         public void actionPerformed(ActionEvent e) {
             /*String title = browseWatchlistView.getUserInput("Watch List title:");
             currentUser.addWatchlist(new Watchlist(new ArrayList<>(),title));*/ 
-        	System.out.println("sdsfd");
         	LoginView loginView =  new LoginView(mainFrameView);
-    		mainFrameView.addNewPanel(loginView);	
+    		//mainFrameView.addNewPanel(loginView);	
     		LoginController loginController = new LoginController(mainFrameView,loginView);
     		System.out.println("login");
         }
@@ -41,7 +40,9 @@ public class BeforeLoginController {
         @Override
         public void actionPerformed(ActionEvent e) {
         	WelcomeView welcomeView =  new WelcomeView(mainFrameView);
-    		mainFrameView.addNewPanel(welcomeView);
+    		//mainFrameView.addNewPanel(welcomeView);
+    		WelcomeController welcomeController = new WelcomeController(mainFrameView,welcomeView);
+
         }
     }
     

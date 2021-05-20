@@ -6,7 +6,6 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.event.AncestorListener;
 
-import Observer.Observer;
 import User.User;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -20,6 +19,8 @@ import java.awt.Graphics;
 import java.awt.SystemColor;
 import javax.swing.JRadioButtonMenuItem;
 import java.awt.event.ActionListener;
+import java.util.Observable;
+import java.util.Observer;
 import java.awt.event.ActionEvent;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
@@ -28,15 +29,20 @@ public class MenuView extends JPanel implements Observer {
 	private static final long serialVersionUID = 1L;
 	  
 	MainFrameView mainFrameView;
-	private BeforeLoginView beforeLoginView;
+	BeforeLoginView beforeLoginView;
 	private JPasswordField password;
 	private String userName;
 	JMenu myProfile,home,store;JMenuItem shoppingCart, homePage ;
 	JMenuBar menuBar;JMenuItem myFavorites;
-	JMenuItem helpContents;  JMenu help;  JMenuItem sendFeedback;
-	public MenuView(MainFrameView mainFrameView ) {
+	JMenuItem helpContents;  JMenu help;  JMenuItem sendFeedback; JMenuItem logOut;
+	private User user;
+	
+	public MenuView(MainFrameView mainFrameView,User user ) {
 		this.mainFrameView=mainFrameView;                
+		this.setUser(user);
         showPanel();
+       // user.addObserver(this);
+
 	}
 	public void showPanel(){
         menuBar = new JMenuBar();
@@ -75,15 +81,15 @@ public class MenuView extends JPanel implements Observer {
     store.add(allCategories);
     //User user = new User();
     //user.getserName
-    String name=getUserName();
+    String name=user.getUserName();
     System.out.println(" asadasfdafsaf"+getUserName());
     JMenu userName = new JMenu("sadfsdf");
     menuBar.add(userName);
     JMenuItem myShoppingCart = new JMenuItem(name);
     userName.add(myShoppingCart);
-    JMenuItem logOut = new JMenuItem("Log Out");
+    logOut = new JMenuItem("Log Out");
     logOut.setIcon(new ImageIcon("C:\\Users\\Gurcan\\eclipse-workspace\\G12_CENG431_HW3-v1\\src\\logout.png"));
-    logOut.addActionListener(new ActionListener() {
+   /* logOut.addActionListener(new ActionListener() {
     	@Override
         public void actionPerformed(ActionEvent e) {
            int result = JOptionPane.showConfirmDialog(mainFrameView,"Sure? You want to exit?", "Swing Tester",
@@ -101,7 +107,7 @@ public class MenuView extends JPanel implements Observer {
            }
         }
   
-    });
+    });*/
     userName.add(logOut);
     
    
@@ -112,13 +118,13 @@ public class MenuView extends JPanel implements Observer {
     helpContents = new JMenuItem("Help Contents");
     help.add(helpContents);
     sendFeedback = new JMenuItem("Send Feedback");
-    sendFeedback.addActionListener(new ActionListener() {
+    /*sendFeedback.addActionListener(new ActionListener() {
     	public void actionPerformed(ActionEvent e) {
     		FeedbackView feedbackView = new FeedbackView(mainFrameView);
     		mainFrameView.addMenuPanel(feedbackView);
     		
     	}
-    });
+    });*/
 
     help.add(sendFeedback);
     
@@ -128,7 +134,8 @@ public class MenuView extends JPanel implements Observer {
     
     
     
-    
+    mainFrameView.addNewPanel(this);
+
     
     /*about.addActionListener(new ActionListener() {
     	public void actionPerformed(ActionEvent e) {
@@ -154,8 +161,6 @@ public class MenuView extends JPanel implements Observer {
 	}
 
 
- 
-
 	public MainFrameView getMainFrame() {
 		return mainFrameView;
 	}
@@ -176,11 +181,6 @@ public class MenuView extends JPanel implements Observer {
 	}
 
 
-	@Override
-	public void update(Object arg) {
-		// TODO Auto-generated method stub
-		
-	}
 	public void addOkButtonListener(ActionListener actionListener){
 	}
 	public String getUserName() {
@@ -207,9 +207,7 @@ public class MenuView extends JPanel implements Observer {
 	public void addHomePageButton(ActionListener actionListener) {
 		homePage.addActionListener(actionListener);		
 	}
-	public void addMenuBarButton(ActionListener actionListener) {
-		menuBar.addAncestorListener((AncestorListener) actionListener);		
-	}
+
 	public void addMyFavoritesButton(ActionListener actionListener) {
 		myFavorites.addActionListener(actionListener);		
 	}
@@ -218,8 +216,22 @@ public class MenuView extends JPanel implements Observer {
 	}
 	public void addHelpButton(ActionListener actionListener) {
 		help.addActionListener(actionListener);		
-	}//sendFeedback
+	}//sendFeedback logOut
 	public void addSendFeedbackButton(ActionListener actionListener) {
 		sendFeedback.addActionListener(actionListener);		
+	}	
+	public void addLogOutButton(ActionListener actionListener) {
+		logOut.addActionListener(actionListener);		
+	}
+	@Override
+	public void update(Observable o, Object arg) {
+		// TODO Auto-generated method stub
+		
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
 	}
 }

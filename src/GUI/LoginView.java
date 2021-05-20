@@ -23,7 +23,7 @@ public class LoginView extends JPanel implements Observer{
 	private JTextField userName;
 	private JPasswordField password;
 	private MenuView menuView;
-	JButton login;
+	JButton login, back;
 	/**
 	 * Create the panel.
 	 */
@@ -61,15 +61,15 @@ public class LoginView extends JPanel implements Observer{
         add(password);
 
         
-        JButton back = new JButton("BACK");//this is go back button
+        back = new JButton("BACK");//this is go back button
         back.setIcon(new ImageIcon("\src\\back.png"));
-        back.addActionListener(new ActionListener() {
+       /* back.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		beforeLoginView =  new BeforeLoginView(mainFrameView);
         		mainFrameView.addNewPanel(beforeLoginView);
         		
         	}
-        });
+        });*/
         back.setFont(new Font("Tahoma", Font.PLAIN, 14));
         back.setBounds(273, 301, 154, 35);
         add(back);
@@ -121,9 +121,10 @@ public class LoginView extends JPanel implements Observer{
 	
     public void addLoginActionListener(ActionListener actionListener){
     	login.addActionListener(actionListener);
-
     }
-    
+    public void addBackActionListener(ActionListener actionListener){
+    	back.addActionListener(actionListener);
+    }
     public JTextField getUserName() {
         return userName;
     }

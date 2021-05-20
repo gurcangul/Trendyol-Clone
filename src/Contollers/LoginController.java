@@ -23,25 +23,29 @@ public class LoginController {
     private BeforeLoginView beforeLoginView;
     private MenuView menuView;
     private MainFrameView mainFrameView;
-
+    private User user;
 
     public LoginController(MainFrameView mainFrameView,LoginView loginView) {
         this.loginView = loginView;
         this.mainFrameView=mainFrameView;
         loginView.addLoginActionListener(new LoginButtonListener());
+        loginView.addBackActionListener(new backButtonListener());
+        
     }
 
     public void login(String userName, String password) {
         DataHandler dataHandler = new DataHandler();
-    	User user =  dataHandler.checkUserIsExist(userName, password);
+    	user =  dataHandler.checkUserIsExist(userName, password);
         if (user != null) {
-            this.menuView=new MenuView(mainFrameView);
+            this.menuView=new MenuView(mainFrameView,user);
             System.out.println("giriş yapıldı...."+userName+ password);
             //this.menuPanel.addOkButtonListener(new LoggedInOkButtonListener());
            // MenuController menuController = new MenuController(menuView, user);
           
-            menuView =  new MenuView(mainFrameView);
-    		mainFrameView.addNewPanel(menuView);
+            menuView =  new MenuView(mainFrameView,user);
+    		//mainFrameView.addNewPanel(menuView);
+            MenuController menuController = new MenuController(mainFrameView,menuView, user);
+
             //this.menuPanel.addCancelButtonListener(new LoggedInCancelButtonListener());
     		menuView.setUserName(user.getUserName());
     		System.out.println("helloo"+user.getUserName());
@@ -67,7 +71,6 @@ public class LoginController {
     }
     
     class LoginButtonListener implements ActionListener {
-
         @Override
         public void actionPerformed(ActionEvent e) {
             String username = loginView.getUserName().getText();
@@ -75,11 +78,23 @@ public class LoginController {
             login(username, password);
         }
     }
+    class backButtonListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            	beforeLoginView =  new BeforeLoginView(mainFrameView);
+            	//mainFrameView.addNewPanel(beforeLoginView);
+            	BeforeLoginController beforeLoginController = new BeforeLoginController(mainFrameView,beforeLoginView);
+
+        }
+    }
     class LoggedInOkButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-        	menuView =  new MenuView(mainFrameView);
-    		mainFrameView.addNewPanel(menuView);
+        	menuView =  new MenuView(mainFrameView,user);
+    		//mainFrameView.addNewPanel(menuView);
+            MenuController menuController = new MenuController(mainFrameView,menuView, user);
+
+    		
         }
     }
     

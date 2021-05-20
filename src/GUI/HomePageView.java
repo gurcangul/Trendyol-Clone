@@ -17,11 +17,8 @@ import javax.swing.ImageIcon;
 
 public class HomePageView extends JPanel implements Observer{
 
-	  /**
-	 * 
-	 */
 	private static final long serialVersionUID = -5277901207402632648L;
-	private MainFrameView mainFrameView;
+	MainFrameView mainFrameView;
 
 	  
 	public HomePageView(MainFrameView mainFrameView) {

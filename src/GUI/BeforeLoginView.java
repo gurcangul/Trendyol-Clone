@@ -17,10 +17,10 @@ import javax.swing.ImageIcon;
 
 public class BeforeLoginView extends JPanel    {
     MainFrameView mainFrameView;
-    private JButton btnNewButton;
-    private JLabel lblNewLabel;
-    private WelcomeView welcomeView;
-    private LoginView loginView;
+    JButton btnNewButton;
+    JLabel lblNewLabel;
+    WelcomeView welcomeView;
+    LoginView loginView;
     JButton loginButton;
     BeforeLoginView beforeLoginView;
     JButton signInButton;

@@ -18,12 +18,12 @@ public class FeedbackView extends JPanel implements Observer{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-    private MainFrameView mainFrameView;
-    private JButton btnNewButton;
-    private BeforeLoginView beforeLoginView;
-    private JButton btnNewButton_1;
-    private JTextField textField;
-    private JTextField textField_1;
+    MainFrameView mainFrameView;
+    JButton btnNewButton;
+    BeforeLoginView beforeLoginView;
+    JButton btnNewButton_1;
+    JTextField textField;
+    JTextField textField_1;
 
     public FeedbackView(MainFrameView mainFrameView) {
         this.setMainFrame(mainFrameView);

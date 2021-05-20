@@ -8,12 +8,14 @@ import Observer.Observer;
 import java.awt.*;
 
 public class MainFrameView extends JFrame implements Observer {
-	MenuView menuView=new MenuView(this);
-	private static final long serialVersionUID = 1L;
 	
+	//MenuView menuView=new MenuView(this,null);
+	private static final long serialVersionUID = 1L;
+    JFrame frame;
+
 	public void run() {
 		try {
-			Frame frame = new Frame();
+			frame = new JFrame();
 			frame.setVisible(true);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -28,7 +30,7 @@ public class MainFrameView extends JFrame implements Observer {
         setVisible(true);
     }
 
-    public void addNewPanel(JPanel panel){
+  /*  public void addNewPanel(JPanel panel){
         //System.out.println("heyyyy");
     	getContentPane().removeAll();
         getContentPane().add(panel, BorderLayout.CENTER);
@@ -48,9 +50,20 @@ public class MainFrameView extends JFrame implements Observer {
         getContentPane().add(panel, BorderLayout.CENTER);
         revalidate();
         repaint();
+    }*/
+
+    public void addNewPanel(JPanel panel){
+        this.getContentPane().removeAll();
+        this.add(panel, BorderLayout.CENTER);
+        this.revalidate();
+        this.repaint();
     }
-    
-    
+    public void addMenuPanel(JPanel panel){
+        this.getContentPane().removeAll();
+        this.add(panel, BorderLayout.CENTER);
+        this.revalidate();
+        this.repaint();
+    }
     public JFrame getFrame() {
         return this;
     }
