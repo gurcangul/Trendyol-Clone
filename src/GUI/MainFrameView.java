@@ -24,7 +24,7 @@ public class MainFrameView extends JFrame implements Observer {
     public MainFrameView() {
         
 		setBounds(100, 100, 450, 300);
-		setTitle("Hepsi Burada.com (Airpodslarda %20 indirim)");
+		setTitle("Online Shopping)");
         setSize(760, 460);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
