@@ -4,7 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
+
 
 
 import org.json.simple.JSONArray;
@@ -45,18 +45,20 @@ public class DataHandler {//for create user object from the csv file
 		JSONObject productObject = (JSONObject) category.get("product");
 		
 		if(productObject != null) {
-	        String ID = (String) productObject.get("ID");
-	        String name = (String) productObject.get("name");
-	        String price = (String) productObject.get("price");
+			String seller = (String) productObject.get("seller");
+			String price = (String) productObject.get("price");
+			String name = (String) productObject.get("name");
+	        String ID = (String) productObject.get("ID"); 
 	        String stok = (String) productObject.get("stok");
-	        String seller = (String) productObject.get("seller");
+	        
 	        User user = UserFinderHelper.findUserByUsername(userList, seller);
 	        IProduct product1 = new Product(Integer.parseInt(ID), name, Double.parseDouble(price), Integer.parseInt(stok), (Seller)user);
 	        product.add(product1);
 		}
 		else if(categoryObject != null) {
-			String ID = (String) categoryObject.get("ID");    
+			    
 	        String name = (String) categoryObject.get("name");  
+	        String ID = (String) categoryObject.get("ID");
 	        JSONArray productList2 = (JSONArray) categoryObject.get("productList");
         	IProduct category1 = new Category(Integer.parseInt(ID), name);
         	product.add(category1);
@@ -71,8 +73,9 @@ public class DataHandler {//for create user object from the csv file
     {
         JSONObject categoryObject = (JSONObject) category.get("category");
         if(categoryObject != null) {
+	        
+	        String name = (String) categoryObject.get("name");
 	        String ID = (String) categoryObject.get("ID");    
-	        String name = (String) categoryObject.get("name");  
 	        JSONArray productList2 = (JSONArray) categoryObject.get("productList");
 	        IProduct category1 = new Category(Integer.parseInt(ID), name);
         	productAndCategories.add(category1);

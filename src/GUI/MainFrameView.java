@@ -42,12 +42,26 @@ public class MainFrameView extends JFrame implements Observer {
         repaint();
     }
     public void addMenuPanel(JPanel panel){
-    	addMenu();
-    	
+    	addMenu();	
         getContentPane().add(panel, BorderLayout.CENTER);
         revalidate();
         repaint();
-    }
+    }   
+    public void addNewPanel2(JPanel panel){
+        //System.out.println("heyyyy");
+    	//getContentPane().removeAll();
+    	getContentPane().removeAll();
+        getContentPane().add(panel, BorderLayout.PAGE_START);
+        revalidate();
+        repaint();
+        
+    }    
+    public void addMenuPanel3(JPanel panel){
+    	//addMenu();	
+        getContentPane().add(panel, BorderLayout.CENTER);
+        revalidate();
+        repaint();
+    }  
     
 /*
     public void addNewPanel(JPanel panel){

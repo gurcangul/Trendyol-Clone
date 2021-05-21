@@ -13,6 +13,15 @@ import java.awt.event.MouseEvent;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
+import javax.swing.JTextField;
+
+import FileIO.DataHandler;
+import javax.swing.JTree;
+import javax.swing.JTable;
+import javax.swing.JList;
+import javax.swing.JTextArea;
+import javax.swing.Box;
+import javax.swing.JTextPane;
 
 public class HomePageView extends JPanel implements Observer{
 
@@ -23,6 +32,7 @@ public class HomePageView extends JPanel implements Observer{
 	JButton viewAllUsersButton;
 	JButton createCollectionButton;
 	JButton myProfileButton; JButton seeAllCollectionButton; JButton trendsButton;
+	private JTextField textField;
 	public HomePageView(MainFrameView mainFrameView,MenuView menuView) {
 		this.menuView=menuView;
 		this.setMainFrame(mainFrameView);        
@@ -30,7 +40,7 @@ public class HomePageView extends JPanel implements Observer{
         setLayout(null);
         showPanel();		
 	}
-	
+
 	public void showPanel(){
         createCollectionButton = new JButton("Create Collection");
         createCollectionButton.setBounds(27, 63, 202, 21);
@@ -63,8 +73,34 @@ public class HomePageView extends JPanel implements Observer{
         });*/
         viewAllUsersButton.setBounds(239, 111, 207, 21);
         add(viewAllUsersButton);
-		this.setMainFrame(mainFrameView);   
-        mainFrameView.addMenuPanel(this);
+		this.setMainFrame(mainFrameView);  
+        //getMainFrame().addNewPanel2(this);
+        getMainFrame().addNewPanel2(menuView);
+        getMainFrame().addMenuPanel3(this);
+        DataHandler.getProductAndCategories().get(0).getChild();
+        String s="";
+        //for(int i = 0;i<2;i++) {
+        	s=DataHandler.getProductAndCategories().get(0).getChild().get(0).getName()+"  " +DataHandler.getProductAndCategories().get(0).getChild().get(1).getName();
+        	/*s+=DataHandler.getProductAndCategories().get(0).getChild().get(0).getName()+"\n";
+        	s+=DataHandler.getProductAndCategories().get(0).getChild().get(1).getName();*/
+        	/*+"\n \n" +DataHandler.getProductAndCategories().get(0).getChild().get(1).getName())*/
+
+        textField = new JTextField(s);
+        textField.setBounds(102, 191, 245, 59);
+        add(textField);
+        textField.setColumns(10);
+        
+        JTree tree = new JTree();
+        tree.setBounds(471, 133, 140, 108);
+        add(tree);
+        
+        JTextArea textArea = new JTextArea();
+        textArea.setBounds(403, 251, 114, 32);
+        add(textArea);
+        
+        JTextPane textPane = new JTextPane();
+        textPane.setBounds(67, 111, 124, 56);
+        add(textPane);
 		//mainFrame.addMenuPanel(myProfile);
 
 	}
