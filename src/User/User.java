@@ -19,4 +19,5 @@ public interface User {
 	void createObject();
 	Map<IProduct, Integer> getShoppingCart();
 	void addProductToShoppingCart(IProduct product, Integer quantity);
+	void removeProductFromShoppingCart(IProduct product, Integer quantity);
 }
