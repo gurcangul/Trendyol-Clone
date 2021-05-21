@@ -1,5 +1,8 @@
 package User;
 
+import java.util.Map;
+
+import Product.IProduct;
 public interface User {
 	
 	
@@ -14,4 +17,6 @@ public interface User {
 	void setPassword(String password);
 	String getPassword();
 	void createObject();
+	Map<IProduct, Integer> getShoppingCart();
+	void addProductToShoppingCart(IProduct product, Integer quantity);
 }

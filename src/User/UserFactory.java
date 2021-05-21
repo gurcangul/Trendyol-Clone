@@ -1,5 +1,7 @@
 package User;
 
+
+
 public class UserFactory {
 	   //factory pattern is used
 	   public User getUser(int userID, String userType, String userName, String email, String password){
