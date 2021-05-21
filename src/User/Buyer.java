@@ -121,5 +121,25 @@ public class Buyer implements User {
 		else shoppingCart.put(product, quantity);
 	}
 
+	@Override
+	public void removeProductFromShoppingCart(IProduct product, Integer quantity) {
+		if(!shoppingCart.isEmpty()) {
+			for(Map.Entry m:shoppingCart.entrySet()) {
+				IProduct prd = (IProduct) m.getKey();
+				if(product.getName().equalsIgnoreCase(prd.getName())) {
+					Integer productQuantity = (Integer) m.getValue();
+					if(quantity > productQuantity)
+					{
+						// yeterli ürün yok demesi lazım ama bunu ui da yazdırmalıyız buraya nasıl bir şey yapacağımızı ui da karar verelim
+					}
+					else if(quantity == productQuantity)
+						shoppingCart.remove(product, quantity);
+					else
+						productQuantity -= quantity;
+					shoppingCart.replace(product, productQuantity);
+				}
+			}
+		}
+	}
 }
    

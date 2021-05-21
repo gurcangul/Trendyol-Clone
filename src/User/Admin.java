@@ -100,4 +100,10 @@ public class Admin implements User {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void removeProductFromShoppingCart(IProduct product, Integer quantity) {
+		// TODO Auto-generated method stub
+		
+	}
 }
