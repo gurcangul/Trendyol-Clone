@@ -6,13 +6,13 @@ import User.User;
 
 public class UserFinderHelper {
 
-    public static User findUserByUsername(String username,List<User> users){
+   /* public static User findUserByUsername(String username,List<User> users){
         for (User user: users) {
             if (user.getUserName().equals(username))
                 return user;
         }
         return null;
-    }
+    }*/
     public static User checkUserIsExist(String username, String password,List<User> users){
         for (User user: users) {
             if(user.getUserName().equals(username) && user.getPassword().equals(password)){
