@@ -1,5 +1,10 @@
 package User;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import Product.IProduct;
+
 public class Buyer implements User {
 
 
@@ -8,6 +13,7 @@ public class Buyer implements User {
 	private String userName ;
 	private String email;
 	private String password;
+	private Map<IProduct, Integer> shoppingCart = new HashMap<IProduct, Integer>();
 	
 	public Buyer(int userID, String userType, String userName, String email, String password){
 		setUserID(userID);
@@ -15,7 +21,6 @@ public class Buyer implements User {
 		setUserName(userName);
 		setEmail(email);
 		setPassword(password);
-		
 	}
 	
 	@Override
@@ -83,7 +88,37 @@ public class Buyer implements User {
 	@Override
 	public String toString() {
 		return userID + ", " + userType + ", " + userName + ", " + email
-				+ ", " + password;
+				+ ", " + password + ", " + shoppingCart;
+	}
+	
+	
+	
+	public void setShoppingCart(Map<IProduct, Integer> shoppingCart) {
+		this.shoppingCart = shoppingCart;
+	}
+
+	@Override
+	public Map<IProduct, Integer> getShoppingCart() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void addProductToShoppingCart(IProduct product, Integer quantity) {
+		boolean flag = false;
+		if(!shoppingCart.isEmpty()) {
+			for(Map.Entry m:shoppingCart.entrySet()) {
+				IProduct prd = (IProduct) m.getKey();
+				if(product.getName().equalsIgnoreCase(prd.getName())) {
+					flag = true;
+					Integer productQuantity = (Integer) m.getValue();
+					productQuantity += quantity;
+					shoppingCart.replace(product, productQuantity);
+				}
+			}
+			if(!flag) shoppingCart.put(product, quantity);
+		}
+		else shoppingCart.put(product, quantity);
 	}
 
 }

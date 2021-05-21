@@ -1,5 +1,9 @@
 package User;
 
+import java.util.Map;
+
+import Product.IProduct;
+
 public class Admin implements User {
 
 	private int userID ;
@@ -83,5 +87,17 @@ public class Admin implements User {
 	public String toString() {
 		return userID + ", " + userType + ", " + userName + ", " + email
 				+ ", " + password;
+	}
+
+	@Override
+	public Map<IProduct, Integer> getShoppingCart() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void addProductToShoppingCart(IProduct product, Integer quantity) {
+		// TODO Auto-generated method stub
+		
 	}
 }
