@@ -82,8 +82,7 @@ public class MenuView extends JPanel implements Observer {
     //User user = new User();
     //user.getserName
     String name=user.getUserName();
-    System.out.println(" asadasfdafsaf"+getUserName());
-    JMenu userName = new JMenu("sadfsdf");
+    JMenu userName = new JMenu(name);
     menuBar.add(userName);
     JMenuItem myShoppingCart = new JMenuItem(name);
     userName.add(myShoppingCart);
@@ -109,9 +108,6 @@ public class MenuView extends JPanel implements Observer {
   
     });*/
     userName.add(logOut);
-    
-   
-    
     help = new JMenu("Help");
     menuBar.add(help);
     
@@ -130,12 +126,9 @@ public class MenuView extends JPanel implements Observer {
     
     JMenuItem about = new JMenuItem("About");
     help.add(about);
-    
-    
-    
+   
     
     mainFrameView.addNewPanel(this);
-
     
     /*about.addActionListener(new ActionListener() {
     	public void actionPerformed(ActionEvent e) {
@@ -175,11 +168,9 @@ public class MenuView extends JPanel implements Observer {
 		return password;
 	}
 
-
 	public void setPassword(JPasswordField password) {
 		this.password = password;
 	}
-
 
 	public void addOkButtonListener(ActionListener actionListener){
 	}
@@ -189,14 +180,11 @@ public class MenuView extends JPanel implements Observer {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-	
 	public void addMyProfileButton(ActionListener actionListener) {
-		myProfile.addActionListener(actionListener);
-		
+		myProfile.addActionListener(actionListener);		
 	}	
 	public void addHomeButton(ActionListener actionListener) {
 		home.addActionListener(actionListener);
-		
 	}
 	public void addStoreButton(ActionListener actionListener) {
 		store.addActionListener(actionListener);		
@@ -207,7 +195,6 @@ public class MenuView extends JPanel implements Observer {
 	public void addHomePageButton(ActionListener actionListener) {
 		homePage.addActionListener(actionListener);		
 	}
-
 	public void addMyFavoritesButton(ActionListener actionListener) {
 		myFavorites.addActionListener(actionListener);		
 	}

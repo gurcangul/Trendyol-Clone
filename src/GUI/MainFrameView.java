@@ -24,7 +24,6 @@ public class MainFrameView extends JFrame implements Observer {
     public MainFrameView() {
         
 		setBounds(100, 100, 450, 300);
-		setTitle("Welcome to G.A.G.A");
         setSize(760, 460);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);

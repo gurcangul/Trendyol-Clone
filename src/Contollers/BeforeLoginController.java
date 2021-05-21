@@ -32,7 +32,6 @@ public class BeforeLoginController {
         	LoginView loginView =  new LoginView(mainFrameView);
     		//mainFrameView.addNewPanel(loginView);	
     		LoginController loginController = new LoginController(mainFrameView,loginView);
-    		System.out.println("login");
         }
     }
     
