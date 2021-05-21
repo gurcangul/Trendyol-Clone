@@ -81,7 +81,14 @@ public class MenuView extends JPanel implements Observer {
     store.add(allCategories);
     //User user = new User();
     //user.getserName
-    String name=user.getUserName();
+    String name="";
+    //if(!user.getUserName().equals(null))
+    	 try {
+    		 name=user.getUserName();
+    	 }
+    	 catch (Exception e) {
+			// TODO: handle exception
+		}
     JMenu userName = new JMenu(name);
     menuBar.add(userName);
     JMenuItem myShoppingCart = new JMenuItem(name);

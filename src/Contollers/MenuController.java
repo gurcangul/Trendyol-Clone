@@ -48,6 +48,10 @@ public class MenuController {
     private class HomeButtonActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+        	HomePageView homePageView = new HomePageView(mainFrameView,menuView);
+    		//mainFrameView.addMenuPanel(homePageView);
+    		HomePageController homePageController = new HomePageController(mainFrameView,homePageView);
+
         }
     } 
     private class StoreButtonActionListener implements ActionListener {
@@ -64,7 +68,7 @@ public class MenuController {
     private class HomePageButtonActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-        	HomePageView homePageView = new HomePageView(mainFrameView);
+        	HomePageView homePageView = new HomePageView(mainFrameView,menuView);
     		//mainFrameView.addMenuPanel(homePageView);
     		HomePageController homePageController = new HomePageController(mainFrameView,homePageView);
 

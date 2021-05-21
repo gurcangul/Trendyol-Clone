@@ -20,7 +20,7 @@ public class AboutAppView extends JPanel implements Observer {
 	MainFrameView mainFrameView ;
 	public AboutAppView(MainFrameView mainFrameView ) {
 		this.setMainFrame(mainFrameView);        
-		JPanel jP=  new JPanel(new GridLayout(3, 1));
+		new JPanel(new GridLayout(3, 1));
 		String info="This Application created by \nAynur Atış  and \nGürcan Gül";
 		setLayout(new BorderLayout(0, 0));Label label = new Label(info);
 		label.setAlignment(Label.CENTER);

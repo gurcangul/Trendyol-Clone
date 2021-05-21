@@ -18,10 +18,13 @@ public class HomePageView extends JPanel implements Observer{
 
 	private static final long serialVersionUID = -5277901207402632648L;
 	private MainFrameView mainFrameView;
+	private MenuView menuView;
+	private HomePageView homePageView;
 	JButton viewAllUsersButton;
 	JButton createCollectionButton;
 	JButton myProfileButton; JButton seeAllCollectionButton; JButton trendsButton;
-	public HomePageView(MainFrameView mainFrameView) {
+	public HomePageView(MainFrameView mainFrameView,MenuView menuView) {
+		this.menuView=menuView;
 		this.setMainFrame(mainFrameView);        
 		new JPanel(new GridLayout(3, 1));
         setLayout(null);
@@ -61,6 +64,9 @@ public class HomePageView extends JPanel implements Observer{
         viewAllUsersButton.setBounds(239, 111, 207, 21);
         add(viewAllUsersButton);
 		this.setMainFrame(mainFrameView);   
+        mainFrameView.addMenuPanel(this);
+		//mainFrame.addMenuPanel(myProfile);
+
 	}
 
 	public MainFrameView getMainFrame() {
