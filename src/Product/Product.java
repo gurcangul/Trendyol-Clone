@@ -1,5 +1,6 @@
 package Product;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import User.Seller;
@@ -15,8 +16,9 @@ public class Product implements IProduct{
     	setID(ID);
         setName(name);
         setPrice(price);
-        setSeller(seller);
         setStok(stok);
+        setSeller(seller);
+
     }
     
     @Override
@@ -25,7 +27,7 @@ public class Product implements IProduct{
     }
 
     @Override
-    public List<IProduct> getChild() {
+    public ArrayList<IProduct> getChild() {
         //this is leaf node so this method is not applicable to this class.
         return null;
     }
@@ -55,7 +57,7 @@ public class Product implements IProduct{
 	@Override
 	public int getStok() {
 		// TODO Auto-generated method stub
-		return 0;
+		return stok;
 	}
 	
 

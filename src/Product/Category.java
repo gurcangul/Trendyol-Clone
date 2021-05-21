@@ -9,9 +9,9 @@ import User.Seller;
 public class Category implements IProduct {//Composite==Category  (Composite Design Pattern)
 	 private int ID;
 	 private String name;
-	 List<IProduct> productList = new ArrayList<IProduct>();
+	 ArrayList<IProduct> productList = new ArrayList<IProduct>();
 
-	 public Category(int ID,String name,List<IProduct> productList )
+	 public Category(int ID,String name,ArrayList<IProduct> productList )
 	 {
 	  this.ID=ID;	 
 	  this.name = name;
@@ -30,7 +30,7 @@ public class Category implements IProduct {//Composite==Category  (Composite Des
 	 }
 
 	 @Override
-	 public List<IProduct> getChild() 
+	 public ArrayList<IProduct> getChild() 
 	 {
 	  return productList;
 	 }
