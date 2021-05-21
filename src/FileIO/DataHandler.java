@@ -48,9 +48,10 @@ public class DataHandler {//for create user object from the csv file
 	        String ID = (String) productObject.get("ID");
 	        String name = (String) productObject.get("name");
 	        String price = (String) productObject.get("price");
+	        String stok = (String) productObject.get("stok");
 	        String seller = (String) productObject.get("seller");
 	        User user = UserFinderHelper.findUserByUsername(userList, seller);
-	        IProduct product1 = new Product(Integer.parseInt(ID), name, Double.parseDouble(price), (Seller)user);
+	        IProduct product1 = new Product(Integer.parseInt(ID), name, Double.parseDouble(price), Integer.parseInt(stok), (Seller)user);
 	        product.add(product1);
 		}
 		else if(categoryObject != null) {

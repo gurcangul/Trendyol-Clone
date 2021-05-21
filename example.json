@@ -16,7 +16,8 @@
 												"product": {
 														"ID": "10000",
 														"name": "XiaomiMi Robot Vacuum Mop Pro Cleaner",
-														"price": "2705.33"
+														"price": "2705.33",
+														"stok": "50",
 														"seller": "markadayim"
 													   }
 												},{
@@ -24,6 +25,7 @@
 														"ID": "10001",
 														"name": "Arnica Bora Mor Et11133",
 														"price": "987.84",
+														"stok": "55",
 														"seller": "trendFix"
 													   }		
 											     }

@@ -8,13 +8,15 @@ public class Product implements IProduct{
 	private int ID;
 	private String name;
 	private double price;
+	private int stok;
 	private Seller seller;
 
-    public Product(int ID,String name,double price, Seller seller){
+    public Product(int ID,String name,double price, int stok, Seller seller){
     	setID(ID);
         setName(name);
         setPrice(price);
         setSeller(seller);
+        setStok(stok);
     }
     
     @Override
@@ -44,7 +46,18 @@ public class Product implements IProduct{
         return price;
     }
     
-    
+	@Override
+	public Seller getSeller() {
+		// TODO Auto-generated method stub
+		return seller;
+	}
+
+	@Override
+	public int getStok() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
 
 	public void setSeller(Seller seller) {
 		this.seller = seller;
@@ -70,7 +83,7 @@ public class Product implements IProduct{
 
 	@Override
 	public String toString() {
-		return "Product [" + ID + ", " + name + ", " + price + ", " + seller.getUserName() + "]";
+		return "Product [" + ID + ", " + name + ", " + price + ", " + stok + ", " + seller.getUserName() + "]";
 	}
 
 	public void setID(int ID) {
@@ -85,10 +98,10 @@ public class Product implements IProduct{
 		this.price = price;
 	}
 
-	@Override
-	public Seller getSeller() {
-		// TODO Auto-generated method stub
-		return seller;
-	}
 	
+	public void setStok(int stok) {
+		this.stok = stok;
+	}
+
+
 }

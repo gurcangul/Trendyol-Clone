@@ -89,4 +89,9 @@ public class Category implements IProduct {//Composite==Category  (Composite Des
 		// TODO Auto-generated method stub
 		return null;
 	}
+	@Override
+	public int getStok() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
