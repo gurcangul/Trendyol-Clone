@@ -19,6 +19,7 @@ import GUI.SignUpView;
 import User.Buyer;
 import User.Seller;
 import User.User;
+import User.UserFactory;
 
 public class SignUpController {
 
@@ -54,7 +55,7 @@ public class SignUpController {
     	}
     	else {
     		JOptionPane.showMessageDialog(null, "Sign Up is successfull. ");   
-    		if(userType.equalsIgnoreCase("seller")) {
+    		/*if(userType.equalsIgnoreCase("seller")) {
     			System.out.println("seller ici");
     			int ID = dataHandler.createRandomID();
     			User user = new Seller(ID, userType, userName, email, password);
@@ -67,7 +68,11 @@ public class SignUpController {
     			User user = new Buyer(ID, userType, userName, email, password);
     			System.out.println(user);
     			dataHandler.addUser(user);
-    		}
+    		}*/
+    		int ID = dataHandler.createRandomID();
+    		UserFactory uf = new UserFactory();
+    		user = uf.getUser(ID, userType, userName, email, password);
+    		dataHandler.addUser(user);
     		Writer.csvUserWriter(dataHandler.getUserList());
     		for(User usr: dataHandler.getUserList())
     			System.out.println(usr);
@@ -115,7 +120,7 @@ public class SignUpController {
         public void actionPerformed(ActionEvent e) {
             String username = signUpView.getUserName().getText();
             String password = signUpView.getPassword().getText();
-            String userType = signUpView.getUserType().getText();
+            String userType = signUpView.getUserType().getSelectedItem().toString();
             String email = signUpView.getEmail().getText();
             try {
 				signIn(username, email, userType, password);

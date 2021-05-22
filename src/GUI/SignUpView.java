@@ -23,6 +23,7 @@ public class SignUpView extends JPanel implements Observer {
 	private static final long serialVersionUID = 1L;
 	private JTextField userName;
 	private JTextField email;
+	private JComboBox comboBox;
 	private JPasswordField password;
 	private MenuView menuView;
 	JButton signIn, back;
@@ -95,7 +96,7 @@ public class SignUpView extends JPanel implements Observer {
         add(signIn);           
         mainFrameView.addNewPanel(this);
         
-        JComboBox comboBox = new JComboBox();
+        comboBox = new JComboBox();
         comboBox.setModel(new DefaultComboBoxModel(new String[] {"Seller", "Buyer"}));
         comboBox.setToolTipText("");
         comboBox.setBounds(222, 171, 79, 19);
@@ -147,14 +148,16 @@ public class SignUpView extends JPanel implements Observer {
         return userName;
     }
     
-    public JTextField getUserType() {
-        return userName;
+    public JComboBox getUserType() {
+        return comboBox;
     }
 
-    public JPasswordField getEmail() {
-        return password;
+    public JTextField getEmail() {
+        return email;
     }
     public JPasswordField getPassword() {
         return password;
     }
+    
+    
 }
