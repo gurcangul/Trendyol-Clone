@@ -7,17 +7,12 @@ import java.io.IOException;
 
 import javax.swing.JOptionPane;
 
-import Contollers.LoginController.LoginButtonListener;
-import Contollers.LoginController.backButtonListener;
 import FileIO.DataHandler;
 import FileIO.Writer;
 import GUI.BeforeLoginView;
-import GUI.LoginView;
 import GUI.MainFrameView;
 import GUI.MenuView;
 import GUI.SignUpView;
-import User.Buyer;
-import User.Seller;
 import User.User;
 import User.UserFactory;
 
@@ -74,30 +69,6 @@ public class SignUpController {
         	
     		BeforeLoginController beforeLoginController = new BeforeLoginController(mainFrameView, beforeLoginView);
     	}
-      /*  if (user != null) {
-            this.menuView=new MenuView(mainFrameView,user);
-            System.out.println("giris yapıldı...."+userName+ password);
-            //this.menuPanel.addOkButtonListener(new LoggedInOkButtonListener());
-           // MenuController menuController = new MenuController(menuView, user);
-          
-            menuView =  new MenuView(mainFrameView,user);
-    		//mainFrameView.addNewPanel(menuView);
-            MenuController menuController = new MenuController(mainFrameView,menuView, user);
-
-            //this.menuPanel.addCancelButtonListener(new LoggedInCancelButtonListener());
-    		menuView.setUserName(user.getUserName());
-    		System.out.println("helloo"+user.getUserName());
-           // this.userModel.setLoggedInUser(user);//*****
-        } else {
-            //loginPanel.passwordCheck();
-    		//JLabel lblNewLabel2 = new JLabel("Wrong! Please try again!");
-        	signUpView.getPassword().setBackground(Color.RED);
-        	signUpView.getUserName().setBackground(Color.RED);
-    		JOptionPane.showMessageDialog(null, "Wrong! Please try again! ");        		
-            this.showSignInPanel();
-
-            
-        }*/
     }
     
     public void showSignInPanel() {
