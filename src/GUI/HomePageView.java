@@ -32,6 +32,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JTextArea;
 import javax.swing.Box;
 import javax.swing.JTextPane;
+import javax.swing.JCheckBoxMenuItem;
 
 public class HomePageView extends JPanel implements Observer{
 
@@ -51,6 +52,7 @@ public class HomePageView extends JPanel implements Observer{
 	private JTextField textField;
 	private JMenuItem category1Child2;
 	private JMenuItem category1Child3;
+	private JMenu mnNewMenu;
 	public HomePageView(MainFrameView mainFrameView,MenuView menuView) {
 		this.menuView=menuView;
 		this.setMainFrame(mainFrameView);        
@@ -93,16 +95,19 @@ public class HomePageView extends JPanel implements Observer{
         
         
         
-        /*
+        
         category1 = new JMenu("category1");
         menuBar.add(category1);
         category1Child1 = new JMenuItem("category1Child1");
         category1.add(category1Child1);
+        
+        mnNewMenu = new JMenu("New menu");
+        category1.add(mnNewMenu);
         category1Child2 = new JMenuItem("category1Child1");
-        category1.add(category1Child2);       
+        category1.add(category1Child2);
         category1Child3 = new JMenuItem("category1Child3");
         category1.add(category1Child3);
-         */
+        
         /*
 	    category2 = new JMenu("category2");
 	    menuBar.add(category2);	           

@@ -24,6 +24,8 @@ import java.util.Observer;
 import java.awt.event.ActionEvent;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class MenuView extends JPanel implements Observer {
 	private static final long serialVersionUID = 1L;
@@ -51,6 +53,16 @@ public class MenuView extends JPanel implements Observer {
         add(menuBar);
 
         home = new JMenu("Home");
+        home.addMouseListener(new MouseAdapter() {
+        	@Override
+        	public void mouseClicked(MouseEvent e) {
+
+        	}
+        });
+        home.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        	}
+        });
         menuBar.add(home);
         homePage = new JMenuItem("Home Page");
         home.add(homePage);
