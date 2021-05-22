@@ -13,6 +13,7 @@ import User.User;
 public class HomePageController {
 	private final  MainFrameView mainFrameView;
 	private final  HomePageView homePageView;
+	
     public HomePageController(MainFrameView mainFrameView, HomePageView homePageView ) {
     	this.mainFrameView=mainFrameView;
         this.homePageView = homePageView;
@@ -23,7 +24,11 @@ public class HomePageController {
         homePageView.addTrendsButtonActionListener(new addTrendsButtonActionListener());
     }
 
-    private class viewAllUsersButtonActionListener implements ActionListener {
+    public HomePageView getHomePageView() {
+		return homePageView;
+	}
+
+	private class viewAllUsersButtonActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             /*String title = browseWatchlistView.getUserInput("Watch List title:");

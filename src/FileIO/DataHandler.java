@@ -54,8 +54,7 @@ public class DataHandler {//for create user object from the csv file
 	        IProduct product1 = new Product(Integer.parseInt(ID), name, Double.parseDouble(price), Integer.parseInt(stok), (Seller)user);
 	        product.add(product1);
 		}
-		else if(categoryObject != null) {
-			    
+		else if(categoryObject != null) {			    
 	        String name = (String) categoryObject.get("name");  
 	        String ID = (String) categoryObject.get("ID");
 	        JSONArray productList2 = (JSONArray) categoryObject.get("productList");
@@ -68,18 +67,15 @@ public class DataHandler {//for create user object from the csv file
 	}
 	
 	
-	private static void parseProductObject(JSONObject category) 
-    {
+	private static void parseProductObject(JSONObject category) {
         JSONObject categoryObject = (JSONObject) category.get("category");
-        if(categoryObject != null) {
-	        
+        if(categoryObject != null) {	        
 	        String name = (String) categoryObject.get("name");
 	        String ID = (String) categoryObject.get("ID");    
 	        JSONArray productList2 = (JSONArray) categoryObject.get("productList");
 	        IProduct category1 = new Category(Integer.parseInt(ID), name);
         	productAndCategories.add(category1);
-	        for (Object c : productList2) {
-	        	
+	        for (Object c : productList2) {	        	
 	        	parseProduct((JSONObject) c, category1);
 	        }
 		// objects
@@ -163,7 +159,11 @@ public class DataHandler {//for create user object from the csv file
 	public ArrayList<User> getUserList(){
 		return userList;
 	}
+	public static ArrayList<IProduct> getProductAndCategoriesAsAObject() {
+		return productAndCategories;
+	}
 }
+
 
 /*
 

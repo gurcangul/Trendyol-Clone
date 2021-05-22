@@ -31,6 +31,23 @@ public class OnlineShoppingApp {
 		System.out.println(products);
 		//System.out.println(products.get(0).getChild().get(0).getChild().get(0).getChild().get(0).getSeller().getEmail());
 		//System.out.println(products.get(0).getChild().get(1));*/
+		System.out.println(products);
+
+		System.out.println(products.size());
+		
+		for(int i=0;i<products.size();i++) {
+			System.out.println(products.get(i).getName());
+		}
+		
+		
+		/*for(Object obj: products) {
+			if(obj.getClass().getName().equalsIgnoreCase("category")) {
+				System.out.println(obj.getClass());
+
+			}
+		}*/
+		
+		//System.out.println(products.getClass().equals("category"));
 
     	OnlineShoppingManager onlineShoppingManager = new OnlineShoppingManager();
     	onlineShoppingManager.start();
