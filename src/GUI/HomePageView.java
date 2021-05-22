@@ -3,38 +3,28 @@ package GUI;
 import java.awt.GridLayout;
 
 import javax.swing.JPanel;
-import javax.swing.JPopupMenu;
 
 import Observer.Observer;
 import Product.IProduct;
 import User.User;
 
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale.Category;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
-import javax.swing.JTextField;
+
 
 import FileIO.DataHandler;
-import javax.swing.JTree;
-import javax.swing.JTable;
-import javax.swing.JList;
+
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
-import javax.swing.JTextArea;
-import javax.swing.Box;
-import javax.swing.JTextPane;
-import java.awt.event.ActionEvent;
+
 
 public class HomePageView extends JPanel implements Observer{
 
@@ -49,16 +39,11 @@ public class HomePageView extends JPanel implements Observer{
 	JButton myProfileButton; JButton seeAllCollectionButton; JButton trendsButton;JButton btn;
 	List<JButton> buttonList;
 	ArrayList<JMenu> menuList = new ArrayList<JMenu>();;
+	ArrayList<JMenuItem> menuItemList = new ArrayList<JMenuItem>();
 	JMenu category2,category1,category3;JMenuItem category2Child1, category1Child1 ;
 	JMenuBar menuBar;JMenuItem category2Child2;
 	JMenuItem helpContents;  JMenu help;  JMenuItem sendFeedback; 
-	private JTextField textField;
-	private JMenuItem category1Child2;
-	private JMenuItem category1Child3;
-	private JMenu mnNewMenu;
-	private JMenu mnNewMenu_1;
-	private JMenuItem mnNewMenu_2;
-	private JMenu mnNewMenu_3;
+	
 	public HomePageView(MainFrameView mainFrameView,MenuView menuView) {
 		this.menuView=menuView;
 		this.setMainFrame(mainFrameView);        
@@ -70,19 +55,18 @@ public class HomePageView extends JPanel implements Observer{
 	public void getCategories(ArrayList<IProduct> product, JMenu category) {
 		for(IProduct prd: product) {
 			if("class Product.Category".equalsIgnoreCase(prd.getClass().toString())) {
-				//System.out.println(prd.getClass().toString());
 				JMenu childCategory = new JMenu(prd.getName());
-				System.out.println(prd.getName());
 				category.add(childCategory);
-				menuList.add(category);
+				menuList.add(childCategory);
 				if(prd.getChild() != null) {
 					getCategories(prd.getChild(), childCategory);
 				}
 			}
-			/*else if("class Product.Product".equalsIgnoreCase(prd.getClass().toString())) {
+			else if("class Product.Product".equalsIgnoreCase(prd.getClass().toString())) {
 				JMenuItem product1 = new JMenuItem(prd.getName());
 				category.add(product1);
-			}*/
+				menuItemList.add(product1);
+			}
 
 		}
 	}
@@ -95,66 +79,20 @@ public class HomePageView extends JPanel implements Observer{
         menuBar.setBounds(0, 31, 694, 22);
         add(menuBar);
         
-      
-
-
-    	System.out.println(products.size());
     	
         for(IProduct prd: products) {
-			System.out.println("olustuuu "+ prd.getName());
    		 	category1 = new JMenu(prd.getName());
             menuBar.add(category1);
             menuList.add(category1);
-            System.out.println(menuList.get(0).getText());
             if(prd.getChild()!= null) {	
             	getCategories(prd.getChild(), category1);
             }
             
 		}
-
-       /* mnNewMenu_1.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		for(JMenu jm : menuList) {
-        			//if()
-        		}
-        	}
-        });*/
-        mnNewMenu_1 = new JMenu("aynur");
-        /*mnNewMenu_1.addMouseListener(new MouseAdapter() {
-        	@Override
-        	public void mouseClicked(MouseEvent e) {
-        	}
-        });*/
-       /* mnNewMenu_1.addMouseListener(new MouseAdapter() {
-        	@Override
-        	public void mouseClicked(MouseEvent e) {
-        		
-        	}
-        });*/
-        menuBar.add(mnNewMenu_1);
-        
-        mnNewMenu_2 = new JMenuItem("New menu Item");
-        mnNewMenu_1.add(mnNewMenu_2);
-        
-        mnNewMenu_3 = new JMenu("New menu");
-       /* mnNewMenu_3.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		JOptionPane.showMessageDialog(null, "Menu Action Listener ");  
-        	}
-        });*/
-        menuBar.add(mnNewMenu_3);
-        
-       /* for(JMenu jm : menuList) {
-        	 System.out.println("Ben çalıştım " + jm.getText());
-             jm.addActionListener(new ActionListener() {
-             	public void actionPerformed(ActionEvent e) {
-             		System.out.println("Ben çalıştım2 " + jm.getText());
-             	}
-             });
-             //menuBar.add(mnNewMenu);
-        }*/
-       
-
+     /*   for(JMenu jm : menuList) {
+        	System.out.println(jm);
+        }
+*/
 	    mainFrameView.addNewPanel(this);
 
         createCollectionButton = new JButton("Create Collection");
@@ -180,12 +118,8 @@ public class HomePageView extends JPanel implements Observer{
         add(viewAllUsersButton);
         
 		this.setMainFrame(mainFrameView);  
-        //getMainFrame().addNewPanel2(this);
         getMainFrame().addNewPanel2(menuView);
         getMainFrame().addMenuPanel3(this);
-       // DataHandler.getProductAndCategories().get(0).getChild();
-        String s="";
-        
 
 	}
 
@@ -197,26 +131,19 @@ public class HomePageView extends JPanel implements Observer{
 	public void setMainFrame(MainFrameView mainFrameView) {
 		this.mainFrameView = mainFrameView;
 	}
-	private static void addPopup(Component component, final JPopupMenu popup) {
-		component.addMouseListener(new MouseAdapter() {
-			public void mousePressed(MouseEvent e) {
-				if (e.isPopupTrigger()) {
-					showMenu(e);
-				}
-			}
-			public void mouseReleased(MouseEvent e) {
-				if (e.isPopupTrigger()) {
-					showMenu(e);
-				}
-			}
-			private void showMenu(MouseEvent e) {
-				popup.show(e.getComponent(), e.getX(), e.getY());
-			}
-		});
+	
+    public ArrayList<JMenuItem> getMenuItemList() {
+		return menuItemList;
 	}
-	/*JButton viewAllUsersButton;
-	JButton createCollectionButton;
-	JButton myProfileButton; JButton seeAllCollectionButton; JButton trendsButton;*/
+
+	public void setMenuItemList(ArrayList<JMenuItem> menuItemList) {
+		this.menuItemList = menuItemList;
+	}
+
+	public void addMouseListener2(ActionListener actionListener){
+    	for(JMenuItem jm : menuItemList)
+    		jm.addActionListener(actionListener);
+    }
 	
     public void addMouseListener(MouseAdapter mouseEvent){
     	for(JMenu jm : menuList)

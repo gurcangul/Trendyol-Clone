@@ -4,15 +4,19 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
+import javax.swing.JMenu;
 import javax.swing.JOptionPane;
 
+import FileIO.DataHandler;
 import GUI.BeforeLoginView;
 import GUI.HomePageView;
 import GUI.LoginView;
 import GUI.MainFrameView;
 import GUI.MenuView;
+import Product.IProduct;
 import User.User;
 
 public class HomePageController {
@@ -27,33 +31,61 @@ public class HomePageController {
         homePageView.addMyProfileButtonActionListener(new myProfileButtonActionListener());
         homePageView.addSeeAllCollectionButtonActionListener(new seeAllCollectionButtonActionListener());
         homePageView.addTrendsButtonActionListener(new addTrendsButtonActionListener());
-        homePageView.addMouseListener(new addMouseListener());
+        homePageView.addMouseListener2(new addMouseListener2());
     }
 
     public HomePageView getHomePageView() {
 		return homePageView;
 	}
+    public void getCategories(ArrayList<IProduct> product, ArrayList<IProduct> allProducts) {
+		for(IProduct prd: product) {
+			if("class Product.Category".equalsIgnoreCase(prd.getClass().toString())) {
+				allProducts.add(prd);
+				if(prd.getChild() != null) {
+					getCategories(prd.getChild(), allProducts);
+				}
+			}
+			else if("class Product.Product".equalsIgnoreCase(prd.getClass().toString())) {
+				allProducts.add(prd);
+			}
+		}
+	}
+    private class addMouseListener2 implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+	    	String splitLine[] = e.getSource().toString().split("=");
+	    	int length = splitLine.length;
+	    	String productName = splitLine[length-1].replace("]", "");
+	    	System.out.println(productName);
+		}
+
+    }
+    /*
     private class addMouseListener extends MouseAdapter {
         @Override
         public void mouseClicked(MouseEvent e) {
-        	//System.out.println("Bu e.getsource " + ((JButton) e.getSource()).getText());
-	    	//Object o = e.getSource();
-	    	//System.out.println(e.getSource().toString());
-	    	String s = e.getSource().toString();
-	    	String splitLine[] = s.split("=");
+	    	String splitLine[] = e.getSource().toString().split("=");
 	    	int length = splitLine.length;
-	    	splitLine[length-1] = splitLine[length-1].replace("]", "");
-	    	System.out.println(splitLine[length-1]);
-	    	
-	
-        	JOptionPane.showMessageDialog(null, "Menu Action Listener ");
-            /*String title = browseWatchlistView.getUserInput("Watch List title:");
-            currentUser.addWatchlist(new Watchlist(new ArrayList<>(),title));*/ 
+	    	String categoryName = splitLine[length-1].replace("]", "");
+	    	//System.out.println(categoryName);
+	    	ArrayList<IProduct> productList = DataHandler.getProductAndCategoriesAsAObject();
+	    	ArrayList<IProduct> allProducts = new ArrayList<IProduct>();
+	    	for(IProduct prd: productList) {
+	    		if(prd.getName().equalsIgnoreCase(categoryName)) {
+	    			if(prd.getChild() != null) {
+	    				getCategories(prd.getChild(), allProducts);
+	    			}
+	    		}
+	    	}
+	    	for(IProduct prd: allProducts) {
+	    		System.out.println(prd.getName());
+	    	}
+        	/*JOptionPane.showMessageDialog(null, "Menu Action Listener ");
         	LoginView loginView =  new LoginView(mainFrameView);
-    		//mainFrameView.addNewPanel(loginView);	
     		LoginController loginController = new LoginController(mainFrameView,loginView);
         }
-    } 
+    } */
     
 	private class viewAllUsersButtonActionListener implements ActionListener {
         @Override
