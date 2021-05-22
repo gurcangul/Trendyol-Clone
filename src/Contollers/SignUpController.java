@@ -53,22 +53,16 @@ public class SignUpController {
     		JOptionPane.showMessageDialog(null, "This email already exist! Please enter new one! ");        		
             this.showSignInPanel();
     	}
+    	else if(userName.equals("") || email.equals("") || userType.equals("") || password.equals("")){
+    		if( userType.equals("")) signUpView.getUserType().setBackground(Color.RED);
+    		if(userName.equals("")) signUpView.getUserName().setBackground(Color.RED);
+    		if(email.equals("")) signUpView.getEmail().setBackground(Color.RED);
+    		if(password.equals("")) signUpView.getPassword().setBackground(Color.RED);
+    		JOptionPane.showMessageDialog(null, "All fields must be filled ");        		
+            this.showSignInPanel();
+    	}
     	else {
     		JOptionPane.showMessageDialog(null, "Sign Up is successfull. ");   
-    		/*if(userType.equalsIgnoreCase("seller")) {
-    			System.out.println("seller ici");
-    			int ID = dataHandler.createRandomID();
-    			User user = new Seller(ID, userType, userName, email, password);
-    			System.out.println(user);
-    			dataHandler.addUser(user);
-    		}
-    		else if(userType.equalsIgnoreCase("buyer")) {
-    			System.out.println("buyer ici");
-    			int ID = dataHandler.createRandomID();
-    			User user = new Buyer(ID, userType, userName, email, password);
-    			System.out.println(user);
-    			dataHandler.addUser(user);
-    		}*/
     		int ID = dataHandler.createRandomID();
     		UserFactory uf = new UserFactory();
     		user = uf.getUser(ID, userType, userName, email, password);
