@@ -84,8 +84,10 @@ public class Writer {
 	}
 	
 	public static void csvUserWriter(List<User> userList) throws IOException{
+		String firstLine = "ID,userType,userName,email,password";
 		String updatedLine = "";
 		ArrayList<String> userFile = new ArrayList<String>();
+		userFile.add(firstLine);
 		for(User user: userList) {
 			updatedLine = user.getUserID() + "," + user.getUserType() + "," + user.getUserName() + "," + user.getEmail() + "," + user.getPassword();
 			userFile.add(updatedLine);

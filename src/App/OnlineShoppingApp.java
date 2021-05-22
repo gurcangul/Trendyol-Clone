@@ -20,7 +20,7 @@ public class OnlineShoppingApp {
 		//DataHandler.getProductAndCategories();
 		ArrayList<IProduct> products = DataHandler.getProductAndCategories();
 		ArrayList<User> userList = DataHandler.parseUsers();
-		IProduct category = new Category(7, "category7");
+		/*IProduct category = new Category(7, "category7");
 		Seller seller = (Seller)userList.get(1);
 		IProduct product = new Product(70, "product1", (double)1000, 14, seller);
 		IProduct product2 = new Product(71, "product2", (double)100, 114, seller);
@@ -30,7 +30,7 @@ public class OnlineShoppingApp {
 		Writer.jsonProductWriter(products);
 		System.out.println(products);
 		//System.out.println(products.get(0).getChild().get(0).getChild().get(0).getChild().get(0).getSeller().getEmail());
-		//System.out.println(products.get(0).getChild().get(1));
+		//System.out.println(products.get(0).getChild().get(1));*/
 
     	OnlineShoppingManager onlineShoppingManager = new OnlineShoppingManager();
     	onlineShoppingManager.start();
