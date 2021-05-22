@@ -27,11 +27,11 @@
                          ]
                     }}]
                }},
-               {
+               {"category": {
                     "name": "Telephone",
                     "ID": "101",
                     "productList": []
-               }
+               }}
           ]
      }},
      {"category": {

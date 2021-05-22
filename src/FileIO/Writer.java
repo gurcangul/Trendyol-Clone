@@ -52,8 +52,10 @@ public class Writer {
 				categoryObject.put("ID", String.valueOf(product.getID()));
 				categoryObject.put("name", product.getName());
 				if(product.getChild().isEmpty()) {
+					JSONObject category = new JSONObject();
 					categoryObject.put("productList", product.getChild());
-					categoryList.put(categoryObject);
+					category.put("category", categoryObject);
+					categoryList.put(category);
 
 				}
 				else {
