@@ -4,8 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-
-
+import java.util.Random;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -122,12 +121,48 @@ public class DataHandler {//for create user object from the csv file
 	}
 	
 	public User checkUserIsExist(String username, String password){
-		for(User user : userList)
+		for(User user : getUserList())
 			System.out.println(user);
-	    return UserFinderHelper.checkUserIsExist(username,password,userList);
+	    return UserFinderHelper.checkUserIsExist(username,password,getUserList());
 	}
 	
-
+	public boolean checkUserNameIsExist(String userName) {
+		for(User user : getUserList()) {
+			if(userName.equals(user.getUserName()))
+				return true;
+		}
+		return false;
+	}
+	public boolean checkEmailIsExist(String email) {
+		for(User user : getUserList()) {
+			if(email.equals(user.getEmail()))
+				return true;
+		}
+		return false;
+	}
+	
+	public int createRandomID() {
+		Random rnd = new Random();
+		int randomID = rnd.nextInt(10000) + 1;
+		for(User user : getUserList()) {
+			while(true) {
+				if(user.getUserID() == randomID) {
+					randomID = rnd.nextInt(10000) + 1;
+				}
+				else
+					break;
+			}
+		}
+		return randomID;
+	}
+	
+	public void addUser(User user){
+		userList.add(user);
+	}
+	
+	public ArrayList<User> getUserList(){
+		return userList;
+	}
 }
 
 /*

@@ -78,5 +78,165 @@
                     "stok": "114"
                }}
           ]
+     }},
+     {"category": {
+          "name": "category7",
+          "ID": "7",
+          "productList": [
+               {"product": {
+                    "seller": "uykuperest",
+                    "price": "1000.0",
+                    "name": "product1",
+                    "ID": "70",
+                    "stok": "14"
+               }},
+               {"product": {
+                    "seller": "uykuperest",
+                    "price": "100.0",
+                    "name": "product2",
+                    "ID": "71",
+                    "stok": "114"
+               }}
+          ]
+     }},
+     {"category": {
+          "name": "category7",
+          "ID": "7",
+          "productList": [
+               {"product": {
+                    "seller": "uykuperest",
+                    "price": "1000.0",
+                    "name": "product1",
+                    "ID": "70",
+                    "stok": "14"
+               }},
+               {"product": {
+                    "seller": "uykuperest",
+                    "price": "100.0",
+                    "name": "product2",
+                    "ID": "71",
+                    "stok": "114"
+               }}
+          ]
+     }},
+     {"category": {
+          "name": "category7",
+          "ID": "7",
+          "productList": [
+               {"product": {
+                    "seller": "uykuperest",
+                    "price": "1000.0",
+                    "name": "product1",
+                    "ID": "70",
+                    "stok": "14"
+               }},
+               {"product": {
+                    "seller": "uykuperest",
+                    "price": "100.0",
+                    "name": "product2",
+                    "ID": "71",
+                    "stok": "114"
+               }}
+          ]
+     }},
+     {"category": {
+          "name": "category7",
+          "ID": "7",
+          "productList": [
+               {"product": {
+                    "seller": "uykuperest",
+                    "price": "1000.0",
+                    "name": "product1",
+                    "ID": "70",
+                    "stok": "14"
+               }},
+               {"product": {
+                    "seller": "uykuperest",
+                    "price": "100.0",
+                    "name": "product2",
+                    "ID": "71",
+                    "stok": "114"
+               }}
+          ]
+     }},
+     {"category": {
+          "name": "category7",
+          "ID": "7",
+          "productList": [
+               {"product": {
+                    "seller": "uykuperest",
+                    "price": "1000.0",
+                    "name": "product1",
+                    "ID": "70",
+                    "stok": "14"
+               }},
+               {"product": {
+                    "seller": "uykuperest",
+                    "price": "100.0",
+                    "name": "product2",
+                    "ID": "71",
+                    "stok": "114"
+               }}
+          ]
+     }},
+     {"category": {
+          "name": "category7",
+          "ID": "7",
+          "productList": [
+               {"product": {
+                    "seller": "uykuperest",
+                    "price": "1000.0",
+                    "name": "product1",
+                    "ID": "70",
+                    "stok": "14"
+               }},
+               {"product": {
+                    "seller": "uykuperest",
+                    "price": "100.0",
+                    "name": "product2",
+                    "ID": "71",
+                    "stok": "114"
+               }}
+          ]
+     }},
+     {"category": {
+          "name": "category7",
+          "ID": "7",
+          "productList": [
+               {"product": {
+                    "seller": "uykuperest",
+                    "price": "1000.0",
+                    "name": "product1",
+                    "ID": "70",
+                    "stok": "14"
+               }},
+               {"product": {
+                    "seller": "uykuperest",
+                    "price": "100.0",
+                    "name": "product2",
+                    "ID": "71",
+                    "stok": "114"
+               }}
+          ]
+     }},
+     {"category": {
+          "name": "category7",
+          "ID": "7",
+          "productList": [
+               {"product": {
+                    "seller": "uykuperest",
+                    "price": "1000.0",
+                    "name": "product1",
+                    "ID": "70",
+                    "stok": "14"
+               }},
+               {"product": {
+                    "seller": "uykuperest",
+                    "price": "100.0",
+                    "name": "product2",
+                    "ID": "71",
+                    "stok": "114"
+               }}
+          ]
      }}
 ]

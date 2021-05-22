@@ -9,12 +9,13 @@ import javax.swing.JOptionPane;
 import GUI.BeforeLoginView;
 import GUI.LoginView;
 import GUI.MainFrameView;
+import GUI.SignUpView;
 import GUI.WelcomeView;
 
 public class BeforeLoginController {
     private final BeforeLoginView beforeLoginView;
     private final  MainFrameView mainFrameView;
-
+    
     public BeforeLoginController(MainFrameView mainFrameView, BeforeLoginView beforeLoginView){
 		this.mainFrameView=mainFrameView;
     	this.beforeLoginView = beforeLoginView;
@@ -50,7 +51,10 @@ public class BeforeLoginController {
         public void actionPerformed(ActionEvent e) {
             /*String title = browseWatchlistView.getUserInput("Watch List title:");
             currentUser.addWatchlist(new Watchlist(new ArrayList<>(),title));*/ 
-    		JOptionPane.showMessageDialog(null, "This is not avaible for now! ");
+    		//JOptionPane.showMessageDialog(null, "This is not avaible for now! ");
+        	SignUpView signUpView = new SignUpView(mainFrameView);
+        	
+        	SignUpController signUpController = new SignUpController(mainFrameView, signUpView);
 
         }
     }
