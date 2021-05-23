@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import FileIO.DataHandler;
-import GUI.HomePageView;
+import GUI.BuyerHomePageView;
 import GUI.MainFrameView;
 import GUI.MenuView;
 import Product.IProduct;
@@ -38,9 +38,9 @@ public class ContentController {
     private class HomeButtonActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-        	HomePageView homePageView = new HomePageView(mainFrameView,menuView);
+        	BuyerHomePageView homePageView = new BuyerHomePageView(mainFrameView,menuView);
     		//mainFrameView.addMenuPanel(homePageView);
-    		HomePageController homePageController = new HomePageController(mainFrameView,homePageView);
+    		BuyerHomePageController homePageController = new BuyerHomePageController(mainFrameView,homePageView);
 
         }
     } 
