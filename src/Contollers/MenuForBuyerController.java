@@ -100,15 +100,12 @@ public class MenuForBuyerController {
     private class SendFeedbackButtonActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-    		FeedbackView feedbackView = new FeedbackView(mainFrameView);
-    		//mainFrameView.addMenuPanel(feedbackView);
+    		FeedbackView feedbackView = new FeedbackView(mainFrameView,menuView);
     		FeedbackController feedbackController = new FeedbackController(mainFrameView,feedbackView);
 
         }
     }
-/*    	public void actionPerformed(ActionEvent e) {
-    		HomePageView homePageView = new HomePageView(mainFrameView);
-    		mainFrameView.addMenuPanel(homePageView);*/
+
     private class LogOutButtonActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {

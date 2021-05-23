@@ -74,25 +74,14 @@ public class SignUpView extends JPanel implements Observer {
 
         
         back = new JButton("BACK");//this is go back button
-        back.setIcon(new ImageIcon("\src\\back.png"));
-       /* back.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		beforeLoginView =  new BeforeLoginView(mainFrameView);
-        		mainFrameView.addNewPanel(beforeLoginView);
-        		
-        	}
-        });*/
+        back.setIcon(new ImageIcon(SignUpView.class.getResource("/back.png")));
+
         back.setFont(new Font("Tahoma", Font.PLAIN, 14));
         back.setBounds(561, 10, 113, 35);
         add(back);
         
         signIn = new JButton("Sign In");
-        /*Login.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		menuPanel =  new MenuPanel(mainFrame);
-        		mainFrame.addNewPanel(menuPanel);
-        	}
-        });*/
+
         signIn.setBounds(222, 230, 107, 35);
         add(signIn);           
         mainFrameView.addNewPanel(this);

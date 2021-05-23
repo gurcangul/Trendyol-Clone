@@ -42,43 +42,19 @@ public class BeforeLoginView extends JPanel    {
         setLayout(null);
         
         loginButton = new JButton("Log In");
-      /*  loginButton.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {//it goes to login page
-        		//do
-        		loginView =  new LoginView(mainFrameView);
-        		mainFrameView.addNewPanel(loginView);
-        		//UserModel userModel = new UserModel();
-               // LoginController loginController = new LoginController(loginView, beforeLoginView, userModel,mainFrameView);//panel checker
-                //loginController.showLoginPanel();
-
-        	}
-        });*/
         loginButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        loginButton.setIcon(new ImageIcon(BeforeLoginView.class.getResource("/login.png")));
         loginButton.setBounds(286, 115, 154, 35);
         add(loginButton);
         
         signInButton = new JButton("Sign In");
-        /*signInButton.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		JOptionPane.showMessageDialog(null, "This is not avaible for now! ");
-
-        		
-        	}
-        });*/
+        signInButton.setIcon(new ImageIcon(BeforeLoginView.class.getResource("/signin.png")));
         signInButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
         signInButton.setBounds(286, 176, 154, 35);
         add(signInButton);
         
         back = new JButton("back");
-        back.setIcon(new ImageIcon("C:\\Users\\Gurcan\\eclipse-workspace\\G12_CENG431_HW3-v1\\src\\back.png"));
-        /*btnNewButton_2_1.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		/*
-        		welcomeView =  new WelcomeView(mainFrameView);
-        		mainFrameView.addNewPanel(welcomeView);
-        		
-        	}
-        });*/
+        back.setIcon(new ImageIcon(BeforeLoginView.class.getResource("/back.png")));
         back.setFont(new Font("Tahoma", Font.PLAIN, 14));
         back.setBounds(286, 235, 154, 35);
         add(back);

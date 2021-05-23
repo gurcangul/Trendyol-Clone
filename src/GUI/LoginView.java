@@ -24,28 +24,20 @@ public class LoginView extends JPanel implements Observer{
 	private JPasswordField password;
 	private MenuViewForBuyer menuView;
 	JButton login, back;
-	/**
-	 * Create the panel.
-	 */
-	
+
 	
 	public LoginView(MainFrameView mainFrameView) {
 		this.setMainFrame(mainFrameView);        
         new JPanel(new GridLayout(3, 1));
         setLayout(null);
-
         showPanel();
-	}
-	
-    public void showPanel(){
-    
+	}	
+    public void showPanel(){  
     	userName = new JTextField();
         userName.setBounds(222, 182, 96, 19);
         add(userName);
         userName.setColumns(10);
-        
-
-        
+                
         JLabel userName = new JLabel("User Name:");
         userName.setFont(new Font("Tahoma", Font.PLAIN, 12));
         userName.setBounds(149, 184, 63, 13);
@@ -61,26 +53,14 @@ public class LoginView extends JPanel implements Observer{
         add(password);
 
         
-        back = new JButton("BACK");//this is go back button
-        back.setIcon(new ImageIcon("\src\\back.png"));
-       /* back.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		beforeLoginView =  new BeforeLoginView(mainFrameView);
-        		mainFrameView.addNewPanel(beforeLoginView);
-        		
-        	}
-        });*/
+        back = new JButton("BACK");
+        back.setIcon(new ImageIcon(BeforeLoginView.class.getResource("/back.png")));
+
         back.setFont(new Font("Tahoma", Font.PLAIN, 14));
         back.setBounds(273, 301, 154, 35);
         add(back);
         
         login = new JButton("Login");
-        /*Login.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		menuPanel =  new MenuPanel(mainFrame);
-        		mainFrame.addNewPanel(menuPanel);
-        	}
-        });*/
         login.setBounds(295, 233, 85, 21);
         add(login);           
         mainFrameView.addNewPanel(this);
@@ -105,11 +85,6 @@ public class LoginView extends JPanel implements Observer{
 	public void setBeforeLoginPanel(BeforeLoginView beforeLoginView) {
 		this.beforeLoginView = beforeLoginView;
 	}
-	
-	
-	/*public void passwordCheck(){
-		JLabel lblNewLabel2 = new JLabel("Wrong! Please try again!");
-    }*/
 	
 	public void allActionPerformed(ActionListener actionListener, JButton button ){
         if(button.getText().equals("login"))

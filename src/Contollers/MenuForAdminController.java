@@ -101,7 +101,7 @@ public class MenuForAdminController {
     private class SendFeedbackButtonActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-    		FeedbackView feedbackView = new FeedbackView(mainFrameView);
+    		FeedbackView feedbackView = new FeedbackView(mainFrameView,menuView);
     		//mainFrameView.addMenuPanel(feedbackView);
     		FeedbackController feedbackController = new FeedbackController(mainFrameView,feedbackView);
 

@@ -37,28 +37,33 @@ public class WelcomeView extends JPanel implements Observer {
         enterButton = new JButton("ENTER");
         enterButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
 
-        enterButton.setBounds(293, 263, 110, 21);
+        enterButton.setBounds(294, 301, 110, 21);
         add(enterButton);
         
         logo = new JLabel("");
         logo.setHorizontalAlignment(SwingConstants.CENTER);
         
-        logo.setIcon(new ImageIcon("C:\\Users\\Gurcan\\eclipse-workspace\\G12_CENG431_HW3-v1\\src\\logo.png"));
-        logo.setBounds(292, 143, 110, 113);
+        logo.setIcon(new ImageIcon(WelcomeView.class.getResource("/gaga.png")));
+        logo.setBounds(263, 112, 176, 167);
         add(logo);
         
-        JLabel lblNewLabel_1 = new JLabel("Welcome to the Outfit Rating Platform");
-        lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 15));
-        lblNewLabel_1.setBounds(212, 84, 303, 36);
-        add(lblNewLabel_1);
+        JLabel welcomeLabel1 = new JLabel("Welcome to the GAGA!");
+        welcomeLabel1.setFont(new Font("Tahoma", Font.BOLD, 15));
+        welcomeLabel1.setBounds(256, 66, 193, 36);
+        add(welcomeLabel1);
+        
+        JLabel welcomeLabel2 = new JLabel("GAGA is the best Online Shopping application in Turkey!");
+        welcomeLabel2.setFont(new Font("Tahoma", Font.ITALIC, 11));
+        welcomeLabel2.setBounds(223, 361, 314, 21);
+        add(welcomeLabel2);
         
         aboutButton = new JButton("About");
         aboutButton.setFont(new Font("Tahoma", Font.PLAIN, 8));
-        /*btnNewButton_1.addActionListener(new ActionListener() {
+        aboutButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		JOptionPane.showMessageDialog(null, "Copyright© 2021 All rights reserved. ");        		
         	}
-        });*/
+        });
         aboutButton.setForeground(Color.BLACK);
         aboutButton.setBackground(Color.LIGHT_GRAY);
         aboutButton.setBounds(317, 392, 59, 21);
