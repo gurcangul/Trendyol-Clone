@@ -15,7 +15,7 @@ import GUI.BeforeLoginView;
 import GUI.BuyerHomePageView;
 import GUI.LoginView;
 import GUI.MainFrameView;
-import GUI.MenuView;
+import GUI.MenuViewForBuyer;
 import Product.IProduct;
 import User.User;
 

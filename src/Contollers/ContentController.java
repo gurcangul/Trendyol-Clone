@@ -7,15 +7,15 @@ import java.util.ArrayList;
 import FileIO.DataHandler;
 import GUI.BuyerHomePageView;
 import GUI.MainFrameView;
-import GUI.MenuView;
+import GUI.MenuViewForBuyer;
 import Product.IProduct;
 import User.User;
 
 public class ContentController {
-    private MenuView menuView;
+    private MenuViewForBuyer menuView;
     private MainFrameView mainFrameView;
     private User user;
-    public ContentController(MainFrameView mainFrameView,MenuView menuView, User user) {
+    public ContentController(MainFrameView mainFrameView,MenuViewForBuyer menuView, User user) {
     	this.mainFrameView=mainFrameView;
         this.menuView = menuView;
         this.user = user;

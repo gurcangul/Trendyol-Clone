@@ -17,8 +17,8 @@ public class ContentView extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	private MainFrameView mainFrameView;
-	private MenuView menuView;
-	public ContentView(MainFrameView mainFrameView, MenuView menuView) {
+	private MenuViewForBuyer menuView;
+	public ContentView(MainFrameView mainFrameView, MenuViewForBuyer menuView) {
 		this.setMenuView(menuView);
 		this.setMainFrame(mainFrameView);        
 		showPanel();
@@ -53,10 +53,10 @@ public class ContentView extends JPanel {
 	public void setMainFrame(MainFrameView mainFrameView) {
 		this.mainFrameView = mainFrameView;
 	}
-	public MenuView getMenuView() {
+	public MenuViewForBuyer getMenuView() {
 		return menuView;
 	}
-	public void setMenuView(MenuView menuView) {
+	public void setMenuView(MenuViewForBuyer menuView) {
 		this.menuView = menuView;
 	}
 }

@@ -3,10 +3,11 @@ package GUI;
 import javax.swing.*;
 
 import Contollers.LoginController;
-import Observer.Observer;
 
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.util.Observable;
+import java.util.Observer;
 import java.awt.event.ActionEvent;
 
 public class WelcomeView extends JPanel implements Observer {
@@ -78,14 +79,14 @@ public class WelcomeView extends JPanel implements Observer {
 		this.mainFrameView = mainFrameView;
 	}
 
-	@Override
-	public void update(Object arg) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	public void addEnterButton(ActionListener actionListener) {
         enterButton.addActionListener(actionListener);
+		
+	}
+	@Override
+	public void update(Observable o, Object arg) {
+		// TODO Auto-generated method stub
 		
 	}
 }

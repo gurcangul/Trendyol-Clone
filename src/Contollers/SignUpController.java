@@ -11,7 +11,7 @@ import FileIO.DataHandler;
 import FileIO.Writer;
 import GUI.BeforeLoginView;
 import GUI.MainFrameView;
-import GUI.MenuView;
+import GUI.MenuViewForBuyer;
 import GUI.SignUpView;
 import User.User;
 import User.UserFactory;
@@ -19,7 +19,7 @@ import User.UserFactory;
 public class SignUpController {
 
     private BeforeLoginView beforeLoginView;
-    private MenuView menuView;
+    private MenuViewForBuyer menuView;
     private MainFrameView mainFrameView;
     private User user;
     private SignUpView signUpView;
@@ -107,9 +107,9 @@ public class SignUpController {
     class LoggedInOkButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-        	menuView =  new MenuView(mainFrameView,user);
+        	menuView =  new MenuViewForBuyer(mainFrameView,user);
     		//mainFrameView.addNewPanel(menuView);
-            MenuController menuController = new MenuController(mainFrameView,menuView, user);
+            MenuForBuyerController menuController = new MenuForBuyerController(mainFrameView,menuView, user);
 
     		
         }

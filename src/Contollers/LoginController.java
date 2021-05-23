@@ -12,7 +12,8 @@ import FileIO.DataHandler;
 import GUI.BeforeLoginView;
 import GUI.LoginView;
 import GUI.MainFrameView;
-import GUI.MenuView;
+import GUI.MenuViewForBuyer;
+import GUI.MenuViewForSeller;
 import User.Admin;
 import User.Buyer;
 import User.User;
@@ -21,7 +22,7 @@ import User.User;
 public class LoginController {
     private LoginView loginView;
     private BeforeLoginView beforeLoginView;
-    private MenuView menuView;
+    private MenuViewForSeller menuView;
     private MainFrameView mainFrameView;
     private User user;
 
@@ -37,14 +38,14 @@ public class LoginController {
         DataHandler dataHandler = new DataHandler();
     	user =  dataHandler.checkUserIsExist(userName, password);
         if (user != null) {
-            this.menuView=new MenuView(mainFrameView,user);
+            this.menuView=new MenuViewForSeller(mainFrameView,user);
             System.out.println("giriş yapıldı...."+userName+ password);
             //this.menuPanel.addOkButtonListener(new LoggedInOkButtonListener());
            // MenuController menuController = new MenuController(menuView, user);
           
-            menuView =  new MenuView(mainFrameView,user);
+            menuView =  new MenuViewForSeller(mainFrameView,user);
     		//mainFrameView.addNewPanel(menuView);
-            MenuController menuController = new MenuController(mainFrameView,menuView, user);
+            MenuForSellerController menuController = new MenuForSellerController(mainFrameView,menuView, user);
 
             //this.menuPanel.addCancelButtonListener(new LoggedInCancelButtonListener());
     		menuView.setUserName(user.getUserName());
@@ -90,9 +91,9 @@ public class LoginController {
     class LoggedInOkButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-        	menuView =  new MenuView(mainFrameView,user);
+        	menuView =  new MenuViewForSeller(mainFrameView,user);
     		//mainFrameView.addNewPanel(menuView);
-            MenuController menuController = new MenuController(mainFrameView,menuView, user);
+            MenuForSellerController menuController = new MenuForSellerController(mainFrameView,menuView, user);
 
     		
         }
