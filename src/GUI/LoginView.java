@@ -3,14 +3,14 @@ package GUI;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Observable;
+import java.util.Observer;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
-import Observer.Observer;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -22,7 +22,7 @@ public class LoginView extends JPanel implements Observer{
 	private static final long serialVersionUID = 1L;
 	private JTextField userName;
 	private JPasswordField password;
-	private MenuView menuView;
+	private MenuViewForBuyer menuView;
 	JButton login, back;
 	/**
 	 * Create the panel.
@@ -133,8 +133,9 @@ public class LoginView extends JPanel implements Observer{
         return password;
     }
 
+
 	@Override
-	public void update(Object arg) {//for update the panel 
+	public void update(Observable o, Object arg) {
 		// TODO Auto-generated method stub
 		
 	}

@@ -4,7 +4,6 @@ import java.awt.GridLayout;
 
 import javax.swing.JPanel;
 
-import Observer.Observer;
 import Product.IProduct;
 import User.User;
 
@@ -13,6 +12,8 @@ import java.awt.event.MouseAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -30,7 +31,7 @@ public class BuyerHomePageView extends JPanel implements Observer{
 
 	private static final long serialVersionUID = -5277901207402632648L;
 	private MainFrameView mainFrameView;
-	private MenuView menuView;
+	private MenuViewForBuyer menuView;
 	private BuyerHomePageView homePageView;
 	private User user;
 
@@ -44,7 +45,7 @@ public class BuyerHomePageView extends JPanel implements Observer{
 	JMenuBar menuBar;JMenuItem category2Child2;
 	JMenuItem helpContents;  JMenu help;  JMenuItem sendFeedback; 
 	
-	public BuyerHomePageView(MainFrameView mainFrameView,MenuView menuView) {
+	public BuyerHomePageView(MainFrameView mainFrameView,MenuViewForBuyer menuView) {
 		this.menuView=menuView;
 		this.setMainFrame(mainFrameView);        
 		new JPanel(new GridLayout(3, 1));
@@ -166,8 +167,10 @@ public class BuyerHomePageView extends JPanel implements Observer{
     public void addTrendsButtonActionListener(ActionListener actionListener){
     	trendsButton.addActionListener(actionListener);
     }
+
+
 	@Override
-	public void update(Object arg) {
+	public void update(Observable o, Object arg) {
 		// TODO Auto-generated method stub
 		
 	}

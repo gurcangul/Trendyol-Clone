@@ -11,17 +11,17 @@ import GUI.FeedbackView;
 import GUI.BuyerHomePageView;
 import GUI.LoginView;
 import GUI.MainFrameView;
-import GUI.MenuView;
+import GUI.MenuViewForBuyer;
 import User.User;
 
 
-public class MenuController {
+public class MenuForBuyerController {
     private  LoginView loginView;
     private BeforeLoginView beforeLoginView;
-    private MenuView menuView;
+    private MenuViewForBuyer menuView;
     private MainFrameView mainFrameView;
     private User user;
-    public MenuController(MainFrameView mainFrameView,MenuView menuView, User user) {
+    public MenuForBuyerController(MainFrameView mainFrameView,MenuViewForBuyer menuView, User user) {
     	this.mainFrameView=mainFrameView;
         this.menuView = menuView;
         this.user = user;

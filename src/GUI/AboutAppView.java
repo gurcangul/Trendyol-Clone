@@ -3,8 +3,6 @@ package GUI;
 import javax.swing.JPanel;
 import javax.swing.JToolBar;
 
-import Observer.Observer;
-
 import javax.swing.JButton;
 import javax.swing.JLayeredPane;
 
@@ -14,6 +12,8 @@ import java.awt.GridLayout;
 
 import java.awt.BorderLayout;
 import java.awt.Label;
+import java.util.Observable;
+import java.util.Observer;
 
 public class AboutAppView extends JPanel implements Observer {
 	private static final long serialVersionUID = 3847238445785672779L;
@@ -37,8 +37,10 @@ public class AboutAppView extends JPanel implements Observer {
 	public void setMainFrame(MainFrameView mainFrameView) {
 		this.mainFrameView = mainFrameView;
 	}
+
 	@Override
-	public void update(Object arg) {
+	public void update(Observable o, Object arg) {
+		// TODO Auto-generated method stub
 		
 	}
 

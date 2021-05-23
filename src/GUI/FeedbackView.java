@@ -2,14 +2,14 @@ package GUI;
 
 import javax.swing.*;
 
-import Observer.Observer;
-
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Observable;
+import java.util.Observer;
 import java.awt.event.ActionEvent;
 
 public class FeedbackView extends JPanel implements Observer{
@@ -120,8 +120,9 @@ public class FeedbackView extends JPanel implements Observer{
         }
 	}
 
+
 	@Override
-	public void update(Object arg) {
+	public void update(Observable o, Object arg) {
 		// TODO Auto-generated method stub
 		
 	}

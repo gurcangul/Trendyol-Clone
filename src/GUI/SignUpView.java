@@ -3,6 +3,8 @@ package GUI;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
+import java.util.Observable;
+import java.util.Observer;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -11,7 +13,6 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import Observer.Observer;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 
@@ -25,7 +26,7 @@ public class SignUpView extends JPanel implements Observer {
 	private JTextField email;
 	private JComboBox comboBox;
 	private JPasswordField password;
-	private MenuView menuView;
+	private MenuViewForBuyer menuView;
 	JButton signIn, back;
 	
 	
@@ -122,13 +123,7 @@ public class SignUpView extends JPanel implements Observer {
 	public void setBeforeLoginPanel(BeforeLoginView beforeLoginView) {
 		this.beforeLoginView = beforeLoginView;
 	}
-	
 
-	@Override
-	public void update(Object arg) {
-		// TODO Auto-generated method stub
-		
-	}
 	
 	public void allActionPerformed(ActionListener actionListener, JButton button ){
         if(button.getText().equals("signIn"))
@@ -158,6 +153,12 @@ public class SignUpView extends JPanel implements Observer {
     public JPasswordField getPassword() {
         return password;
     }
+
+	@Override
+	public void update(Observable o, Object arg) {
+		// TODO Auto-generated method stub
+		
+	}
     
     
 }
