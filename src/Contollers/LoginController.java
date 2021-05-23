@@ -47,7 +47,6 @@ public class LoginController {
         	if(user.getUserType().equalsIgnoreCase("Seller")) {
         		this.menuViewForSeller=new MenuViewForSeller(mainFrameView,user);          
             	MenuForSellerController menuController = new MenuForSellerController(mainFrameView,menuViewForSeller, user);
-            	//MainFrameView mainFrameView,MenuViewForSeller menuView, User user
             	menuViewForSeller.setUserName(user.getUserName());
         		System.out.println("helloo"+user.getUserName());
         	}
@@ -95,7 +94,6 @@ public class LoginController {
         @Override
         public void actionPerformed(ActionEvent e) {
             	beforeLoginView =  new BeforeLoginView(mainFrameView);
-            	//mainFrameView.addNewPanel(beforeLoginView);
             	BeforeLoginController beforeLoginController = new BeforeLoginController(mainFrameView,beforeLoginView);
 
         }
@@ -103,9 +101,18 @@ public class LoginController {
     class LoggedInOkButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-        	menuView =  new MenuViewForSeller(mainFrameView,user);
-    		//mainFrameView.addNewPanel(menuView);
-            MenuForSellerController menuController = new MenuForSellerController(mainFrameView,menuView, user);
+        	if(user.getUserType().equalsIgnoreCase("Seller")) {
+        		menuViewForSeller=new MenuViewForSeller(mainFrameView,user);          
+            	MenuForSellerController menuController = new MenuForSellerController(mainFrameView,menuViewForSeller, user);
+        	}
+        	else if(user.getUserType().equalsIgnoreCase("Buyer")) {
+        		menuViewForBuyer=new MenuViewForBuyer(mainFrameView,user);          
+            	MenuForBuyerController menuController = new MenuForBuyerController(mainFrameView,menuViewForBuyer, user);
+        	}
+        	else if(user.getUserType().equalsIgnoreCase("Admin")) {
+        		menuViewForAdmin=new MenuViewForAdmin(mainFrameView,user);          
+            	MenuForAdminController menuController = new MenuForAdminController(mainFrameView,menuViewForAdmin, user);
+        	}
 
     		
         }
