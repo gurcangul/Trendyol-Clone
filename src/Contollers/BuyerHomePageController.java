@@ -12,18 +12,18 @@ import javax.swing.JOptionPane;
 
 import FileIO.DataHandler;
 import GUI.BeforeLoginView;
-import GUI.HomePageView;
+import GUI.BuyerHomePageView;
 import GUI.LoginView;
 import GUI.MainFrameView;
 import GUI.MenuView;
 import Product.IProduct;
 import User.User;
 
-public class HomePageController {
+public class BuyerHomePageController {
 	private final  MainFrameView mainFrameView;
-	private final  HomePageView homePageView;
+	private final  BuyerHomePageView homePageView;
 	
-    public HomePageController(MainFrameView mainFrameView, HomePageView homePageView ) {
+    public BuyerHomePageController(MainFrameView mainFrameView, BuyerHomePageView homePageView ) {
     	this.mainFrameView=mainFrameView;
         this.homePageView = homePageView;
         homePageView.addViewAllUsersButtonActionListener(new viewAllUsersButtonActionListener());
@@ -34,7 +34,7 @@ public class HomePageController {
         homePageView.addMouseListener2(new addMouseListener2());
     }
 
-    public HomePageView getHomePageView() {
+    public BuyerHomePageView getHomePageView() {
 		return homePageView;
 	}
     public void getCategories(ArrayList<IProduct> product, ArrayList<IProduct> allProducts) {

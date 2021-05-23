@@ -1,6 +1,6 @@
 package Contollers;
 
-import GUI.HomePageView;
+import GUI.BuyerHomePageView;
 import GUI.MainFrameView;
 import GUI.MyProfileView;
 

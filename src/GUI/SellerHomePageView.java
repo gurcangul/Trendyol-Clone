@@ -1,39 +1,35 @@
 package GUI;
 
-import java.awt.GridLayout;
 
+import java.awt.Color;
+import java.awt.GridLayout;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
+import FileIO.DataHandler;
 import Observer.Observer;
 import Product.IProduct;
 import User.User;
 
-import java.awt.Color;
-import java.awt.event.MouseAdapter;
+public class SellerHomePageView extends JPanel implements Observer {
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import javax.swing.ImageIcon;
-
-
-import FileIO.DataHandler;
-
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-
-
-public class HomePageView extends JPanel implements Observer{
-
+	/**
+	 * Create the panel.
+	 */
+	
 	private static final long serialVersionUID = -5277901207402632648L;
 	private MainFrameView mainFrameView;
-	private MenuView menuView;
-	private HomePageView homePageView;
+	private MenuViewForSeller menuView;
+	private SellerHomePageView homePageView;
 	private User user;
-
+	
 	JButton viewAllUsersButton;
 	JButton createCollectionButton;
 	JButton myProfileButton; JButton seeAllCollectionButton; JButton trendsButton;JButton btn;
@@ -44,14 +40,14 @@ public class HomePageView extends JPanel implements Observer{
 	JMenuBar menuBar;JMenuItem category2Child2;
 	JMenuItem helpContents;  JMenu help;  JMenuItem sendFeedback; 
 	
-	public HomePageView(MainFrameView mainFrameView,MenuView menuView) {
+	public SellerHomePageView(MainFrameView mainFrameView,MenuViewForSeller menuView) {
 		this.menuView=menuView;
 		this.setMainFrame(mainFrameView);        
 		new JPanel(new GridLayout(3, 1));
         setLayout(null);
-        showPanel();		
+        showPanel();
 	}
-
+	
 	public void getCategories(ArrayList<IProduct> product, JMenu category) {
 		for(IProduct prd: product) {
 			if("class Product.Category".equalsIgnoreCase(prd.getClass().toString())) {
@@ -122,53 +118,31 @@ public class HomePageView extends JPanel implements Observer{
         getMainFrame().addMenuPanel3(this);
 
 	}
-
-	public MainFrameView getMainFrame() {
-		return mainFrameView;
-	}
-
-
-	public void setMainFrame(MainFrameView mainFrameView) {
-		this.mainFrameView = mainFrameView;
-	}
-	
-    public ArrayList<JMenuItem> getMenuItemList() {
-		return menuItemList;
-	}
-
-	public void setMenuItemList(ArrayList<JMenuItem> menuItemList) {
-		this.menuItemList = menuItemList;
-	}
-
-	public void addMouseListener2(ActionListener actionListener){
-    	for(JMenuItem jm : menuItemList)
-    		jm.addActionListener(actionListener);
-    }
-	
-    public void addMouseListener(MouseAdapter mouseEvent){
-    	for(JMenu jm : menuList)
-    		jm.addMouseListener(mouseEvent);
-    }
 	
 	
-    public void addViewAllUsersButtonActionListener(ActionListener actionListener){
-    	viewAllUsersButton.addActionListener(actionListener);
-    }
-    public void addCreateCollectionButtonActionListener(ActionListener actionListener){
-    	createCollectionButton.addActionListener(actionListener);
-    }
-    public void addMyProfileButtonActionListener(ActionListener actionListener){
-    	myProfileButton.addActionListener(actionListener);
-    }
-    public void addSeeAllCollectionButtonActionListener(ActionListener actionListener){
-    	seeAllCollectionButton.addActionListener(actionListener);
-    }
-    public void addTrendsButtonActionListener(ActionListener actionListener){
-    	trendsButton.addActionListener(actionListener);
-    }
 	@Override
 	public void update(Object arg) {
 		// TODO Auto-generated method stub
 		
 	}
+
+	public MenuViewForSeller getMenuView() {
+		return menuView;
+	}
+
+	public void setMenuView(MenuViewForSeller menuView) {
+		this.menuView = menuView;
+	}
+
+	public MainFrameView getMainFrame() {
+		return mainFrameView;
+	}
+
+	public void setMainFrame(MainFrameView mainFrameView) {
+		this.mainFrameView = mainFrameView;
+	}
+	
+	
+	
+	
 }
