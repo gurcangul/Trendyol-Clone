@@ -17,6 +17,7 @@ import javax.swing.JButton;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import FileIO.DataHandler;
@@ -29,8 +30,12 @@ import javax.swing.JFrame;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
+
+
 import javax.swing.JList;
 import javax.swing.AbstractListModel;
+import java.awt.event.ActionEvent;
+import java.awt.event.MouseEvent;
 
 public class SellerHomePageView extends JPanel implements Observer {
 
@@ -57,6 +62,8 @@ public class SellerHomePageView extends JPanel implements Observer {
     JPanel seeAllProductsPanel;
     JTextField productNameTextField;
     JTextField productPriceTextField;
+    JMenuItem lastCategory;
+    private JMenuBar menuBar_1;
 	
 	public SellerHomePageView(MainFrameView mainFrameView,MenuViewForSeller menuView) {
 		this.menuView=menuView;
@@ -68,23 +75,39 @@ public class SellerHomePageView extends JPanel implements Observer {
         addProductPanel = new JPanel();
         addProductPanel.setBounds(83, 196, 550, 150);
         addProductPanel.setLayout(null);
+	 
+        lastCategory = new JMenuItem();
 	}
 	
 	public void getCategories(ArrayList<IProduct> product, JMenu category) {
 		for(IProduct prd: product) {
 			if("class Product.Category".equalsIgnoreCase(prd.getClass().toString())) {
-				JMenu childCategory = new JMenu(prd.getName());
-				category.add(childCategory);
-				menuList.add(childCategory);
-				if(prd.getChild() != null) {
-					getCategories(prd.getChild(), childCategory);
+				if(prd.getChild().size() != 0) {
+					if(prd.getChild().get(0).getClass().toString().equalsIgnoreCase("class Product.Product")) {
+						lastCategory = new JMenuItem(prd.getName());
+						category.add(lastCategory);
+						menuItemList.add(lastCategory);
+						break;
+					}
+					else {
+						JMenu childCategory = new JMenu(prd.getName());
+						category.add(childCategory);
+						menuList.add(childCategory);
+						getCategories(prd.getChild(), childCategory);
+					}
 				}
+				else {
+					lastCategory = new JMenuItem(prd.getName());
+					category.add(lastCategory);
+					menuItemList.add(lastCategory);
+				}
+				
 			}
-			else if("class Product.Product".equalsIgnoreCase(prd.getClass().toString())) {
+			/*else if("class Product.Product".equalsIgnoreCase(prd.getClass().toString())) {
 				JMenuItem product1 = new JMenuItem(prd.getName());
 				//category.add(product1);
 				menuItemList.add(category);
-			}
+			}*/
 
 		}
 	}
@@ -92,7 +115,8 @@ public class SellerHomePageView extends JPanel implements Observer {
 			addProductPanel.setVisible(true);
 	        add(addProductPanel);
 	        //addProductPanel.set
-	       
+	        
+	        menuBar.setVisible(true);
 	        
 	        JLabel productNameLabel = new JLabel("Product Name");
 	        productNameLabel.setBounds(10, 20, 82, 13);
@@ -125,6 +149,14 @@ public class SellerHomePageView extends JPanel implements Observer {
 	        addProductButton.setBounds(57, 125, 104, 21);
 	        addProductPanel.add(addProductButton);
 	        
+	        addProductButton.addActionListener(new ActionListener() {
+	        	public void actionPerformed(ActionEvent e) {
+	        		System.out.println("Umarım artık beni üzmezsin Gürcan Gül");
+	        	}
+	        });
+	        
+	        
+	        
 	        JLabel productStokLabel = new JLabel("Product Stok");
 	        productStokLabel.setBounds(10, 102, 82, 13);
 	        addProductPanel.add(productStokLabel);
@@ -134,11 +166,12 @@ public class SellerHomePageView extends JPanel implements Observer {
 	        stokSpinner.setBounds(95, 95, 52, 20);
 	        addProductPanel.add(stokSpinner);
 	        
+	        
 	        getMainFrame().addNewPanel2(menuView);
 	        getMainFrame().addMenuPanel3(this);
 	}
 	public void showPanel(){
-		ArrayList<IProduct> products = DataHandler.getProductAndCategoriesAsAObject();
+
         
     	// combobox a ekle
        /* for(IProduct prd: products) {
@@ -156,13 +189,13 @@ public class SellerHomePageView extends JPanel implements Observer {
         
      
 */
-
-	    menuBar = new JMenuBar();
-        menuBar.setBackground(Color.WHITE);
-        menuBar.setBounds(0, 31, 694, 22);
-        add(menuBar);
+		menuBar = new JMenuBar();
+	    menuBar.setBackground(Color.WHITE);
+	    menuBar.setBounds(85, 185, 550, 22);
+	    menuBar.setVisible(false);
+	    add(menuBar);
         
-    	
+		ArrayList<IProduct> products = DataHandler.getProductAndCategoriesAsAObject();
         for(IProduct prd: products) {
    		 	category1 = new JMenu(prd.getName());
             menuBar.add(category1);
@@ -176,6 +209,7 @@ public class SellerHomePageView extends JPanel implements Observer {
 	    mainFrameView.addNewPanel(this);
 
         addProduct = new JButton("Add Product");
+ 
         addProduct.setBounds(42, 41, 202, 21);
         add(addProduct);
         
@@ -190,7 +224,7 @@ public class SellerHomePageView extends JPanel implements Observer {
        
         saleProducts = new JButton("Sale Products");
         saleProducts.setIcon(new ImageIcon("C:\\Users\\Gurcan\\eclipse-workspace\\G12_CENG431_HW3-v1\\src\\trends.png"));
-        saleProducts.setBounds(309, 152, 109, 21);
+        saleProducts.setBounds(309, 152, 120, 21);
         add(saleProducts);
         
         updateStok = new JButton("Update Stok");
@@ -200,6 +234,8 @@ public class SellerHomePageView extends JPanel implements Observer {
 		this.setMainFrame(mainFrameView);  
         getMainFrame().addNewPanel2(menuView);
         getMainFrame().addMenuPanel3(this);
+        
+
         
  
         /*
@@ -249,7 +285,7 @@ public class SellerHomePageView extends JPanel implements Observer {
 		this.menuItemList = menuItemList;
 	}
 
-	public void addMouseListener2(ActionListener actionListener){
+	public void addMenuItemListener(ActionListener actionListener){
     	for(JMenuItem jm : menuItemList)
     		jm.addActionListener(actionListener);
     }
@@ -265,6 +301,7 @@ public class SellerHomePageView extends JPanel implements Observer {
     }
     public void addProductButtonActionListener(ActionListener actionListener){
     	addProduct.addActionListener(actionListener);
+    	
     }
     public void addMyProfileButtonActionListener(ActionListener actionListener){
     	myProfileButton.addActionListener(actionListener);
