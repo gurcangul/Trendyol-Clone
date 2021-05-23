@@ -3,7 +3,9 @@ package GUI;
 
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.LayoutManager;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,9 +25,12 @@ import User.User;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
+import javax.swing.JList;
+import javax.swing.AbstractListModel;
 
 public class SellerHomePageView extends JPanel implements Observer {
 
@@ -39,6 +44,7 @@ public class SellerHomePageView extends JPanel implements Observer {
 	private SellerHomePageView homePageView;
 	private User user;
 	
+	JMenuBar menuBar;
 	JButton updateStok;
 	JButton addProduct;
 	JButton myProfileButton; JButton seeAllProductsButton; JButton saleProducts;JButton btn;
@@ -76,8 +82,8 @@ public class SellerHomePageView extends JPanel implements Observer {
 			}
 			else if("class Product.Product".equalsIgnoreCase(prd.getClass().toString())) {
 				JMenuItem product1 = new JMenuItem(prd.getName());
-				category.add(product1);
-				menuItemList.add(product1);
+				//category.add(product1);
+				menuItemList.add(category);
 			}
 
 		}
@@ -93,7 +99,7 @@ public class SellerHomePageView extends JPanel implements Observer {
 	        addProductPanel.add(productNameLabel);
 	        
 	        productNameTextField = new JTextField();
-	        productNameTextField.setBounds(89, 17, 96, 19);
+	        productNameTextField.setBounds(95, 17, 96, 19);
 	        addProductPanel.add(productNameTextField);
 	        productNameTextField.setColumns(10);
 	        
@@ -103,12 +109,12 @@ public class SellerHomePageView extends JPanel implements Observer {
 	        
 	        productPriceTextField = new JTextField();
 	        productPriceTextField.setColumns(10);
-	        productPriceTextField.setBounds(89, 46, 96, 19);
+	        productPriceTextField.setBounds(95, 46, 96, 19);
 	        addProductPanel.add(productPriceTextField);
 	        
 	        JComboBox categoriesComboBox = new JComboBox();
 	        categoriesComboBox.setModel(new DefaultComboBoxModel(new String[] {"Electronic", "Clothing"}));
-	        categoriesComboBox.setBounds(89, 72, 96, 21);
+	        categoriesComboBox.setBounds(95, 72, 96, 21);
 	        addProductPanel.add(categoriesComboBox);
 	        
 	        JLabel categoriesLabel = new JLabel("Categories");
@@ -125,7 +131,7 @@ public class SellerHomePageView extends JPanel implements Observer {
 	        
 	        JSpinner stokSpinner = new JSpinner();
 	        stokSpinner.setModel(new SpinnerNumberModel(new Integer(1), new Integer(1), null, new Integer(1)));
-	        stokSpinner.setBounds(89, 95, 52, 20);
+	        stokSpinner.setBounds(95, 95, 52, 20);
 	        addProductPanel.add(stokSpinner);
 	        
 	        getMainFrame().addNewPanel2(menuView);
@@ -147,7 +153,26 @@ public class SellerHomePageView extends JPanel implements Observer {
      /*   for(JMenu jm : menuList) {
         	System.out.println(jm);
         }
+        
+     
 */
+
+	    menuBar = new JMenuBar();
+        menuBar.setBackground(Color.WHITE);
+        menuBar.setBounds(0, 31, 694, 22);
+        add(menuBar);
+        
+    	
+        for(IProduct prd: products) {
+   		 	category1 = new JMenu(prd.getName());
+            menuBar.add(category1);
+            menuList.add(category1);
+            if(prd.getChild()!= null) {	
+            	getCategories(prd.getChild(), category1);
+            }
+            
+		}
+		
 	    mainFrameView.addNewPanel(this);
 
         addProduct = new JButton("Add Product");
@@ -176,7 +201,13 @@ public class SellerHomePageView extends JPanel implements Observer {
         getMainFrame().addNewPanel2(menuView);
         getMainFrame().addMenuPanel3(this);
         
-       
+ 
+        /*
+        JMenuBar menuBar = new VerticalMenuBar();
+        menuBar.setBounds(94, 250, 101, 22);
+        add(menuBar);
+        
+       */
         
       /*  seeAllProductsPanel = new JPanel();
         seeAllProductsPanel.setBounds(83, 196, 550, 150);
