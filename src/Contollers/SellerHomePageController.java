@@ -32,28 +32,14 @@ public class SellerHomePageController {
         homePageView.addMyProfileButtonActionListener(new myProfileButtonActionListener());
         homePageView.addSeeAllProductsButtonActionListener(new seeAllProductsButtonActionListener());
         homePageView.addSaleProductsButtonActionListener(new saleProductsButtonActionListener());
-       // homePageView.addMouseListener2(new addMouseListener2());
+        homePageView.addMenuItemListener(new addMenuItemListener());
     }
     
     public SellerHomePageView getHomePageView() {
 		return homePageView;
 	}
     
-    
-   /* public void getCategories(ArrayList<IProduct> product, ArrayList<IProduct> allProducts) {
-		for(IProduct prd: product) {
-			if("class Product.Category".equalsIgnoreCase(prd.getClass().toString())) {
-				allProducts.add(prd);
-				if(prd.getChild() != null) {
-					getCategories(prd.getChild(), allProducts);
-				}
-			}
-			else if("class Product.Product".equalsIgnoreCase(prd.getClass().toString())) {
-				allProducts.add(prd);
-			}
-		}
-	}
-    private class addMouseListener2 implements ActionListener {
+    private class addMenuItemListener implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -61,9 +47,10 @@ public class SellerHomePageController {
 	    	int length = splitLine.length;
 	    	String productName = splitLine[length-1].replace("]", "");
 	    	System.out.println(productName);
+	    	JOptionPane.showMessageDialog(null, "Menu Action Listener ");
 		}
 
-    }*/
+    }
     /*
     private class addMouseListener extends MouseAdapter {
         @Override
