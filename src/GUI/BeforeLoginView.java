@@ -8,7 +8,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import Contollers.LoginController;
-import Observer.Observer;
 
 import java.awt.Font;
 import java.awt.event.ActionListener;

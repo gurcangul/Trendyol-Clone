@@ -11,24 +11,25 @@ import GUI.FeedbackView;
 import GUI.BuyerHomePageView;
 import GUI.LoginView;
 import GUI.MainFrameView;
-import GUI.MenuView;
+import GUI.MenuViewForAdmin;
+import GUI.MenuViewForBuyer;
+import GUI.MenuViewForSeller;
+import GUI.SellerHomePageView;
 import User.User;
 
 
-public class MenuController {
+public class MenuForAdminController {
     private  LoginView loginView;
     private BeforeLoginView beforeLoginView;
-    private MenuView menuView;
+    private MenuViewForAdmin menuView;
     private MainFrameView mainFrameView;
     private User user;
-    public MenuController(MainFrameView mainFrameView,MenuView menuView, User user) {
+    public MenuForAdminController(MainFrameView mainFrameView,MenuViewForAdmin menuView, User user) {
     	this.mainFrameView=mainFrameView;
         this.menuView = menuView;
         this.user = user;
         menuView.addMyProfileButton(new MyProfileButtonActionListener());
         menuView.addHomeButton(new HomeButtonActionListener());
-        menuView.addStoreButton(new StoreButtonActionListener());
-        menuView.addShoppingCartButton(new ShoppingCartButtonActionListener());
         menuView.addHomePageButton(new HomePageButtonActionListener());
         menuView.addMyFavoritesButton(new MyFavoritesButtonActionListener());
         menuView.addHelpContentsButton(new HelpContentsButtonActionListener());
@@ -48,9 +49,9 @@ public class MenuController {
     private class HomeButtonActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-        	BuyerHomePageView homePageView = new BuyerHomePageView(mainFrameView,menuView);
+        	//SellerHomePageView homePageView = new SellerHomePageView(mainFrameView,menuView);
     		//mainFrameView.addMenuPanel(homePageView);
-    		BuyerHomePageController homePageController = new BuyerHomePageController(mainFrameView,homePageView);
+    		//SellerHomePageController homePageController = new SellerHomePageController(mainFrameView,homePageView);
 
         }
     } 
@@ -68,9 +69,9 @@ public class MenuController {
     private class HomePageButtonActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-        	BuyerHomePageView homePageView = new BuyerHomePageView(mainFrameView,menuView);
+        	//SellerHomePageView homePageView = new SellerHomePageView(mainFrameView,menuView);
     		//mainFrameView.addMenuPanel(homePageView);
-    		BuyerHomePageController homePageController = new BuyerHomePageController(mainFrameView,homePageView);
+    		//SellerHomePageController homePageController = new SellerHomePageController(mainFrameView,homePageView);
 
     		/*
         	LoginView loginView =  new LoginView(mainFrameView);

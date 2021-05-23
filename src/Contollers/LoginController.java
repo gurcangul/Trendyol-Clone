@@ -7,12 +7,15 @@ import java.util.List;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 import FileIO.DataHandler;
 import GUI.BeforeLoginView;
 import GUI.LoginView;
 import GUI.MainFrameView;
-import GUI.MenuView;
+import GUI.MenuViewForAdmin;
+import GUI.MenuViewForBuyer;
+import GUI.MenuViewForSeller;
 import User.Admin;
 import User.Buyer;
 import User.User;
@@ -21,8 +24,11 @@ import User.User;
 public class LoginController {
     private LoginView loginView;
     private BeforeLoginView beforeLoginView;
-    private MenuView menuView;
     private MainFrameView mainFrameView;
+
+    MenuViewForSeller menuViewForSeller;
+    MenuViewForBuyer menuViewForBuyer;
+    MenuViewForAdmin menuViewForAdmin;
     private User user;
 
     public LoginController(MainFrameView mainFrameView,LoginView loginView) {
@@ -36,23 +42,30 @@ public class LoginController {
     public void login(String userName, String password) {
         DataHandler dataHandler = new DataHandler();
     	user =  dataHandler.checkUserIsExist(userName, password);
+    	
         if (user != null) {
-            this.menuView=new MenuView(mainFrameView,user);
-            System.out.println("giriş yapıldı...."+userName+ password);
-            //this.menuPanel.addOkButtonListener(new LoggedInOkButtonListener());
-           // MenuController menuController = new MenuController(menuView, user);
-          
-            menuView =  new MenuView(mainFrameView,user);
-    		//mainFrameView.addNewPanel(menuView);
-            MenuController menuController = new MenuController(mainFrameView,menuView, user);
-
-            //this.menuPanel.addCancelButtonListener(new LoggedInCancelButtonListener());
-    		menuView.setUserName(user.getUserName());
-    		System.out.println("helloo"+user.getUserName());
-           // this.userModel.setLoggedInUser(user);//*****
-        } else {
-            //loginPanel.passwordCheck();
-    		//JLabel lblNewLabel2 = new JLabel("Wrong! Please try again!");
+        	if(user.getUserType().equalsIgnoreCase("Seller")) {
+        		this.menuViewForSeller=new MenuViewForSeller(mainFrameView,user);          
+            	MenuForSellerController menuController = new MenuForSellerController(mainFrameView,menuViewForSeller, user);
+            	//MainFrameView mainFrameView,MenuViewForSeller menuView, User user
+            	menuViewForSeller.setUserName(user.getUserName());
+        		System.out.println("helloo"+user.getUserName());
+        	}
+        	else if(user.getUserType().equalsIgnoreCase("Buyer")) {
+        		this.menuViewForBuyer=new MenuViewForBuyer(mainFrameView,user);          
+            	MenuForBuyerController menuController = new MenuForBuyerController(mainFrameView,menuViewForBuyer, user);
+            	menuViewForBuyer.setUserName(user.getUserName());
+        		System.out.println("helloo"+user.getUserName());
+        	}
+        	else if(user.getUserType().equalsIgnoreCase("Admin")) {
+        		this.menuViewForAdmin=new MenuViewForAdmin(mainFrameView,user);          
+            	MenuForAdminController menuController = new MenuForAdminController(mainFrameView,menuViewForAdmin, user);
+            	menuViewForAdmin.setUserName(user.getUserName());
+        		System.out.println("helloo"+user.getUserName());		
+        	}
+    		
+        } 
+        else {
     		loginView.getPassword().setBackground(Color.RED);
     		loginView.getUserName().setBackground(Color.RED);
     		JOptionPane.showMessageDialog(null, "Wrong! Please try again! ");        		
@@ -90,9 +103,9 @@ public class LoginController {
     class LoggedInOkButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-        	menuView =  new MenuView(mainFrameView,user);
+        	menuView =  new MenuViewForSeller(mainFrameView,user);
     		//mainFrameView.addNewPanel(menuView);
-            MenuController menuController = new MenuController(mainFrameView,menuView, user);
+            MenuForSellerController menuController = new MenuForSellerController(mainFrameView,menuView, user);
 
     		
         }

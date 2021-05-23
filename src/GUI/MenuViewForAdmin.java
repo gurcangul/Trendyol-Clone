@@ -27,7 +27,7 @@ import javax.swing.ImageIcon;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class MenuView extends JPanel implements Observer {
+public class MenuViewForAdmin extends JPanel implements Observer {
 	private static final long serialVersionUID = 1L;
 	  
 	MainFrameView mainFrameView;
@@ -39,7 +39,7 @@ public class MenuView extends JPanel implements Observer {
 	JMenuItem helpContents;  JMenu help;  JMenuItem sendFeedback; JMenuItem logOut;
 	private User user;
 	
-	public MenuView(MainFrameView mainFrameView,User user ) {
+	public MenuViewForAdmin(MainFrameView mainFrameView,User user ) {
 		this.mainFrameView=mainFrameView;                
 		this.setUser(user);
         showPanel();

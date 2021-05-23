@@ -3,12 +3,12 @@ package GUI;
 
 import javax.swing.*;
 
-import Observer.Observer;
-
 import java.awt.*;
+import java.util.Observable;
+import java.util.Observer;
 
 public class MainFrameView extends JFrame implements Observer {
-	MenuView menuView=new MenuView(this,null);
+	MenuViewForBuyer menuView=new MenuViewForBuyer(this,null);
 	private static final long serialVersionUID = 1L;
    
 	public void run() {
@@ -80,8 +80,9 @@ public class MainFrameView extends JFrame implements Observer {
         return this;
     }
 	@Override
-	public void update(Object arg) {
+	public void update(Observable o, Object arg) {
 		// TODO Auto-generated method stub
 		
 	}
+
 }
