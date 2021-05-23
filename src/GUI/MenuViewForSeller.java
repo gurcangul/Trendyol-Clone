@@ -41,100 +41,59 @@ public class MenuViewForSeller extends JPanel implements Observer {
 		this.mainFrameView=mainFrameView;                
 		this.setUser(user);
         showPanel();
-       // user.addObserver(this);
 
 	}
 	public void showPanel(){
-        menuBar = new JMenuBar();
-        menuBar.setBackground(Color.WHITE);
-        menuBar.setBounds(10, 10, 424, 22);
-        add(menuBar);
-
-        home = new JMenu("Home");
-        menuBar.add(home);
-        homePage = new JMenuItem("Home Page");
-        home.add(homePage);
-        
-       /* homePage.addActionListener(new ActionListener() {
-    	public void actionPerformed(ActionEvent e) {
-    		HomePageView homePageView = new HomePageView(mainFrameView);
-    		mainFrameView.addMenuPanel(homePageView);
-    	}
-    });*/
-
-    myProfile = new JMenu("My Profile");
-    menuBar.add(myProfile);
-    
-    myProducts = new JMenuItem("My Products");
-    myProfile.add(myProducts);		        
-    JMenuItem generalAccountSettings = new JMenuItem("General Account Settings");
-    myProfile.add(generalAccountSettings);
-    //User user = new User();
-    //user.getserName
-    String name="";
-    //if(!user.getUserName().equals(null))
-    	 try {
-    		 name=user.getUserName();
-    	 }
-    	 catch (Exception e) {
-			// TODO: handle exception
-		}
-    JMenu userName = new JMenu(name);
-    menuBar.add(userName);
-    JMenuItem myShoppingCart = new JMenuItem(name);
-    userName.add(myShoppingCart);
-    logOut = new JMenuItem("Log Out");
-    logOut.setIcon(new ImageIcon("C:\\Users\\Gurcan\\eclipse-workspace\\G12_CENG431_HW3-v1\\src\\logout.png"));
-   /* logOut.addActionListener(new ActionListener() {
-    	@Override
-        public void actionPerformed(ActionEvent e) {
-           int result = JOptionPane.showConfirmDialog(mainFrameView,"Sure? You want to exit?", "Swing Tester",
-              JOptionPane.YES_NO_OPTION,
-              JOptionPane.QUESTION_MESSAGE);
-           if(result == JOptionPane.YES_OPTION){
-              //mainFrame.setTitle("You selected: Yes");
-        	   beforeLoginView =  new BeforeLoginView(mainFrameView);
-       			mainFrameView.addNewPanel(beforeLoginView);
-              
-           }else if (result == JOptionPane.NO_OPTION){
-        	   //mainFrame.setTitle("Outfit Rating Platform");
-           }else {
-        	   //mainFrame.setTitle("None selected");
-           }
-        }
+	    menuBar = new JMenuBar();
+	    menuBar.setBackground(Color.WHITE);
+	    menuBar.setBounds(10, 10, 424, 22);
+	    add(menuBar);
+	
+	    home = new JMenu("Home");
+	    menuBar.add(home);
+	    homePage = new JMenuItem("Home Page");
+	    home.add(homePage);
+	        
+	    myProfile = new JMenu("My Profile");
+	    menuBar.add(myProfile);
+	    
+	    myProducts = new JMenuItem("My Products");
+	    myProfile.add(myProducts);		        
+	    JMenuItem generalAccountSettings = new JMenuItem("General Account Settings");
+	    myProfile.add(generalAccountSettings);
+	    //User user = new User();
+	    //user.getserName
+	    String name="";
+	    //if(!user.getUserName().equals(null))
+	    	 try {
+	    		 name=user.getUserName();
+	    	 }
+	    	 catch (Exception e) {
+				// TODO: handle exception
+			}
+	    JMenu userName = new JMenu(name);
+	    menuBar.add(userName);
+	    JMenuItem myShoppingCart = new JMenuItem(name);
+	    userName.add(myShoppingCart);
+	    logOut = new JMenuItem("Log Out");
+	    logOut.setIcon(new ImageIcon("C:\\Users\\Gurcan\\eclipse-workspace\\G12_CENG431_HW3-v1\\src\\logout.png"));
   
-    });*/
-    userName.add(logOut);
-    help = new JMenu("Help");
-    menuBar.add(help);
-    
-    helpContents = new JMenuItem("Help Contents");
-    help.add(helpContents);
-    sendFeedback = new JMenuItem("Send Feedback");
-    /*sendFeedback.addActionListener(new ActionListener() {
-    	public void actionPerformed(ActionEvent e) {
-    		FeedbackView feedbackView = new FeedbackView(mainFrameView);
-    		mainFrameView.addMenuPanel(feedbackView);
-    		
-    	}
-    });*/
-
-    help.add(sendFeedback);
-    
-    JMenuItem about = new JMenuItem("About");
-    help.add(about);
-   
-    
-    mainFrameView.addNewPanel(this);
-    
-    /*about.addActionListener(new ActionListener() {
-    	public void actionPerformed(ActionEvent e) {
-    		AboutAppView aboutPanel = new AboutAppView(mainFrameView);
-    		mainFrameView.addMenuPanel(aboutPanel);
-    		
-    	}
-    });*/
-
+	    userName.add(logOut);
+	    help = new JMenu("Help");
+	    menuBar.add(help);
+	    
+	    helpContents = new JMenuItem("Help Contents");
+	    help.add(helpContents);
+	    sendFeedback = new JMenuItem("Send Feedback");
+	    
+	    help.add(sendFeedback);
+	    
+	    JMenuItem about = new JMenuItem("About");
+	    help.add(about);
+	   
+	    
+	    mainFrameView.addNewPanel(this);
+ 
 	}
 	public void setVisible() {
 	        mainFrameView.setVisible(true);
