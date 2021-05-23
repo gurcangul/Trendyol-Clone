@@ -18,8 +18,10 @@ import java.util.Observer;
 public class AboutAppView extends JPanel implements Observer {
 	private static final long serialVersionUID = 3847238445785672779L;
 	MainFrameView mainFrameView ;
-	public AboutAppView(MainFrameView mainFrameView ) {
-		this.setMainFrame(mainFrameView);        
+	JPanel menuView;
+	public AboutAppView(MainFrameView mainFrameView,JPanel menuView ) {
+		this.setMainFrame(mainFrameView);     
+		this.menuView=menuView;
 		new JPanel(new GridLayout(3, 1));
 		String info="This Application created by \nAynur Atış  and \nGürcan Gül";
 		setLayout(new BorderLayout(0, 0));Label label = new Label(info);
@@ -29,6 +31,8 @@ public class AboutAppView extends JPanel implements Observer {
 
 		info="Copyright 2021 All rights reserved.";
 		add(copyrightLabel);
+        getMainFrame().addNewPanel2(menuView);
+        getMainFrame().addMenuPanel3(this);
 
 	}
 	public MainFrameView getMainFrame() {

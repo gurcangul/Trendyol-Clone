@@ -36,7 +36,7 @@ public class MenuViewForBuyer extends JPanel implements Observer {
 	private String userName;
 	JMenu myProfile,home,store;JMenuItem shoppingCart, homePage ;
 	JMenuBar menuBar;JMenuItem myFavorites;
-	JMenuItem helpContents;  JMenu help;  JMenuItem sendFeedback; JMenuItem logOut;
+	JMenuItem helpContents;  JMenu help;  JMenuItem sendFeedback; JMenuItem logOut; JMenuItem about;
 	private User user;
 	
 	public MenuViewForBuyer(MainFrameView mainFrameView,User user ) {
@@ -130,20 +130,10 @@ public class MenuViewForBuyer extends JPanel implements Observer {
     help = new JMenu("Help");
     menuBar.add(help);
     
-    helpContents = new JMenuItem("Help Contents");
-    help.add(helpContents);
     sendFeedback = new JMenuItem("Send Feedback");
-    /*sendFeedback.addActionListener(new ActionListener() {
-    	public void actionPerformed(ActionEvent e) {
-    		FeedbackView feedbackView = new FeedbackView(mainFrameView);
-    		mainFrameView.addMenuPanel(feedbackView);
-    		
-    	}
-    });*/
-
     help.add(sendFeedback);
     
-    JMenuItem about = new JMenuItem("About");
+    about = new JMenuItem("About");
     help.add(about);
    
     
@@ -151,12 +141,12 @@ public class MenuViewForBuyer extends JPanel implements Observer {
     
     /*about.addActionListener(new ActionListener() {
     	public void actionPerformed(ActionEvent e) {
-    		AboutAppView aboutPanel = new AboutAppView(mainFrameView);
+    		AboutAppView aboutPanel = new AboutAppView(mainFrameView,menuView);
     		mainFrameView.addMenuPanel(aboutPanel);
     		
     	}
-    });*/
-
+    });
+*/
 	}
 	public void setVisible() {
 	        mainFrameView.setVisible(true);
@@ -228,6 +218,9 @@ public class MenuViewForBuyer extends JPanel implements Observer {
 	}	
 	public void addLogOutButton(ActionListener actionListener) {
 		logOut.addActionListener(actionListener);		
+	}
+	public void addAboutButton(ActionListener actionListener) {
+		about.addActionListener(actionListener);		
 	}
 	@Override
 	public void update(Observable o, Object arg) {
