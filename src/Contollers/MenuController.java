@@ -8,7 +8,7 @@ import javax.swing.event.AncestorListener;
 
 import GUI.BeforeLoginView;
 import GUI.FeedbackView;
-import GUI.HomePageView;
+import GUI.BuyerHomePageView;
 import GUI.LoginView;
 import GUI.MainFrameView;
 import GUI.MenuView;
@@ -48,9 +48,9 @@ public class MenuController {
     private class HomeButtonActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-        	HomePageView homePageView = new HomePageView(mainFrameView,menuView);
+        	BuyerHomePageView homePageView = new BuyerHomePageView(mainFrameView,menuView);
     		//mainFrameView.addMenuPanel(homePageView);
-    		HomePageController homePageController = new HomePageController(mainFrameView,homePageView);
+    		BuyerHomePageController homePageController = new BuyerHomePageController(mainFrameView,homePageView);
 
         }
     } 
@@ -68,9 +68,9 @@ public class MenuController {
     private class HomePageButtonActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-        	HomePageView homePageView = new HomePageView(mainFrameView,menuView);
+        	BuyerHomePageView homePageView = new BuyerHomePageView(mainFrameView,menuView);
     		//mainFrameView.addMenuPanel(homePageView);
-    		HomePageController homePageController = new HomePageController(mainFrameView,homePageView);
+    		BuyerHomePageController homePageController = new BuyerHomePageController(mainFrameView,homePageView);
 
     		/*
         	LoginView loginView =  new LoginView(mainFrameView);

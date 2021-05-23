@@ -1,7 +1,7 @@
 package Contollers;
 
 import GUI.FeedbackView;
-import GUI.HomePageView;
+import GUI.BuyerHomePageView;
 import GUI.MainFrameView;
 
 public class FeedbackController {
