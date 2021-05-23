@@ -127,6 +127,9 @@ public class SellerHomePageView extends JPanel implements Observer {
 	        stokSpinner.setModel(new SpinnerNumberModel(new Integer(1), new Integer(1), null, new Integer(1)));
 	        stokSpinner.setBounds(89, 95, 52, 20);
 	        addProductPanel.add(stokSpinner);
+	        
+	        getMainFrame().addNewPanel2(menuView);
+	        getMainFrame().addMenuPanel3(this);
 	}
 	public void showPanel(){
 		ArrayList<IProduct> products = DataHandler.getProductAndCategoriesAsAObject();
