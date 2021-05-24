@@ -22,6 +22,10 @@ import javax.swing.JMenuItem;
 import javax.swing.JTextPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
+import java.awt.Cursor;
+import java.awt.Component;
+import java.awt.Rectangle;
 
 
 public class BuyerHomePageView extends JPanel implements Observer{
@@ -31,7 +35,7 @@ public class BuyerHomePageView extends JPanel implements Observer{
 	private MenuViewForBuyer menuView;
 	private BuyerHomePageView homePageView;
 	private User user;
-    JScrollPane scrollPane;
+    JScrollPane scrollPane, scrollPane2;
     JList<String> jFavoriteList;
 	JButton viewAllUsersButton;
 	JButton viewCategoriesButton;
@@ -48,6 +52,7 @@ public class BuyerHomePageView extends JPanel implements Observer{
 	JButton addShoppingCartButton;
     JMenuItem lastCategory;
 	
+    JPanel panel;
     
 	public User getUser() {
 		return user;
@@ -68,13 +73,58 @@ public class BuyerHomePageView extends JPanel implements Observer{
         addProductPanel.setBounds(83, 196, 550, 150);
         addProductPanel.setLayout(null);
 
-        //scrollPane = new JScrollPane();
-       // scrollPane.setBounds(10, 76, 740, 214);
-        //add(scrollPane);
+       /* scrollPane = new JScrollPane();
+        scrollPane.setBounds(10, 76, 740, 214);
+        add(scrollPane);*/
+        scrollPane2 = new JScrollPane();
+        scrollPane2.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        scrollPane2.setBounds(10, 89, 625, 364);
+        
+        panel = new JPanel();
+        panel.setAlignmentY(Component.TOP_ALIGNMENT);
+        panel.setAlignmentX(Component.LEFT_ALIGNMENT);
+        panel.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+        panel.setBounds(10,89,492,258);
+        panel.setLayout(new GridLayout(0, 1, 0, 0));
+        
+        panel_1 = new JPanel();
+        panel_1.setBounds(new Rectangle(0, 0, 220, 170));
+        panel_1.setAlignmentY(Component.TOP_ALIGNMENT);
+        panel_1.setAlignmentX(Component.LEFT_ALIGNMENT);
+        panel.add(panel_1);
+        panel_1.setLayout(null);
+        
+        btnNewButton = new JButton("New button");
+        btnNewButton.setBounds(0, 0, 85, 21);
+        panel_1.add(btnNewButton);
+        
+        btnNewButton_1 = new JButton("New button");
+        btnNewButton_1.setBounds(0, 25, 85, 21);
+        panel_1.add(btnNewButton_1);
+        
+        panel_2 = new JPanel();
+        panel_2.setBounds(new Rectangle(0, 0, 220, 170));
+        panel_2.setLayout(null);
+        panel_2.setAlignmentY(Component.TOP_ALIGNMENT);
+        panel_2.setAlignmentX(Component.RIGHT_ALIGNMENT);
+        panel.add(panel_2);
+        
+        btnNewButton_2 = new JButton("New button");
+        btnNewButton_2.setAlignmentY(Component.TOP_ALIGNMENT);
+        btnNewButton_2.setAlignmentX(Component.RIGHT_ALIGNMENT);
+        btnNewButton_2.setBounds(0, 0, 85, 21);
+        panel_2.add(btnNewButton_2);
+        
+        btnNewButton_3 = new JButton("New button");
+        btnNewButton_3.setBounds(0, 25, 85, 21);
+        panel_2.add(btnNewButton_3);
+        //panel.setLayout(new GridLayout(1, 0, 0, 0));
 
-        //jFavoriteList = new JList<>();
-        //scrollPane.setViewportView(jFavoriteList);
-        //showLists();
+        
+        ViewProductPanel(5, "");
+        /*jFavoriteList = new JList<>();
+        scrollPane.setViewportView(jFavoriteList);*/
+       // showLists();
 	}
 
 	public void getCategories(ArrayList<IProduct> product, JMenu category) {
@@ -146,26 +196,41 @@ public class BuyerHomePageView extends JPanel implements Observer{
 		
     static int i;
     static ArrayList<IProduct> productList;
+    private JPanel panel_1;
+    private JButton btnNewButton;
+    private JButton btnNewButton_1;
+    private JPanel panel_2;
+    private JButton btnNewButton_2;
+    private JButton btnNewButton_3;
+    
 	public void ViewProductPanel(int size, String productName) {     
 		productList = findProducts(productName);
 		//System.out.println(productList);
-        JPanel panel = new JPanel();
+       /* JPanel panel = new JPanel();
         panel.setBounds(20, 58, 694, 385);
         add(panel);
-        panel.setLayout(null);
+        panel.setLayout(null);*/
+        
 
-        int x = 24; 
-        int y = 63;
+        add(scrollPane2);
+        
+        System.out.println("Size = " + size);
+        int x = 15; 
+        int y = 10;
         int width = 220;
         int height = 100;
-        int buttonY = y+height;
+        int buttonY = height +10;
         int buttonHeight = 21;
+        int panelHeight = 258;
         for(i=0; i<size; i++) {
-        	if(x < (694 - width)) {
+        	if(x < (492 - width)) {
 		        JTextPane textPane = new JTextPane();
 		        textPane.setBounds(x, y, width, height);
+		        
 		        textPane.setText(productList.get(i).viewProductByBuyer());
 		        add(textPane);
+		        panel.add(textPane);
+		        
 		        addFavoriButton = new JButton("Add Favories");
 		        addFavoriButton.setBounds(x, buttonY, 220, buttonHeight);
 		        panel.add(addFavoriButton);
@@ -216,13 +281,23 @@ public class BuyerHomePageView extends JPanel implements Observer{
 		        x = width + x + 15;
         	}
         	else {
-        		y = buttonY * 3 + 15;
-        		JTextPane textPane = new JTextPane();
-		        textPane.setBounds(x, y, width, height);
-		        add(textPane);
+        		
+        		y = buttonY +(buttonHeight * 2) +40;
+        		if((y * 2) > panelHeight) {
+        			panelHeight = y * 2;
+        			panel.setBounds(10,89,492, panelHeight);
+        		}
+        		x = 15;
+        		/*if(x < (492 - width)) {
+	        		JTextPane textPane = new JTextPane();
+			        textPane.setBounds(x, y, width, height);
+			        add(textPane);
+			        x = width + x + 15;
+        		}*/
         	}
         }
         i = 0;
+        scrollPane2.setViewportView(panel);
         menuBar.setVisible(true);        
         getMainFrame().addNewPanel2(menuView);
         getMainFrame().addMenuPanel3(this);
@@ -302,6 +377,6 @@ public class BuyerHomePageView extends JPanel implements Observer{
     @Override
     public void update(Observable o, Object arg) {
         user = (User) o;
-       // showLists();
+        //showLists();
     }
 }
