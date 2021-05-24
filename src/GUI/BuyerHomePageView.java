@@ -8,7 +8,9 @@ import java.awt.GridLayout;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.JButton;
@@ -26,14 +28,10 @@ import javax.swing.ScrollPaneConstants;
 import java.awt.Cursor;
 import java.awt.Component;
 import java.awt.Rectangle;
-import java.awt.FlowLayout;
-import javax.swing.SwingConstants;
-import javax.swing.BoxLayout;
-import java.awt.CardLayout;
-import javax.swing.JLabel;
-import javax.swing.JSplitPane;
-import javax.swing.JLayeredPane;
+import javax.swing.JSlider;
+import javax.swing.JScrollBar;
 import javax.swing.JTextArea;
+import javax.swing.BoxLayout;
 import java.awt.Dimension;
 
 
@@ -44,7 +42,7 @@ public class BuyerHomePageView extends JPanel implements Observer{
 	private MenuViewForBuyer menuView;
 	private BuyerHomePageView homePageView;
 	private User user;
-    JScrollPane scrollPane;
+    JScrollPane scrollPane, scrollPane2;
     JList<String> jFavoriteList;
 	JButton viewAllUsersButton;
 	JButton viewCategoriesButton;
@@ -52,6 +50,7 @@ public class BuyerHomePageView extends JPanel implements Observer{
 	List<JButton> buttonList;
 	ArrayList<JMenu> menuList = new ArrayList<JMenu>(); 
 	ArrayList<JMenuItem> menuItemList = new ArrayList<JMenuItem>();
+	Map<JButton, IProduct> favoriteButtonList = new HashMap<JButton, IProduct>();
 	//static ArrayList<IProduct> favoriesList = new ArrayList<IProduct>();
 	JMenu category2,category1,category3;JMenuItem category2Child1, category1Child1 ;
 	JMenuBar menuBar;JMenuItem category2Child2;
@@ -60,6 +59,8 @@ public class BuyerHomePageView extends JPanel implements Observer{
 	JButton addFavoriButton;
 	JButton addShoppingCartButton;
     JMenuItem lastCategory;
+	
+    JPanel panel, panel2;
     
 	public User getUser() {
 		return user;
@@ -79,13 +80,44 @@ public class BuyerHomePageView extends JPanel implements Observer{
         addProductPanel = new JPanel();
         addProductPanel.setBounds(83, 196, 550, 150);
         addProductPanel.setLayout(null);
+
+       /* scrollPane = new JScrollPane();
+        scrollPane.setBounds(10, 76, 740, 214);
+        add(scrollPane);*/
+
+        scrollPane2 = new JScrollPane();
+        scrollPane2.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+      //  scrollPane2.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+
+        panel = new JPanel();
+        panel.setAlignmentY(Component.BOTTOM_ALIGNMENT);
+        //panel.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+        panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
+        
+       /* panel_1 = new JPanel();
+        panel.add(panel_1);
+        
+        JPanel panel_2 = new JPanel();
+        panel.add(panel_2);
+        */
+        //panel.setLayout(new GridLayout(0, 1, 0, 0));
         //panel.setLayout(new GridLayout(1, 0, 0, 0));
 
         
-        ViewProductPanel(5, "");
+       //ViewProductPanel(5, "");
         /*jFavoriteList = new JList<>();
         scrollPane.setViewportView(jFavoriteList);*/
        // showLists();
+	}
+	
+	
+	
+	public static ArrayList<IProduct> getProductList() {
+		return productList;
+	}
+
+	public static void setProductList(ArrayList<IProduct> productList) {
+		BuyerHomePageView.productList = productList;
 	}
 
 	public void getCategories(ArrayList<IProduct> product, JMenu category) {
@@ -157,91 +189,104 @@ public class BuyerHomePageView extends JPanel implements Observer{
 		
     static int i;
     static ArrayList<IProduct> productList;
+    private JPanel panel_1;
     
 	public void ViewProductPanel(int size, String productName) {     
 		productList = findProducts(productName);
-        
+		//System.out.println(productList);
+       /* JPanel panel = new JPanel();
+        panel.setBounds(20, 58, 694, 385);
+        add(panel);
+        panel.setLayout(null);*/
+ 
+		
+		scrollPane2.setBounds(10, 89, 1087, 421);
+		panel.setBounds(10,89,625,364);
+        add(scrollPane2);
+
         System.out.println("Size = " + size);
-        int x = 15; 
-        int y = 10;
-        int width = 220;
-        int height = 100;
-        int buttonY = height +10;
-        int buttonHeight = 21;
-        int panelHeight = 258;
+        
+        
         for(i=0; i<size; i++) {
-        	if(x < (492 - width)) {
-		        JTextPane textPane = new JTextPane();
-		        textPane.setBounds(x, y, width, height);
-		        
-		        textPane.setText(productList.get(i).viewProductByBuyer());
-		        add(textPane);
-		        panel.add(textPane);
-		        
-		        addFavoriButton = new JButton("Add Favories");
-		        addFavoriButton.setBounds(x, buttonY, 220, buttonHeight);
-		        panel.add(addFavoriButton);
-		        addFavoriButton.addActionListener(new ActionListener() {
-        			public void actionPerformed(ActionEvent e) {
-        				//System.out.println("calistim" + i + " user = " + getUser().getUserName());
-        				boolean flag = false;
-        				productList = findProducts(productName);
-        				if(getUser().getFavoriteList().size() != 0) {
-	        				for(IProduct product : getUser().getFavoriteList()) {
-	        					if(product.getName().equalsIgnoreCase(productList.get(i).getName())) {
-	        						flag = true;
-	        					}
-	        				}
-	        				
+            JPanel panel_2 = new JPanel();
+            panel_2.setBounds(41, 196, 240, 284);
+            add(panel_2);
+            panel_2.setLayout(null);
+            
+            JTextPane textPane = new JTextPane();
+            textPane.setBounds(10, 10, 220, 156);
+            textPane.setText(productList.get(i).viewProductByBuyer());
+            panel_2.add(textPane);
+            
+            JButton addFavoriButton = new JButton("Add Favories");
+            addFavoriButton.setBounds(10, 191, 220, 21);
+            panel_2.add(addFavoriButton);
+            favoriteButtonList.put(addFavoriButton, productList.get(i));
+            
+	      /*  addFavoriButton.addActionListener(new ActionListener() {
+    			public void actionPerformed(ActionEvent e) {
+    				boolean flag = false;
+    				if(getUser().getFavoriteList().size() != 0) {
+        				for(IProduct product : getUser().getFavoriteList()) {
+        					if(product.getName().equalsIgnoreCase(productList.get(i).getName())) {
+        						flag = true;
+        					}
         				}
-        				if(!flag) {
-        					getUser().addProductToFavoriteList(productList.get(i));
-        					System.out.println("ben aynur " + productList.get(i));
-        				}
-        				
-        			}
-		        });
-		       // System.out.println(getUser().getFavoriList().toString());
-		        addShoppingCartButton = new JButton("Add Shopping Cart");
-		        addShoppingCartButton.setBounds(x, buttonY+buttonHeight+5 , 220, buttonHeight);
-		        panel.add(addShoppingCartButton);
-		        addShoppingCartButton.addActionListener(new ActionListener() {
-        			public void actionPerformed(ActionEvent e) {
-        				//System.out.println("calistim" + i + " user = " + getUser().getUserName());
-        				boolean flag = false;
-        				productList = findProducts(productName);
-        				if(getUser().getFavoriteList().size() != 0) {
-	        				for(IProduct product : getUser().getFavoriteList()) {
-	        					if(product.getName().equalsIgnoreCase(productList.get(i).getName())) {
-	        						flag = true;
-	        					}
-	        				}
-	        				
-        				}
-        				if(!flag) {
-        					getUser().addProductToShoppingCart(productList.get(i), 1);
-        					//System.out.println("ben aynur " + productList.get(i));
+    				}
+    				if(!flag) {
+    					getUser().addProductToFavoriteList(productList.get(i));
+    					System.out.println("ben aynur " + productList.get(i));
+    				}
+    				
+    			}
+	        });
+            */
+            JButton addShoppingCartButton = new JButton("Add Shopping Cart");
+            addShoppingCartButton.setBounds(10, 240, 220, 21);
+            panel_2.add(addShoppingCartButton);
+	      /*  addShoppingCartButton.addActionListener(new ActionListener() {
+    			public void actionPerformed(ActionEvent e) {
+    				//System.out.println("calistim" + i + " user = " + getUser().getUserName());
+    				boolean flag = false;
+    				productList = findProducts(productName);
+    				if(getUser().getFavoriteList().size() != 0) {
+        				for(IProduct product : getUser().getFavoriteList()) {
+        					if(product.getName().equalsIgnoreCase(productList.get(i).getName())) {
+        						flag = true;
+        					}
         				}
         				
-        			}
-		        });
-		        x = width + x + 15;
-        	}
-        	else {
-        		
-        		y = buttonY +(buttonHeight * 2) +40;
-        		if((y * 2) > panelHeight) {
-        			panelHeight = y * 2;
-        			panel.setBounds(10,89,492, panelHeight);
-        		}
-        		x = 15;
-        		/*if(x < (492 - width)) {
-	        		JTextPane textPane = new JTextPane();
-			        textPane.setBounds(x, y, width, height);
-			        add(textPane);
-			        x = width + x + 15;
-        		}*/
-        	}
+    				}
+    				if(!flag) {
+    					getUser().addProductToShoppingCart(productList.get(i), 1);
+    					//System.out.println("ben aynur " + productList.get(i));
+    				}
+    				
+    			}
+	        });*/
+		    panel.add(panel_2);
+        }
+        //scrollPane2.add(panel);
+        scrollPane2.setViewportView(panel);
+        i = 0;
+        for (Map.Entry<JButton,IProduct> entry : favoriteButtonList.entrySet()) {
+        	entry.getKey().addActionListener(new ActionListener() {
+	        	public void actionPerformed(ActionEvent e) {
+	        		//System.out.println("Aynurum");
+	        		boolean flag = false;
+	    			if(getUser().getFavoriteList().size() != 0) {
+	    				for(IProduct prd: getUser().getFavoriteList()) {
+	    					if(entry.getValue().getName().equalsIgnoreCase(prd.getName())) {
+	    						flag = true;
+	    					}
+	    				}
+	    			}
+	    			if(!flag) {
+	    				getUser().addProductToFavoriteList(entry.getValue());
+	    				System.out.println("ben aynur " + entry.getValue());
+	    			}
+	        	}
+	        });
         }
         i = 0;
         menuBar.setVisible(true);        
@@ -276,59 +321,9 @@ public class BuyerHomePageView extends JPanel implements Observer{
         getMainFrame().addNewPanel2(menuView);
         getMainFrame().addMenuPanel3(this);
         
-        JPanel panel = new JPanel();
-        panel.setBounds(82, 141, 535, 366);
-        add(panel);
-        panel.setLayout(null);
-        
-        JScrollPane scrollPane_1 = new JScrollPane();
-        scrollPane_1.setBounds(94, 44, 419, 312);
-        panel.add(scrollPane_1);
-        
-        JPanel panel_1 = new JPanel();
-        panel_1.setAlignmentY(Component.BOTTOM_ALIGNMENT);
-        scrollPane_1.setViewportView(panel_1);
-        panel_1.setLayout(new BoxLayout(panel_1, BoxLayout.X_AXIS));
-        
-        JPanel panel_2 = new JPanel();
-        panel_2.setAlignmentX(Component.LEFT_ALIGNMENT);
-        panel_2.setAlignmentY(Component.TOP_ALIGNMENT);
-        panel_1.add(panel_2);
-        
-        JButton button_1 = new JButton("New button");
-        panel_2.add(button_1);
-        
-        JButton button = new JButton("New button");
-        panel_2.add(button);
-        
-        JButton button_1_3 = new JButton("New button");
-        panel_2.add(button_1_3);
-        
-        JButton button_4 = new JButton("New button");
-        panel_2.add(button_4);
-        
-        JPanel panel_2_1 = new JPanel();
-        panel_2_1.setAlignmentY(Component.BOTTOM_ALIGNMENT);
-        panel_2_1.setAlignmentX(Component.RIGHT_ALIGNMENT);
-        panel_1.add(panel_2_1);
-        
-        JButton button_1_1 = new JButton("New button");
-        panel_2_1.add(button_1_1);
-        
-        JButton button_2 = new JButton("New button");
-        panel_2_1.add(button_2);
-        
-        JButton button_1_2 = new JButton("New button");
-        panel_2_1.add(button_1_2);
-        
-        JButton button_3 = new JButton("New button");
-        panel_2_1.add(button_3);
-        
-        JPanel panel_2_2 = new JPanel();
-        panel_2_2.setAlignmentX(Component.LEFT_ALIGNMENT);
-        panel_2_2.setAlignmentY(Component.TOP_ALIGNMENT);
-        panel_1.add(panel_2_2);
 
+        
+       
 	}
 	
    /* private void showLists() {
@@ -372,6 +367,10 @@ public class BuyerHomePageView extends JPanel implements Observer{
     		jm.addMouseListener(mouseEvent);
     }
 	
+    public void addFavoriteButtonList(ActionListener actionListener){
+    	//for(JButton jb : favoriteButtonList)
+    		//jb.addActionListener(actionListener);
+    }
 	
     @Override
     public void update(Observable o, Object arg) {

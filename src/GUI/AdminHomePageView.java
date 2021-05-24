@@ -47,8 +47,7 @@ public class AdminHomePageView extends JPanel implements Observer {
 	JMenuItem helpContents;  JMenu help;  JMenuItem sendFeedback; 
     JPanel addProductPanel;
     JPanel seeAllProductsPanel;
-    JTextField productNameTextField;
-    JTextField productPriceTextField;
+    JTextField categoryNameTextField;
     JMenuItem lastCategory;
     private JMenuBar menuBar_1;
 	
@@ -63,7 +62,7 @@ public class AdminHomePageView extends JPanel implements Observer {
         addProductPanel.setBounds(83, 196, 550, 150);
         addProductPanel.setLayout(null);
 	 
-        lastCategory = new JMenuItem();
+        lastCategory = new JMenuItem();showAddProductPanel();
 	}
 	
 	public void getCategories(ArrayList<IProduct> product, JMenu category) {
@@ -105,23 +104,14 @@ public class AdminHomePageView extends JPanel implements Observer {
 	        
 	        menuBar.setVisible(true);
 	        
-	        JLabel productNameLabel = new JLabel("Product Name");
-	        productNameLabel.setBounds(10, 20, 82, 13);
-	        addProductPanel.add(productNameLabel);
+	        JLabel categoryNameLabel = new JLabel("Category Name");
+	        categoryNameLabel.setBounds(10, 20, 82, 13);
+	        addProductPanel.add(categoryNameLabel);
 	        
-	        productNameTextField = new JTextField();
-	        productNameTextField.setBounds(95, 17, 96, 19);
-	        addProductPanel.add(productNameTextField);
-	        productNameTextField.setColumns(10);
-	        
-	        JLabel productPriceLabel = new JLabel("Product Price");
-	        productPriceLabel.setBounds(10, 49, 82, 13);
-	        addProductPanel.add(productPriceLabel);
-	        
-	        productPriceTextField = new JTextField();
-	        productPriceTextField.setColumns(10);
-	        productPriceTextField.setBounds(95, 46, 96, 19);
-	        addProductPanel.add(productPriceTextField);
+	        categoryNameTextField = new JTextField();
+	        categoryNameTextField.setBounds(95, 17, 96, 19);
+	        addProductPanel.add(categoryNameTextField);
+	        categoryNameTextField.setColumns(10);
 	        
 	        JComboBox categoriesComboBox = new JComboBox();
 	        categoriesComboBox.setModel(new DefaultComboBoxModel(new String[] {"Electronic", "Clothing"}));
@@ -132,26 +122,18 @@ public class AdminHomePageView extends JPanel implements Observer {
 	        categoriesLabel.setBounds(10, 76, 82, 13);
 	        addProductPanel.add(categoriesLabel);
 	        
-	        JButton addProductButton = new JButton("Add Product");
-	        addProductButton.setBounds(57, 125, 104, 21);
-	        addProductPanel.add(addProductButton);
+	        JButton addCategoryButton = new JButton("Add Category");
+	        addCategoryButton.setBounds(63, 103, 104, 21);
+	        addProductPanel.add(addCategoryButton);
 	        
-	        addProductButton.addActionListener(new ActionListener() {
+	        addCategoryButton.addActionListener(new ActionListener() {
 	        	public void actionPerformed(ActionEvent e) {
-	        		System.out.println("Umarım artık beni üzmezsin Gürcan Gül");
 	        	}
 	        });
 	        
-	        
-	        
-	        JLabel productStokLabel = new JLabel("Product Stok");
-	        productStokLabel.setBounds(10, 102, 82, 13);
-	        addProductPanel.add(productStokLabel);
-	        
-	        JSpinner stokSpinner = new JSpinner();
-	        stokSpinner.setModel(new SpinnerNumberModel(new Integer(1), new Integer(1), null, new Integer(1)));
-	        stokSpinner.setBounds(95, 95, 52, 20);
-	        addProductPanel.add(stokSpinner);
+	        JLabel lblNewLabel = new JLabel("Hangi kategorinin altına eklemek istiyorsunuz?");
+	        lblNewLabel.setBounds(10, 53, 275, 13);
+	        addProductPanel.add(lblNewLabel);
 	        
 	        
 	        getMainFrame().addNewPanel2(menuView);
