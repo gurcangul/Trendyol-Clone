@@ -9,14 +9,14 @@ public class Product implements IProduct{
 	private int ID;
 	private String name;
 	private double price;
-	private int stok;
+	private int stock;
 	private Seller seller;
 
-    public Product(int ID,String name,double price, int stok, Seller seller){
+    public Product(int ID,String name,double price, int stock, Seller seller){
     	setID(ID);
         setName(name);
         setPrice(price);
-        setStok(stok);
+        setStock(stock);
         setSeller(seller);
 
     }
@@ -55,9 +55,9 @@ public class Product implements IProduct{
 	}
 
 	@Override
-	public int getStok() {
+	public int getStock() {
 		// TODO Auto-generated method stub
-		return stok;
+		return stock;
 	}
 	
 
@@ -79,13 +79,9 @@ public class Product implements IProduct{
         //this is leaf node so this method is not applicable to this class.
     }
 
-    
-
-	
-
 	@Override
 	public String toString() {
-		return "Product [" + ID + ", " + name + ", " + price + ", " + stok + ", " + seller.getUserName() + "]";
+		return "Product [" + ID + ", " + name + ", " + price + ", " + stock + ", " + seller.getUserName() + "]";
 	}
 
 	public void setID(int ID) {
@@ -99,11 +95,13 @@ public class Product implements IProduct{
 	public void setPrice(double price) {
 		this.price = price;
 	}
-
 	
-	public void setStok(int stok) {
-		this.stok = stok;
+	public void setStock(int stock) {
+		this.stock = stock;
 	}
 
-
+	@Override
+	public String viewProductByBuyer() {
+		return "Product Name = " + name + "\n" + "Price = " + price + "\n" + "Seller = " + seller.getUserName();
+	}
 }

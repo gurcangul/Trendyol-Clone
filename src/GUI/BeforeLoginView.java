@@ -53,7 +53,7 @@ public class BeforeLoginView extends JPanel    {
         signInButton.setBounds(286, 176, 154, 35);
         add(signInButton);
         
-        back = new JButton("back");
+        back = new JButton("Back");
         back.setIcon(new ImageIcon(BeforeLoginView.class.getResource("/back.png")));
         back.setFont(new Font("Tahoma", Font.PLAIN, 14));
         back.setBounds(286, 235, 154, 35);

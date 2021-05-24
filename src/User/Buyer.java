@@ -1,5 +1,6 @@
 package User;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,7 +14,8 @@ public class Buyer implements User {
 	private String userName ;
 	private String email;
 	private String password;
-	private Map<IProduct, Integer> shoppingCart = new HashMap<IProduct, Integer>();
+	private Map<IProduct, Integer> shoppingCart = new HashMap<IProduct, Integer>(); 
+	private ArrayList<IProduct> favoriList = new ArrayList<IProduct>(); 
 	
 	public Buyer(int userID, String userType, String userName, String email, String password){
 		setUserID(userID);
@@ -140,6 +142,18 @@ public class Buyer implements User {
 				}
 			}
 		}
+	}
+
+	@Override
+	public ArrayList<IProduct> getFavoriteList() {
+		
+		return favoriList;
+	}
+
+	@Override
+	public void addProductToFavoriteList(IProduct product) {
+		favoriList.add(product);
+		
 	}
 }
    

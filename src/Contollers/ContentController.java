@@ -24,24 +24,19 @@ public class ContentController {
         //menuView.addHomeButton(new HomeButtonActionListener());
        /* DataHandler dataHandler = new DataHandler();
         productAndCategories=dataHandler.getProductAndCategories();
-        DataHandler.getProductAndCategories();*/
-        
-    }
-    
+        DataHandler.getProductAndCategories();*/        
+    } 
     private class MyProfileButtonActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
         	
         }
-    } 
-    
+    }    
     private class HomeButtonActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
         	BuyerHomePageView homePageView = new BuyerHomePageView(mainFrameView,menuView);
-    		//mainFrameView.addMenuPanel(homePageView);
     		BuyerHomePageController homePageController = new BuyerHomePageController(mainFrameView,homePageView);
-
         }
     } 
 }

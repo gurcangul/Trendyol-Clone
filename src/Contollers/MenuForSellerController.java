@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import javax.swing.event.AncestorListener;
 
+import GUI.AboutAppView;
 import GUI.BeforeLoginView;
 import GUI.FeedbackView;
 import GUI.BuyerHomePageView;
@@ -31,10 +32,10 @@ public class MenuForSellerController {
         menuView.addHomeButton(new HomeButtonActionListener());
         menuView.addHomePageButton(new HomePageButtonActionListener());
         menuView.addMyFavoritesButton(new MyFavoritesButtonActionListener());
-        menuView.addHelpContentsButton(new HelpContentsButtonActionListener());
         menuView.addHelpButton(new HelpButtonActionListener());
         menuView.addSendFeedbackButton(new SendFeedbackButtonActionListener());
         menuView.addLogOutButton(new LogOutButtonActionListener());
+        menuView.addAboutButton(new AboutButtonActionListener());
 
         
     }
@@ -44,7 +45,14 @@ public class MenuForSellerController {
         public void actionPerformed(ActionEvent e) {
         }
     } 
-    
+
+    private class AboutButtonActionListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+        	AboutAppView homePageView = new AboutAppView(mainFrameView,menuView);
+        	AboutAppController AboutAppController = new AboutAppController(mainFrameView,homePageView);
+        }
+    }
     private class HomeButtonActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {

@@ -73,7 +73,7 @@ public class Writer {
 				productListObject.put("ID", String.valueOf(product.getID()));
 				productListObject.put("name", product.getName());
 				productListObject.put("price",  String.valueOf(product.getPrice()));
-				productListObject.put("stok",  String.valueOf(product.getStok()));
+				productListObject.put("stock",  String.valueOf(product.getStock()));
 				productListObject.put("seller", product.getSeller().getUserName());	
 				categoryObject.put("product", productListObject);
 				categoryList.put(categoryObject);

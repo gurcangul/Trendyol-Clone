@@ -26,116 +26,85 @@ public class BuyerHomePageController {
     public BuyerHomePageController(MainFrameView mainFrameView, BuyerHomePageView homePageView ) {
     	this.mainFrameView=mainFrameView;
         this.homePageView = homePageView;
-        homePageView.addViewAllUsersButtonActionListener(new viewAllUsersButtonActionListener());
-        homePageView.addCreateCollectionButtonActionListener(new createCollectionButtonActionListener());
-        homePageView.addMyProfileButtonActionListener(new myProfileButtonActionListener());
-        homePageView.addSeeAllCollectionButtonActionListener(new seeAllCollectionButtonActionListener());
-        homePageView.addTrendsButtonActionListener(new addTrendsButtonActionListener());
         homePageView.addMouseListener2(new addMouseListener2());
     }
 
     public BuyerHomePageView getHomePageView() {
 		return homePageView;
 	}
-    public void getCategories(ArrayList<IProduct> product, ArrayList<IProduct> allProducts) {
+    public void getCategories(ArrayList<IProduct> product, String productName) {
 		for(IProduct prd: product) {
-			if("class Product.Category".equalsIgnoreCase(prd.getClass().toString())) {
-				allProducts.add(prd);
-				if(prd.getChild() != null) {
-					getCategories(prd.getChild(), allProducts);
-				}
+			if(prd.getName().equalsIgnoreCase(productName)) {
+	   			 if(prd.getChild()!= null) {	
+	   				 int size = prd.getChild().size();
+	   				 homePageView.ViewProductPanel(size, productName);
+	   			 }
 			}
-			else if("class Product.Product".equalsIgnoreCase(prd.getClass().toString())) {
-				allProducts.add(prd);
-			}
+	   		else {
+		            if(prd.getChild()!= null) {	
+		            	getCategories(prd.getChild(), productName);
+		            }
+	   		}
 		}
-	}
+	}      
     private class addMouseListener2 implements ActionListener {
-
+ 
 		@Override
 		public void actionPerformed(ActionEvent e) {
 	    	String splitLine[] = e.getSource().toString().split("=");
 	    	int length = splitLine.length;
 	    	String productName = splitLine[length-1].replace("]", "");
-	    	System.out.println(productName);
-		}
-
-    }
-    /*
-    private class addMouseListener extends MouseAdapter {
-        @Override
-        public void mouseClicked(MouseEvent e) {
-	    	String splitLine[] = e.getSource().toString().split("=");
-	    	int length = splitLine.length;
-	    	String categoryName = splitLine[length-1].replace("]", "");
-	    	//System.out.println(categoryName);
-	    	ArrayList<IProduct> productList = DataHandler.getProductAndCategoriesAsAObject();
-	    	ArrayList<IProduct> allProducts = new ArrayList<IProduct>();
-	    	for(IProduct prd: productList) {
-	    		if(prd.getName().equalsIgnoreCase(categoryName)) {
-	    			if(prd.getChild() != null) {
-	    				getCategories(prd.getChild(), allProducts);
-	    			}
+	    	//System.out.println(productName);
+	    	ArrayList<IProduct> products = DataHandler.getProductAndCategoriesAsAObject();
+	    	for(IProduct prd: products) {
+	    		if(prd.getName().equalsIgnoreCase(productName)) {
+	    			 if(prd.getChild()!= null) {	
+	    				 int size = prd.getChild().size();
+	    				 homePageView.ViewProductPanel(size, productName);
+	    				 
+	    			 }
 	    		}
-	    	}
-	    	for(IProduct prd: allProducts) {
-	    		System.out.println(prd.getName());
-	    	}
-        	/*JOptionPane.showMessageDialog(null, "Menu Action Listener ");
-        	LoginView loginView =  new LoginView(mainFrameView);
-    		LoginController loginController = new LoginController(mainFrameView,loginView);
-        }
-    } */
-    
-	private class viewAllUsersButtonActionListener implements ActionListener {
+	    		else {
+		            if(prd.getChild()!= null) {	
+		            	getCategories(prd.getChild(), productName);
+		            }
+	    		}
+			}
+		}
+    }
+    private class viewAllUsersButtonActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            /*String title = browseWatchlistView.getUserInput("Watch List title:");
-            currentUser.addWatchlist(new Watchlist(new ArrayList<>(),title));*/ 
         	LoginView loginView =  new LoginView(mainFrameView);
-    		//mainFrameView.addNewPanel(loginView);	
     		LoginController loginController = new LoginController(mainFrameView,loginView);
         }
     } 
     private class createCollectionButtonActionListener implements ActionListener {
         @Override
-        public void actionPerformed(ActionEvent e) {
-            /*String title = browseWatchlistView.getUserInput("Watch List title:");
-            currentUser.addWatchlist(new Watchlist(new ArrayList<>(),title));*/ 
+        public void actionPerformed(ActionEvent e) {          
         	LoginView loginView =  new LoginView(mainFrameView);
-    		//mainFrameView.addNewPanel(loginView);	
     		LoginController loginController = new LoginController(mainFrameView,loginView);
         }
     } 
     private class myProfileButtonActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            /*String title = browseWatchlistView.getUserInput("Watch List title:");
-            currentUser.addWatchlist(new Watchlist(new ArrayList<>(),title));*/ 
         	LoginView loginView =  new LoginView(mainFrameView);
-    		//mainFrameView.addNewPanel(loginView);	
     		LoginController loginController = new LoginController(mainFrameView,loginView);
         }
     } 
     private class seeAllCollectionButtonActionListener implements ActionListener {
         @Override
-        public void actionPerformed(ActionEvent e) {
-            /*String title = browseWatchlistView.getUserInput("Watch List title:");
-            currentUser.addWatchlist(new Watchlist(new ArrayList<>(),title));*/ 
+        public void actionPerformed(ActionEvent e) {         
         	LoginView loginView =  new LoginView(mainFrameView);
-    		//mainFrameView.addNewPanel(loginView);	
     		LoginController loginController = new LoginController(mainFrameView,loginView);
         }
     } 
     private class addTrendsButtonActionListener implements ActionListener {
         @Override
-        public void actionPerformed(ActionEvent e) {
-            /*String title = browseWatchlistView.getUserInput("Watch List title:");
-            currentUser.addWatchlist(new Watchlist(new ArrayList<>(),title));*/ 
+        public void actionPerformed(ActionEvent e) {         
         	LoginView loginView =  new LoginView(mainFrameView);
-    		//mainFrameView.addNewPanel(loginView);	
     		LoginController loginController = new LoginController(mainFrameView,loginView);
         }
-    } 
-    
+    }     
 }

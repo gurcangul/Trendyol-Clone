@@ -24,14 +24,15 @@ public class AboutAppView extends JPanel implements Observer {
 		this.menuView=menuView;
 		new JPanel(new GridLayout(3, 1));
 		String info="This Application created by \nAynur Atış  and \nGürcan Gül";
-		setLayout(new BorderLayout(0, 0));Label label = new Label(info);
+		setLayout(new BorderLayout(0, 0));
+		Label label = new Label(info);
 		label.setAlignment(Label.CENTER);
 		add(label, BorderLayout.NORTH);
 		JLabel copyrightLabel = new JLabel("Copyright 2021 All rights reserved.");
 
 		info="Copyright 2021 All rights reserved.";
 		add(copyrightLabel);
-        getMainFrame().addNewPanel2(menuView);
+        getMainFrame().addNewPanel2(this.menuView);
         getMainFrame().addMenuPanel3(this);
 
 	}

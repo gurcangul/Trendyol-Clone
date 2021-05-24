@@ -9,7 +9,7 @@ public class MyProfileController {
 	private final  MyProfileView myProfileView;
     public MyProfileController(MainFrameView mainFrameView, MyProfileView myProfileView ) {
     	this.mainFrameView=mainFrameView;
-        this.myProfileView = myProfileView;
+        this.myProfileView = myProfileView; 
         //myProfileView.addViewAllUsersButtonActionListener(new viewAllUsersButtonActionListener());	
     }
 

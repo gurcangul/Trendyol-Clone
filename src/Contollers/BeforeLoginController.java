@@ -28,10 +28,7 @@ public class BeforeLoginController {
     private class loginActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            /*String title = browseWatchlistView.getUserInput("Watch List title:");
-            currentUser.addWatchlist(new Watchlist(new ArrayList<>(),title));*/ 
         	LoginView loginView =  new LoginView(mainFrameView);
-    		//mainFrameView.addNewPanel(loginView);	
     		LoginController loginController = new LoginController(mainFrameView,loginView);
         }
     }
@@ -40,7 +37,6 @@ public class BeforeLoginController {
         @Override
         public void actionPerformed(ActionEvent e) {
         	WelcomeView welcomeView =  new WelcomeView(mainFrameView);
-    		//mainFrameView.addNewPanel(welcomeView);
     		WelcomeController welcomeController = new WelcomeController(mainFrameView,welcomeView);
 
         }
@@ -52,15 +48,11 @@ public class BeforeLoginController {
             /*String title = browseWatchlistView.getUserInput("Watch List title:");
             currentUser.addWatchlist(new Watchlist(new ArrayList<>(),title));*/ 
     		//JOptionPane.showMessageDialog(null, "This is not avaible for now! ");
-        	SignUpView signUpView = new SignUpView(mainFrameView);
-        	
+        	SignUpView signUpView = new SignUpView(mainFrameView);      	
         	SignUpController signUpController = new SignUpController(mainFrameView, signUpView);
-
         }
     }
-    
-    
-    
+     
 	public BeforeLoginView getBeforeLoginView() {
 		return beforeLoginView;
 	}

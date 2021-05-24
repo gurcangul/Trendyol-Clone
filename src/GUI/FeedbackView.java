@@ -31,13 +31,10 @@ public class FeedbackView extends JPanel implements Observer{
         this.setMainFrame(mainFrameView);
         this.menuView=menuView;
         this.setMainFrame(mainFrameView);  
-        getMainFrame().addNewPanel2(menuView);
-        getMainFrame().addMenuPanel3(this);
-        
-        
-        new JPanel(new GridLayout(3, 1));       
-        setSize(760, 460);
-		setLayout(null);
+
+		setSize(760, 460);
+        new JPanel(new GridLayout(3, 1));
+        setLayout(null);
         
 		Label userNameLabel = new Label("User Name");
 		userNameLabel.setBounds(79, 61, 86, 21);
@@ -121,6 +118,9 @@ public class FeedbackView extends JPanel implements Observer{
         emailField.setEditable(false);
         emailField.setBounds(199, 93, 269, 21);
         add(emailField);
+        getMainFrame().addNewPanel2(this.menuView);
+        getMainFrame().addMenuPanel3(this);    
+        
 		
 	}
 
@@ -154,11 +154,9 @@ public class FeedbackView extends JPanel implements Observer{
         }
 	}
 
-
 	@Override
 	public void update(Observable o, Object arg) {
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub		
 	}
 
 	public String getEmail() {

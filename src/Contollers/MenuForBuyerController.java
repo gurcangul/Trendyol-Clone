@@ -13,6 +13,7 @@ import GUI.BuyerHomePageView;
 import GUI.LoginView;
 import GUI.MainFrameView;
 import GUI.MenuViewForBuyer;
+import GUI.MyProfileView;
 import User.User;
 
 
@@ -31,17 +32,19 @@ public class MenuForBuyerController {
         menuView.addStoreButton(new StoreButtonActionListener());
         menuView.addShoppingCartButton(new ShoppingCartButtonActionListener());
         menuView.addHomePageButton(new HomePageButtonActionListener());
-        menuView.addMyFavoritesButton(new MyFavoritesButtonActionListener());
+        menuView.addMyFavoritesButton(new MyFavoritesButtonActionListener()); 
         menuView.addHelpButton(new HelpButtonActionListener());
         menuView.addSendFeedbackButton(new SendFeedbackButtonActionListener());
         menuView.addLogOutButton(new LogOutButtonActionListener());
         menuView.addAboutButton(new AboutButtonActionListener());
+
         
     }
     
     private class MyProfileButtonActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+        	
         }
     } 
     private class AboutButtonActionListener implements ActionListener {
@@ -49,16 +52,13 @@ public class MenuForBuyerController {
         public void actionPerformed(ActionEvent e) {
         	AboutAppView homePageView = new AboutAppView(mainFrameView,menuView);
         	AboutAppController AboutAppController = new AboutAppController(mainFrameView,homePageView);
-
         }
     }
     private class HomeButtonActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-        	
         	BuyerHomePageView homePageView = new BuyerHomePageView(mainFrameView,menuView);
     		BuyerHomePageController homePageController = new BuyerHomePageController(mainFrameView,homePageView);
-
         }
     } 
     private class StoreButtonActionListener implements ActionListener {
@@ -77,15 +77,25 @@ public class MenuForBuyerController {
         public void actionPerformed(ActionEvent e) {
         	BuyerHomePageView homePageView = new BuyerHomePageView(mainFrameView,menuView);
     		BuyerHomePageController homePageController = new BuyerHomePageController(mainFrameView,homePageView);
+
         }
     }     
    
     private class MyFavoritesButtonActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+        	// burası bizim favorilerimiz yani Aynur :)
+        	MyProfileView myProfileView = new MyProfileView(mainFrameView,menuView);
+        	MyProfileController myProfileController = new MyProfileController(mainFrameView, myProfileView);
+        	myProfileView.viewMyFavories(); 
+        	
         }
     }    
-
+    private class HelpContentsButtonActionListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+        }
+    }  
     
     private class HelpButtonActionListener implements ActionListener {
         @Override
@@ -105,11 +115,13 @@ public class MenuForBuyerController {
         @Override
         public void actionPerformed(ActionEvent e) {
             int result = JOptionPane.showConfirmDialog(mainFrameView,"Sure? You want to exit?", "Swing Tester",
-            JOptionPane.YES_NO_OPTION,
-            JOptionPane.QUESTION_MESSAGE);
-            if(result == JOptionPane.YES_OPTION){
-            	beforeLoginView =  new BeforeLoginView(mainFrameView);
-              	BeforeLoginController beforeLoginController = new BeforeLoginController(mainFrameView,beforeLoginView);
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE);
+                 if(result == JOptionPane.YES_OPTION){
+                    //mainFrame.setTitle("You selected: Yes");
+              	   beforeLoginView =  new BeforeLoginView(mainFrameView);
+              	  // mainFrameView.addNewPanel(beforeLoginView);
+              	 BeforeLoginController beforeLoginController = new BeforeLoginController(mainFrameView,beforeLoginView);
 
                  }else if (result == JOptionPane.NO_OPTION){
               	   //mainFrame.setTitle("Outfit Rating Platform");

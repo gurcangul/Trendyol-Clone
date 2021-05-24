@@ -1,5 +1,6 @@
 package User;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 import Product.IProduct;
@@ -17,7 +18,7 @@ public class Seller implements User{
 		setUserType(userType);
 		setUserName(userName);
 		setEmail(email);
-		setPassword(password);
+		setPassword(password); 
 	}
 	
 	@Override
@@ -102,6 +103,18 @@ public class Seller implements User{
 
 	@Override
 	public void removeProductFromShoppingCart(IProduct product, Integer quantity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public ArrayList<IProduct> getFavoriteList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void addProductToFavoriteList(IProduct product) {
 		// TODO Auto-generated method stub
 		
 	}

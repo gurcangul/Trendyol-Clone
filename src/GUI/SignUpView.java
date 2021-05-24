@@ -34,7 +34,6 @@ public class SignUpView extends JPanel implements Observer {
 		this.setMainFrame(mainFrameView);        
         new JPanel(new GridLayout(3, 1));
         setLayout(null);
-
         showPanel();
 	}
 	
@@ -48,8 +47,7 @@ public class SignUpView extends JPanel implements Observer {
         email.setBounds(222, 90, 158, 19);
         add(email);
         email.setColumns(10);
-        
-        
+              
         JLabel userName = new JLabel("User Name:");
         userName.setFont(new Font("Tahoma", Font.PLAIN, 12));
         userName.setBounds(149, 54, 63, 13);
@@ -75,13 +73,11 @@ public class SignUpView extends JPanel implements Observer {
         
         back = new JButton("BACK");//this is go back button
         back.setIcon(new ImageIcon(SignUpView.class.getResource("/back.png")));
-
         back.setFont(new Font("Tahoma", Font.PLAIN, 14));
         back.setBounds(561, 10, 113, 35);
         add(back);
         
         signIn = new JButton("Sign In");
-
         signIn.setBounds(222, 230, 107, 35);
         add(signIn);           
         mainFrameView.addNewPanel(this);
@@ -90,8 +86,7 @@ public class SignUpView extends JPanel implements Observer {
         comboBox.setModel(new DefaultComboBoxModel(new String[] {"Seller", "Buyer"}));
         comboBox.setToolTipText("");
         comboBox.setBounds(222, 171, 79, 19);
-        add(comboBox);
-    
+        add(comboBox);   
     }
 	
 	public void setVisible() {
@@ -142,8 +137,10 @@ public class SignUpView extends JPanel implements Observer {
     public JPasswordField getPassword() {
         return password;
     }
+
 	@Override
 	public void update(Observable o, Object arg) {
+		// TODO Auto-generated method stub
 		
-	}      
+	}  
 }

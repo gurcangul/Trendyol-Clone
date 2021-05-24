@@ -1,5 +1,6 @@
 package User;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 import Product.IProduct;
@@ -18,6 +19,8 @@ public interface User {
 	String getPassword();
 	void createObject();
 	Map<IProduct, Integer> getShoppingCart();
+	ArrayList<IProduct> getFavoriteList();
 	void addProductToShoppingCart(IProduct product, Integer quantity);
 	void removeProductFromShoppingCart(IProduct product, Integer quantity);
+	void addProductToFavoriteList(IProduct product);
 }

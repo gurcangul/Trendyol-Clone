@@ -13,6 +13,7 @@ public interface IProduct {//Component == Product  (Composite Design Pattern)
 	public void add(IProduct product);	
     public void remove(IProduct product);    
     public ArrayList<IProduct> getChild();
-    public int getStok();
+    public int getStock();
     public Seller getSeller();
+    public String viewProductByBuyer();
 }

@@ -3,9 +3,7 @@ package GUI;
 
 import java.awt.Color;
 import java.awt.GridLayout;
-import java.awt.LayoutManager;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +15,6 @@ import javax.swing.JButton;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import FileIO.DataHandler;
@@ -26,23 +23,13 @@ import User.User;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
-import javax.swing.JFrame;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
-
-
-import javax.swing.JList;
-import javax.swing.AbstractListModel;
 import java.awt.event.ActionEvent;
-import java.awt.event.MouseEvent;
 
 public class SellerHomePageView extends JPanel implements Observer {
 
-	/**
-	 * Create the panel.
-	 */
-	
 	private static final long serialVersionUID = -5277901207402632648L;
 	private MainFrameView mainFrameView;
 	private MenuViewForSeller menuView;
@@ -300,8 +287,7 @@ public class SellerHomePageView extends JPanel implements Observer {
     	updateStok.addActionListener(actionListener);
     }
     public void addProductButtonActionListener(ActionListener actionListener){
-    	addProduct.addActionListener(actionListener);
-    	
+    	addProduct.addActionListener(actionListener);  	
     }
     public void addMyProfileButtonActionListener(ActionListener actionListener){
     	myProfileButton.addActionListener(actionListener);
@@ -312,8 +298,6 @@ public class SellerHomePageView extends JPanel implements Observer {
     public void addSaleProductsButtonActionListener(ActionListener actionListener){
     	saleProducts.addActionListener(actionListener);
     }
-    
-    
 
 	@Override
 	public void update(Observable o, Object arg) {

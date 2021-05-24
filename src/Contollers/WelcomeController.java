@@ -22,8 +22,6 @@ public class WelcomeController {
     private class enterActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            /*String title = browseWatchlistView.getUserInput("Watch List title:");
-            currentUser.addWatchlist(new Watchlist(new ArrayList<>(),title));*/ 
         	BeforeLoginView beforeLoginView =  new BeforeLoginView(mainFrameView);
     		BeforeLoginController beforeLoginController = new BeforeLoginController(mainFrameView, beforeLoginView );
         }

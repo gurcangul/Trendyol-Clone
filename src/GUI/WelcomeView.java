@@ -37,7 +37,7 @@ public class WelcomeView extends JPanel implements Observer {
         enterButton = new JButton("ENTER");
         enterButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
 
-        enterButton.setBounds(294, 301, 110, 21);
+        enterButton.setBounds(296, 314, 110, 21);
         add(enterButton);
         
         logo = new JLabel("");
@@ -49,13 +49,20 @@ public class WelcomeView extends JPanel implements Observer {
         
         JLabel welcomeLabel1 = new JLabel("Welcome to the GAGA!");
         welcomeLabel1.setFont(new Font("Tahoma", Font.BOLD, 15));
-        welcomeLabel1.setBounds(256, 66, 193, 36);
+        welcomeLabel1.setBounds(263, 65, 193, 36);
         add(welcomeLabel1);
-        
-        JLabel welcomeLabel2 = new JLabel("GAGA is the best Online Shopping application in Turkey!");
+        //setTitle("");
+
+        JLabel welcomeLabel2 = new JLabel("GAGA is an Online Shopping application that offers quality products and low prices.");
         welcomeLabel2.setFont(new Font("Tahoma", Font.ITALIC, 11));
-        welcomeLabel2.setBounds(223, 361, 314, 21);
+        welcomeLabel2.setBounds(184, 375, 458, 21);
         add(welcomeLabel2);
+        
+        JLabel welcomeLabel3 = new JLabel("Gaga | High Quality, Low Price!");
+        welcomeLabel3.setFont(new Font("Tahoma", Font.ITALIC, 11));
+        welcomeLabel3.setBounds(273, 283, 218, 21);
+        add(welcomeLabel3);
+
         
         aboutButton = new JButton("About");
         aboutButton.setFont(new Font("Tahoma", Font.PLAIN, 8));
@@ -66,7 +73,7 @@ public class WelcomeView extends JPanel implements Observer {
         });
         aboutButton.setForeground(Color.BLACK);
         aboutButton.setBackground(Color.LIGHT_GRAY);
-        aboutButton.setBounds(317, 392, 59, 21);
+        aboutButton.setBounds(325, 400, 59, 21);
         add(aboutButton);
         mainFrameView.addNewPanel(this);
     	

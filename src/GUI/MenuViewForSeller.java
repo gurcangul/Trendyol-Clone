@@ -1,28 +1,16 @@
 package GUI;
+import User.User;
 
-import java.awt.GridLayout;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
-import javax.swing.JTextField;
-import javax.swing.event.AncestorListener;
-
-import User.User;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
-import javax.swing.JCheckBoxMenuItem;
-import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JMenu;
 import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.SystemColor;
-import javax.swing.JRadioButtonMenuItem;
 import java.awt.event.ActionListener;
 import java.util.Observable;
 import java.util.Observer;
-import java.awt.event.ActionEvent;
-import javax.swing.JButton;
+
 import javax.swing.ImageIcon;
 
 public class MenuViewForSeller extends JPanel implements Observer {
@@ -31,12 +19,13 @@ public class MenuViewForSeller extends JPanel implements Observer {
 	MainFrameView mainFrameView;
 	BeforeLoginView beforeLoginView;
 	private JPasswordField password;
-	private String userName;
-	JMenu myProfile,home;JMenuItem homePage ;
-	JMenuBar menuBar;JMenuItem myProducts;
-	JMenuItem helpContents;  JMenu help;  JMenuItem sendFeedback; JMenuItem logOut;
-	private User user;
-	
+	private String userName;	
+	private User user; 
+
+	JMenu myProfile,home,help;
+	JMenuBar menuBar;
+	JMenuItem sendFeedback,logOut,about,homePage,myProducts,helpContents;
+
 	public MenuViewForSeller(MainFrameView mainFrameView,User user ) {
 		this.mainFrameView=mainFrameView;                
 		this.setUser(user);
@@ -61,10 +50,7 @@ public class MenuViewForSeller extends JPanel implements Observer {
 	    myProfile.add(myProducts);		        
 	    JMenuItem generalAccountSettings = new JMenuItem("General Account Settings");
 	    myProfile.add(generalAccountSettings);
-	    //User user = new User();
-	    //user.getserName
 	    String name="";
-	    //if(!user.getUserName().equals(null))
 	    	 try {
 	    		 name=user.getUserName();
 	    	 }
@@ -73,52 +59,39 @@ public class MenuViewForSeller extends JPanel implements Observer {
 			}
 	    JMenu userName = new JMenu(name);
 	    menuBar.add(userName);
-	    JMenuItem myShoppingCart = new JMenuItem(name);
-	    userName.add(myShoppingCart);
+	    
 	    logOut = new JMenuItem("Log Out");
-	    logOut.setIcon(new ImageIcon("C:\\Users\\Gurcan\\eclipse-workspace\\G12_CENG431_HW3-v1\\src\\logout.png"));
-  
+	    logOut.setIcon(new ImageIcon(MenuViewForBuyer.class.getResource("/back.png"))); 
 	    userName.add(logOut);
 	    help = new JMenu("Help");
-	    menuBar.add(help);
-	    
-	    helpContents = new JMenuItem("Help Contents");
-	    help.add(helpContents);
-	    sendFeedback = new JMenuItem("Send Feedback");
-	    
+	    menuBar.add(help);	   
+	    sendFeedback = new JMenuItem("Send Feedback");	    
 	    help.add(sendFeedback);
 	    
-	    JMenuItem about = new JMenuItem("About");
+	    about = new JMenuItem("About");
 	    help.add(about);
-	   
-	    
+    
 	    mainFrameView.addNewPanel(this);
- 
 	}
 	public void setVisible() {
 	        mainFrameView.setVisible(true);
 	}
 
-
 	public BeforeLoginView getBeforeLoginPanel() {
 		return beforeLoginView;
 	}
-
 
 	public void setBeforeLoginPanel(BeforeLoginView beforeLoginView) {
 		this.beforeLoginView = beforeLoginView;
 	}
 
-
 	public MainFrameView getMainFrame() {
 		return mainFrameView;
 	}
 
-
 	public void setMainFrame(MainFrameView mainFrameView) {
 		this.mainFrameView = mainFrameView;
 	}
-
 
 	public JPasswordField getPassword() {
 		return password;
@@ -148,12 +121,12 @@ public class MenuViewForSeller extends JPanel implements Observer {
 	public void addMyFavoritesButton(ActionListener actionListener) {
 		myProducts.addActionListener(actionListener);		
 	}
-	public void addHelpContentsButton(ActionListener actionListener) {
-		helpContents.addActionListener(actionListener);		
+	public void addAboutButton(ActionListener actionListener) {
+		about.addActionListener(actionListener);		
 	}
 	public void addHelpButton(ActionListener actionListener) {
 		help.addActionListener(actionListener);		
-	}//sendFeedback logOut
+	}
 	public void addSendFeedbackButton(ActionListener actionListener) {
 		sendFeedback.addActionListener(actionListener);		
 	}	
@@ -162,8 +135,7 @@ public class MenuViewForSeller extends JPanel implements Observer {
 	}
 	@Override
 	public void update(Observable o, Object arg) {
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub		
 	}
 	public User getUser() {
 		return user;

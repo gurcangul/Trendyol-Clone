@@ -10,7 +10,7 @@ import java.util.Observer;
 public class MainFrameView extends JFrame implements Observer {
 	MenuViewForBuyer menuView=new MenuViewForBuyer(this,null);
 	private static final long serialVersionUID = 1L;
-   
+
 	public void run() {
 		try {
 			Frame frame = new Frame();
@@ -20,7 +20,7 @@ public class MainFrameView extends JFrame implements Observer {
 		}
 	}
     public MainFrameView() {
-        
+        setTitle("Gaga | The best Online Shopping Application!");
 		setBounds(100, 100, 450, 300);
         setSize(760, 460);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -28,12 +28,10 @@ public class MainFrameView extends JFrame implements Observer {
     }
 
     public void addNewPanel(JPanel panel){
-        //System.out.println("heyyyy");
     	getContentPane().removeAll();
         getContentPane().add(panel, BorderLayout.CENTER);
         revalidate();
-        repaint();
-        
+        repaint();     
     }
     public void addMenu(){
     	getContentPane().removeAll();
@@ -48,8 +46,6 @@ public class MainFrameView extends JFrame implements Observer {
         repaint();
     }   
     public void addNewPanel2(JPanel panel){
-        //System.out.println("heyyyy");
-    	//getContentPane().removeAll();
     	getContentPane().removeAll();
         getContentPane().add(panel, BorderLayout.PAGE_START);
         revalidate();
@@ -57,32 +53,16 @@ public class MainFrameView extends JFrame implements Observer {
         
     }    
     public void addMenuPanel3(JPanel panel){
-    	//addMenu();	
         getContentPane().add(panel, BorderLayout.CENTER);
         revalidate();
         repaint();
     }  
     
-/*
-    public void addNewPanel(JPanel panel){
-        this.getContentPane().removeAll();
-        this.add(panel, BorderLayout.CENTER);
-        this.revalidate();
-        this.repaint();
-    }
-    public void addMenuPanel(JPanel panel){
-        this.getContentPane().removeAll();
-        this.add(panel, BorderLayout.CENTER);
-        this.revalidate();
-        this.repaint();
-    }*/
     public JFrame getFrame() {
         return this;
     }
 	@Override
 	public void update(Observable o, Object arg) {
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub		
 	}
-
 }

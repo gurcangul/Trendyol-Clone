@@ -71,8 +71,6 @@ public class Category implements IProduct {//Composite==Category  (Composite Des
 	     }
 	 }
 
-
-
 	@Override
 	public String toString() {
 		return "Category [" + ID + ", " + name + ", " + productList + "]";
@@ -90,8 +88,13 @@ public class Category implements IProduct {//Composite==Category  (Composite Des
 		return null;
 	}
 	@Override
-	public int getStok() {
+	public int getStock() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+	@Override
+	public String viewProductByBuyer() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

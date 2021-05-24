@@ -20,25 +20,22 @@ import User.UserFactory;
 
 
 public class DataHandler {//for create user object from the csv file 
-	 //for create user object from the csv file
 	static  ArrayList<User> userList = parseUsers();
 	static  ArrayList<IProduct> productAndCategories = new ArrayList<IProduct>();
-
 	
-	   public static ArrayList<User> parseUsers() {
-		   ArrayList<String> List = Reader.readFile("user.csv");
-		   ArrayList<User> userList = new ArrayList<User>();
-		   for(int i=1; i<List.size();i++) {
-			   String str = List.get(i);
-			   String[] split = str.split(","); 
-			   UserFactory userFactory = new UserFactory();
-			   User user = userFactory.getUser(Integer.parseInt(split[0]), split[1],split[2], split[3], split[4]);
-			   userList.add(user);			
-			} 
-			return userList;
-	   }
-	
-	
+    public static ArrayList<User> parseUsers() {
+	   ArrayList<String> List = Reader.readFile("user.csv");
+	   ArrayList<User> userList = new ArrayList<User>();
+	   for(int i=1; i<List.size();i++) {
+		   String str = List.get(i);
+		   String[] split = str.split(","); 
+		   UserFactory userFactory = new UserFactory();
+		   User user = userFactory.getUser(Integer.parseInt(split[0]), split[1],split[2], split[3], split[4]);
+		   userList.add(user);			
+		} 
+	   return userList;
+   }
+		
 	private static void parseProduct(JSONObject category, IProduct product) {
 		JSONObject categoryObject = (JSONObject) category.get("category");
 		JSONObject productObject = (JSONObject) category.get("product");
@@ -48,7 +45,7 @@ public class DataHandler {//for create user object from the csv file
 			String price = (String) productObject.get("price");
 			String name = (String) productObject.get("name");
 	        String ID = (String) productObject.get("ID"); 
-	        String stok = (String) productObject.get("stok");
+	        String stok = (String) productObject.get("stock");
 	        
 	        User user = UserFinderHelper.findUserByUsername(userList, seller);
 	        IProduct product1 = new Product(Integer.parseInt(ID), name, Double.parseDouble(price), Integer.parseInt(stok), (Seller)user);
@@ -64,8 +61,7 @@ public class DataHandler {//for create user object from the csv file
 	        	parseProduct((JSONObject) c, category1);
 	        }
 		}
-	}
-	
+	}	
 	
 	private static void parseProductObject(JSONObject category) {
         JSONObject categoryObject = (JSONObject) category.get("category");
@@ -85,32 +81,24 @@ public class DataHandler {//for create user object from the csv file
 	public static ArrayList<IProduct> readFile() {
 	      JSONParser jsonParser = new JSONParser();
 	         
-	        try (FileReader reader = new FileReader("example.json"))
-	        {
-	            //Read JSON file
+	        try (FileReader reader = new FileReader("products.json"))
+	        { //Read JSON file
 	            Object obj = jsonParser.parse(reader);
-	 
 	            JSONArray productAndCategoryList = (JSONArray) obj;
-
-	            productAndCategoryList.forEach( prd -> parseProductObject( (JSONObject) prd) );
-
-	            
+	            productAndCategoryList.forEach( prd -> parseProductObject( (JSONObject) prd) );	            
 	        } catch (FileNotFoundException e) {
 	            e.printStackTrace();
 	        } catch (IOException e) {
 	            e.printStackTrace();
 	        } catch (ParseException e) {
 	            e.printStackTrace();
-	        }
-	        
+	        }	        
 	        return productAndCategories;
 	}
-
 
 	public static ArrayList<IProduct> getProductAndCategories() {
 		return readFile();
 	}
-
 
 	public static void setProductAndCategories(ArrayList<IProduct> productAndCategories) {
 		DataHandler.productAndCategories = readFile();
@@ -159,12 +147,8 @@ public class DataHandler {//for create user object from the csv file
 	public ArrayList<User> getUserList(){
 		return userList;
 	}
+	
 	public static ArrayList<IProduct> getProductAndCategoriesAsAObject() {
 		return productAndCategories;
 	}
 }
-
-
-/*
-
-*/

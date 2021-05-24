@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import javax.swing.event.AncestorListener;
 
+import GUI.AboutAppView;
 import GUI.BeforeLoginView;
 import GUI.FeedbackView;
 import GUI.BuyerHomePageView;
@@ -28,106 +29,73 @@ public class MenuForAdminController {
     	this.mainFrameView=mainFrameView;
         this.menuView = menuView;
         this.user = user;
-        menuView.addMyProfileButton(new MyProfileButtonActionListener());
-        menuView.addHomeButton(new HomeButtonActionListener());
-        menuView.addHomePageButton(new HomePageButtonActionListener());
-        menuView.addMyFavoritesButton(new MyFavoritesButtonActionListener());
-        menuView.addHelpContentsButton(new HelpContentsButtonActionListener());
-        menuView.addHelpButton(new HelpButtonActionListener());
-        menuView.addSendFeedbackButton(new SendFeedbackButtonActionListener());
-        menuView.addLogOutButton(new LogOutButtonActionListener());
+        menuView.addAddCategoryActionListener(new AddCategoryActionListener());
+        menuView.addViewFeedbackActionListener(new ViewFeedbackActionListener());
+        menuView.addViewAllProductsActionListener(new ViewAllProductsActionListener());
+        menuView.addLogOutActionListener(new LogOutActionListener());
+        menuView.addViewAllCategoryActionListener(new ViewAllCategoryActionListener());
+        menuView.addHomePageActionListener(new HomePageActionListener());
+        menuView.addViewAllUsersActionListener(new ViewAllUsersActionListener());
+        menuView.addViewAllSelersActionListener(new ViewAllSelersActionListener());
+        menuView.addViewAllBuyersActionListener(new ViewAllBuyersActionListener());
 
         
     }
     
-    private class MyProfileButtonActionListener implements ActionListener {
+    private class AddCategoryActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
         }
     } 
     
-    private class HomeButtonActionListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-        	//SellerHomePageView homePageView = new SellerHomePageView(mainFrameView,menuView);
-    		//mainFrameView.addMenuPanel(homePageView);
-    		//SellerHomePageController homePageController = new SellerHomePageController(mainFrameView,homePageView);
-
-        }
-    } 
-    private class StoreButtonActionListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-        }
-    }    
-    
-    private class ShoppingCartButtonActionListener implements ActionListener {
+    private class ViewFeedbackActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
         }
     } 
-    private class HomePageButtonActionListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-        	//SellerHomePageView homePageView = new SellerHomePageView(mainFrameView,menuView);
-    		//mainFrameView.addMenuPanel(homePageView);
-    		//SellerHomePageController homePageController = new SellerHomePageController(mainFrameView,homePageView);
-
-    		/*
-        	LoginView loginView =  new LoginView(mainFrameView);
-    		mainFrameView.addNewPanel(loginView);	
-    		LoginController loginController = new LoginController(mainFrameView,loginView);
-    		System.out.println("login");
-    		 * */
-        }
-    }     
-   
-    private class MyFavoritesButtonActionListener implements ActionListener {
+    private class ViewAllProductsActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
         }
-    }    
-    private class HelpContentsButtonActionListener implements ActionListener {
+    } 
+    private class LogOutActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-        }
-    }  
-    
-    private class HelpButtonActionListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-        }
-    }
-    private class SendFeedbackButtonActionListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-    		FeedbackView feedbackView = new FeedbackView(mainFrameView,menuView);
-    		//mainFrameView.addMenuPanel(feedbackView);
-    		FeedbackController feedbackController = new FeedbackController(mainFrameView,feedbackView);
-
-        }
-    }
-/*    	public void actionPerformed(ActionEvent e) {
-    		HomePageView homePageView = new HomePageView(mainFrameView);
-    		mainFrameView.addMenuPanel(homePageView);*/
-    private class LogOutButtonActionListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            int result = JOptionPane.showConfirmDialog(mainFrameView,"Sure? You want to exit?", "Swing Tester",
+        	int result = JOptionPane.showConfirmDialog(mainFrameView,"Sure? You want to exit?", "Swing Tester",
                     JOptionPane.YES_NO_OPTION,
                     JOptionPane.QUESTION_MESSAGE);
-                 if(result == JOptionPane.YES_OPTION){
-                    //mainFrame.setTitle("You selected: Yes");
-              	   beforeLoginView =  new BeforeLoginView(mainFrameView);
-              	  // mainFrameView.addNewPanel(beforeLoginView);
-              	 BeforeLoginController beforeLoginController = new BeforeLoginController(mainFrameView,beforeLoginView);
-
-                 }else if (result == JOptionPane.NO_OPTION){
-              	   //mainFrame.setTitle("Outfit Rating Platform");
-                 }else {
-              	   //mainFrame.setTitle("None selected");
-                 }
-        	
+			if(result == JOptionPane.YES_OPTION){
+				beforeLoginView =  new BeforeLoginView(mainFrameView);
+				BeforeLoginController beforeLoginController = new BeforeLoginController(mainFrameView,beforeLoginView);			
+			 }else if (result == JOptionPane.NO_OPTION){
+			 }      	
         }
-    }
+    } 
+    private class ViewAllCategoryActionListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+        }
+    } 
+    private class HomePageActionListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+        }
+    } 
+    private class ViewAllUsersActionListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+        }
+    } 
+    private class ViewAllSelersActionListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+        }
+    }    
+    private class ViewAllBuyersActionListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+        }
+    }   
+       
 }

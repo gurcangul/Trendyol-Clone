@@ -35,8 +35,7 @@ public class LoginController {
         this.loginView = loginView;
         this.mainFrameView=mainFrameView;
         loginView.addLoginActionListener(new LoginButtonListener());
-        loginView.addBackActionListener(new backButtonListener());
-        
+        loginView.addBackActionListener(new backButtonListener());        
     }
 
     public void login(String userName, String password) {
@@ -68,13 +67,10 @@ public class LoginController {
     		loginView.getPassword().setBackground(Color.RED);
     		loginView.getUserName().setBackground(Color.RED);
     		JOptionPane.showMessageDialog(null, "Wrong! Please try again! ");        		
-            this.showLoginPanel();
-
-            
+            this.showLoginPanel();          
         }
-    }
-
- 
+    } 
+    
     public void showLoginPanel() {
 		loginView.getPassword().setBackground(Color.white);
 		loginView.getUserName().setBackground(Color.white);
@@ -112,10 +108,7 @@ public class LoginController {
         	else if(user.getUserType().equalsIgnoreCase("Admin")) {
         		menuViewForAdmin=new MenuViewForAdmin(mainFrameView,user);          
             	MenuForAdminController menuController = new MenuForAdminController(mainFrameView,menuViewForAdmin, user);
-        	}
-
-    		
+        	}  		
         }
-    }
-    
+    }   
 }
