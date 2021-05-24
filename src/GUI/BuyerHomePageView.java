@@ -26,6 +26,15 @@ import javax.swing.ScrollPaneConstants;
 import java.awt.Cursor;
 import java.awt.Component;
 import java.awt.Rectangle;
+import java.awt.FlowLayout;
+import javax.swing.SwingConstants;
+import javax.swing.BoxLayout;
+import java.awt.CardLayout;
+import javax.swing.JLabel;
+import javax.swing.JSplitPane;
+import javax.swing.JLayeredPane;
+import javax.swing.JTextArea;
+import java.awt.Dimension;
 
 
 public class BuyerHomePageView extends JPanel implements Observer{
@@ -35,7 +44,7 @@ public class BuyerHomePageView extends JPanel implements Observer{
 	private MenuViewForBuyer menuView;
 	private BuyerHomePageView homePageView;
 	private User user;
-    JScrollPane scrollPane, scrollPane2;
+    JScrollPane scrollPane;
     JList<String> jFavoriteList;
 	JButton viewAllUsersButton;
 	JButton viewCategoriesButton;
@@ -51,8 +60,6 @@ public class BuyerHomePageView extends JPanel implements Observer{
 	JButton addFavoriButton;
 	JButton addShoppingCartButton;
     JMenuItem lastCategory;
-	
-    JPanel panel;
     
 	public User getUser() {
 		return user;
@@ -72,52 +79,6 @@ public class BuyerHomePageView extends JPanel implements Observer{
         addProductPanel = new JPanel();
         addProductPanel.setBounds(83, 196, 550, 150);
         addProductPanel.setLayout(null);
-
-       /* scrollPane = new JScrollPane();
-        scrollPane.setBounds(10, 76, 740, 214);
-        add(scrollPane);*/
-        scrollPane2 = new JScrollPane();
-        scrollPane2.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        scrollPane2.setBounds(10, 89, 625, 364);
-        
-        panel = new JPanel();
-        panel.setAlignmentY(Component.TOP_ALIGNMENT);
-        panel.setAlignmentX(Component.LEFT_ALIGNMENT);
-        panel.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-        panel.setBounds(10,89,492,258);
-        panel.setLayout(new GridLayout(0, 1, 0, 0));
-        
-        panel_1 = new JPanel();
-        panel_1.setBounds(new Rectangle(0, 0, 220, 170));
-        panel_1.setAlignmentY(Component.TOP_ALIGNMENT);
-        panel_1.setAlignmentX(Component.LEFT_ALIGNMENT);
-        panel.add(panel_1);
-        panel_1.setLayout(null);
-        
-        btnNewButton = new JButton("New button");
-        btnNewButton.setBounds(0, 0, 85, 21);
-        panel_1.add(btnNewButton);
-        
-        btnNewButton_1 = new JButton("New button");
-        btnNewButton_1.setBounds(0, 25, 85, 21);
-        panel_1.add(btnNewButton_1);
-        
-        panel_2 = new JPanel();
-        panel_2.setBounds(new Rectangle(0, 0, 220, 170));
-        panel_2.setLayout(null);
-        panel_2.setAlignmentY(Component.TOP_ALIGNMENT);
-        panel_2.setAlignmentX(Component.RIGHT_ALIGNMENT);
-        panel.add(panel_2);
-        
-        btnNewButton_2 = new JButton("New button");
-        btnNewButton_2.setAlignmentY(Component.TOP_ALIGNMENT);
-        btnNewButton_2.setAlignmentX(Component.RIGHT_ALIGNMENT);
-        btnNewButton_2.setBounds(0, 0, 85, 21);
-        panel_2.add(btnNewButton_2);
-        
-        btnNewButton_3 = new JButton("New button");
-        btnNewButton_3.setBounds(0, 25, 85, 21);
-        panel_2.add(btnNewButton_3);
         //panel.setLayout(new GridLayout(1, 0, 0, 0));
 
         
@@ -196,23 +157,9 @@ public class BuyerHomePageView extends JPanel implements Observer{
 		
     static int i;
     static ArrayList<IProduct> productList;
-    private JPanel panel_1;
-    private JButton btnNewButton;
-    private JButton btnNewButton_1;
-    private JPanel panel_2;
-    private JButton btnNewButton_2;
-    private JButton btnNewButton_3;
     
 	public void ViewProductPanel(int size, String productName) {     
 		productList = findProducts(productName);
-		//System.out.println(productList);
-       /* JPanel panel = new JPanel();
-        panel.setBounds(20, 58, 694, 385);
-        add(panel);
-        panel.setLayout(null);*/
-        
-
-        add(scrollPane2);
         
         System.out.println("Size = " + size);
         int x = 15; 
@@ -297,7 +244,6 @@ public class BuyerHomePageView extends JPanel implements Observer{
         	}
         }
         i = 0;
-        scrollPane2.setViewportView(panel);
         menuBar.setVisible(true);        
         getMainFrame().addNewPanel2(menuView);
         getMainFrame().addMenuPanel3(this);
@@ -329,6 +275,59 @@ public class BuyerHomePageView extends JPanel implements Observer{
 		this.setMainFrame(mainFrameView);  
         getMainFrame().addNewPanel2(menuView);
         getMainFrame().addMenuPanel3(this);
+        
+        JPanel panel = new JPanel();
+        panel.setBounds(82, 141, 535, 366);
+        add(panel);
+        panel.setLayout(null);
+        
+        JScrollPane scrollPane_1 = new JScrollPane();
+        scrollPane_1.setBounds(94, 44, 419, 312);
+        panel.add(scrollPane_1);
+        
+        JPanel panel_1 = new JPanel();
+        panel_1.setAlignmentY(Component.BOTTOM_ALIGNMENT);
+        scrollPane_1.setViewportView(panel_1);
+        panel_1.setLayout(new BoxLayout(panel_1, BoxLayout.X_AXIS));
+        
+        JPanel panel_2 = new JPanel();
+        panel_2.setAlignmentX(Component.LEFT_ALIGNMENT);
+        panel_2.setAlignmentY(Component.TOP_ALIGNMENT);
+        panel_1.add(panel_2);
+        
+        JButton button_1 = new JButton("New button");
+        panel_2.add(button_1);
+        
+        JButton button = new JButton("New button");
+        panel_2.add(button);
+        
+        JButton button_1_3 = new JButton("New button");
+        panel_2.add(button_1_3);
+        
+        JButton button_4 = new JButton("New button");
+        panel_2.add(button_4);
+        
+        JPanel panel_2_1 = new JPanel();
+        panel_2_1.setAlignmentY(Component.BOTTOM_ALIGNMENT);
+        panel_2_1.setAlignmentX(Component.RIGHT_ALIGNMENT);
+        panel_1.add(panel_2_1);
+        
+        JButton button_1_1 = new JButton("New button");
+        panel_2_1.add(button_1_1);
+        
+        JButton button_2 = new JButton("New button");
+        panel_2_1.add(button_2);
+        
+        JButton button_1_2 = new JButton("New button");
+        panel_2_1.add(button_1_2);
+        
+        JButton button_3 = new JButton("New button");
+        panel_2_1.add(button_3);
+        
+        JPanel panel_2_2 = new JPanel();
+        panel_2_2.setAlignmentX(Component.LEFT_ALIGNMENT);
+        panel_2_2.setAlignmentY(Component.TOP_ALIGNMENT);
+        panel_1.add(panel_2_2);
 
 	}
 	
