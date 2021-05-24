@@ -5,77 +5,205 @@
           "productList": [
                {"category": {
                     "name": "small appliances",
-                    "ID": "100",
+                    "ID": "2",
                     "productList": [{"category": {
                          "name": "broom",
-                         "ID": "1000",
+                         "ID": "3",
                          "productList": [
                               {"product": {
                                    "seller": "markadayim",
                                    "price": "2705.33",
                                    "name": "XiaomiMi Robot Vacuum Mop Pro Cleaner",
-                                   "ID": "10000",
-                                   "stock": "50"
+                                   "ID": "4",
+                                   "stock": "50",
+                                   "likes": "23"                                   
+                                   
                               }},
                               {"product": {
                                    "seller": "trendFix",
                                    "price": "987.84",
                                    "name": "Arnica Bora Mor Et11133",
-                                   "ID": "10001",
-                                   "stock": "55"
+                                   "ID": "5",
+                                   "stock": "55",
+                                   "likes": "14"                                   
+                                   
+                              }},
+                              {"product": {
+                                   "seller": "trendFix",
+                                   "price": "28.84",
+                                   "name": "Kama Dijital Hassas Mutfak Tartısı ",
+                                   "ID": "6",
+                                   "stock": "18",
+                                   "likes": "16"                                   
+                                   
+                              }},
+                              {"product": {
+                                   "seller": "trendFix",
+                                   "price": "700.84",
+                                   "name": "MarsStar Elektrikli  Ocak",
+                                   "ID": "7",
+                                   "stock": "10",
+                                   "likes": "4"                                   
+                                   
                               }}
                          ]
                     }}]
                }},
                {"category": {
                     "name": "Telephone",
-                    "ID": "101",
-                    "productList": []
+                    "ID": "8",
+                    "productList": [
+                    	{"category": {
+		                    "name": "Mobile phones",
+		                    "ID": "9",
+		                    "productList": [
+		                    	  {"product": {
+		                               "seller": "trendFix",
+		                               "price": "14000.00",
+		                               "name": "Apple Iphone 12 Pro 128 gb",
+		                               "ID": "10",
+		                               "stock": "100",
+		                               "likes": "74"                                                                      
+                             	  }},
+                              	  {"product": {
+		                               "seller": "trendFix",
+		                               "price": "9000.00",
+		                               "name": "Apple Iphone 11 Pro 64 gb",
+		                               "ID": "44",
+		                               "stock": "100",
+		                               "likes": "115"                                                                     
+                             	 }}	                                        
+	                    	] }},	                    
+	                    {"category": {
+		                    "name": "Land phone",
+		                    "ID": "11",
+		                    "productList": [
+		                    	{"product": {
+		                               "seller": "teknoMarket",
+		                               "price": "120.00",
+		                               "name": "Siemens Land Phone",
+		                               "ID": "43",
+		                               "stock": "10",
+		                               "likes": "5"                                                                  
+                              	}}		                    				                    
+		                    ]}},	                    
+	                    {"category": {
+		                    "name": "Phone Accessory",
+		                    "ID": "12",
+		                    "productList": [
+		                    		{"product": {
+		                               "seller": "teknoMarket",
+		                               "price": "9000.00",
+		                               "name": "Xiaomi PowerBank 10000mA",
+		                               "ID": "42",
+		                               "stock": "47",
+		                               "likes": "18"                                   
+                                   
+                              }}
+		                    
+		                    
+		                    ] }}
+	                    
+	                    
+               ]
                }}
           ]
      }},
      {"category": {
           "name": "Clothing",
-          "ID": "2",
-          "productList": []
+          "ID": "13",
+          "productList": [
+          		{"category": {
+			          "name": "Dress",
+			          "ID": "14",
+			          "productList": []   }},
+			    {"category": {
+			          "name": "T-shirt",
+			          "ID": "15",
+			          "productList": []   }},
+			    {"category": {
+			          "name": "Shirt",
+			          "ID": "16",
+			          "productList": []   }}, 
+			    {"category": {
+			          "name": "Jeans/Trousers",
+			          "ID": "17",
+			          "productList": [
+			          			{"category": {
+							          "name": "Jeans",
+							          "ID": "17",
+							          "productList": []   }},
+							    {"category": {
+							          "name": "Trousers",
+							          "ID": "18",
+							          "productList": []   }}
+			          
+			          ]   }}, 
+			    {"category": {
+			          "name": "Shorts",
+			          "ID": "19",
+			          "productList": [] }},  
+			    {"category": {
+			          "name": "Denim Jacket/ Leather Jacket",
+			          "ID": "20",
+			          "productList": [
+			          			{"category": {
+							          "name": "Denim Jacket",
+							          "ID": "21",
+							          "productList": []   }},
+							    {"category": {
+							          "name": "Leather Jacket",
+							          "ID": "23",
+							          "productList": []   }}
+							          ]}},
+			    {"category": {
+			          "name": "Skirt",
+			          "ID": "24",
+			          "productList": []   }},               
+			          
+          ]
      }},
      {"category": {
           "name": "Shoes&Bags",
-          "ID": "3",
+          "ID": "45",
           "productList": []
      }},
      {"category": {
           "name": "Watch&Accesories",
-          "ID": "4",
+          "ID": "46",
           "productList": []
      }},
      {"category": {
           "name": "Home&Life",
-          "ID": "5",
+          "ID": "47",
           "productList": []
      }},
      {"category": {
           "name": "Cosmetic",
-          "ID": "6",
+          "ID": "48",
           "productList": []
      }},
      {"category": {
           "name": "category7",
-          "ID": "7",
+          "ID": "49",
           "productList": [
                {"product": {
                     "seller": "uykuperest",
-                    "price": "1000.0",
-                    "name": "product1",
-                    "ID": "70",
-                    "stock": "14"
+                    "price": "3000.0",
+                    "name": "carpet",
+                    "ID": "50",
+                    "stock": "14",
+                    "likes": "5"                                   
+                    
                }},
                {"product": {
                     "seller": "uykuperest",
                     "price": "100.0",
-                    "name": "product2",
-                    "ID": "71",
-                    "stock": "114"
+                    "name": "pillow",
+                    "ID": "51",
+                    "stock": "114",
+                    "likes": "50"                                   
+                    
                }}
           ]
      }}

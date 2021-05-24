@@ -2,10 +2,11 @@ package User;
 
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.Observable;
 
 import Product.IProduct;
 
-public class Seller implements User{
+public class Seller extends Observable implements User {
 
 	private int userID ;
 	private String userType;
@@ -118,7 +119,6 @@ public class Seller implements User{
 		// TODO Auto-generated method stub
 		
 	}
-	
 	
 	
 }

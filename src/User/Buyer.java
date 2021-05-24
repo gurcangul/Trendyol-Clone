@@ -8,7 +8,6 @@ import Product.IProduct;
 
 public class Buyer implements User {
 
-
 	private int userID ;
 	private String userType;
 	private String userName ;

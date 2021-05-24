@@ -2,23 +2,24 @@ package Product;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
 
 import User.Seller;
 
-public class Product implements IProduct{
+public class Product extends Observable implements IProduct{
 	private int ID;
 	private String name;
 	private double price;
 	private int stock;
 	private Seller seller;
-
-    public Product(int ID,String name,double price, int stock, Seller seller){
+	private int numberOfFavorite;
+    public Product(int ID,String name,double price, int stock,int numberOfFavorite, Seller seller){
     	setID(ID);
         setName(name);
         setPrice(price);
         setStock(stock);
         setSeller(seller);
-
+        setNumberOfFavorite(numberOfFavorite);
     }
     
     @Override
@@ -81,7 +82,7 @@ public class Product implements IProduct{
 
 	@Override
 	public String toString() {
-		return "Product [" + ID + ", " + name + ", " + price + ", " + stock + ", " + seller.getUserName() + "]";
+		return "Product [" + ID + ", " + name + ", " + price + ", " + stock +", "+ numberOfFavorite+", " + seller.getUserName() + "]";
 	}
 
 	public void setID(int ID) {
@@ -96,10 +97,22 @@ public class Product implements IProduct{
 		this.price = price;
 	}
 	
-	public void setStock(int stock) {
+    public void setStock(int stock) {
 		this.stock = stock;
+        setChanged();
+        notifyObservers();
+    }
+
+	public int getNumberOfFavorite() {
+		return numberOfFavorite;
 	}
 
+	public void setNumberOfFavorite(int numberOfFavorite) {
+		this.numberOfFavorite = numberOfFavorite;
+	    setChanged();
+	    notifyObservers();
+	}
+	
 	@Override
 	public String viewProductByBuyer() {
 		return "Product Name = " + name + "\n" + "Price = " + price + "\n" + "Seller = " + seller.getUserName();

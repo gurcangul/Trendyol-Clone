@@ -20,7 +20,7 @@ public class ContentController {
         this.menuView = menuView;
         this.user = user;
         ArrayList<IProduct> productAndCategories = new ArrayList<IProduct>();
-        menuView.addMyProfileButton(new MyProfileButtonActionListener());
+      //  menuView.addMyProfileButton(new MyProfileButtonActionListener());
         //menuView.addHomeButton(new HomeButtonActionListener());
        /* DataHandler dataHandler = new DataHandler();
         productAndCategories=dataHandler.getProductAndCategories();

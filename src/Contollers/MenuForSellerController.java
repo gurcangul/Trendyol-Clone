@@ -28,113 +28,55 @@ public class MenuForSellerController {
     	this.mainFrameView=mainFrameView;
         this.menuView = menuView;
         this.user = user;
-        menuView.addMyProfileButton(new MyProfileButtonActionListener());
-        menuView.addHomeButton(new HomeButtonActionListener());
-        menuView.addHomePageButton(new HomePageButtonActionListener());
-        menuView.addMyFavoritesButton(new MyFavoritesButtonActionListener());
-        menuView.addHelpButton(new HelpButtonActionListener());
-        menuView.addSendFeedbackButton(new SendFeedbackButtonActionListener());
-        menuView.addLogOutButton(new LogOutButtonActionListener());
-        menuView.addAboutButton(new AboutButtonActionListener());
+        menuView.addHomePageActionListener(new HomePageActionListener());
+        menuView.addMyProductsActionListener(new MyProductsActionListener());
+        menuView.addSendFeedbackActionListener(new SendFeedbackActionListener());
+        menuView.addLogOutActionListener(new LogOutActionListener());
+        menuView.addAboutActionListener(new AboutActionListener());
 
         
     }
-    
-    private class MyProfileButtonActionListener implements ActionListener {
+    private class HomePageActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+        	SellerHomePageView homePageView = new SellerHomePageView(mainFrameView,menuView);
+    		//mainFrameView.addMenuPanel(homePageView);
+    		SellerHomePageController homePageController = new SellerHomePageController(mainFrameView,homePageView);
+
         }
     } 
 
-    private class AboutButtonActionListener implements ActionListener {
+    private class AboutActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
         	AboutAppView homePageView = new AboutAppView(mainFrameView,menuView);
         	AboutAppController AboutAppController = new AboutAppController(mainFrameView,homePageView);
         }
-    }
-    private class HomeButtonActionListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-        	SellerHomePageView homePageView = new SellerHomePageView(mainFrameView,menuView);
-    		//mainFrameView.addMenuPanel(homePageView);
-    		SellerHomePageController homePageController = new SellerHomePageController(mainFrameView,homePageView);
-
-        }
     } 
-    private class StoreButtonActionListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-        }
-    }    
-    
-    private class ShoppingCartButtonActionListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-        }
-    } 
-    private class HomePageButtonActionListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-        	SellerHomePageView homePageView = new SellerHomePageView(mainFrameView,menuView);
-    		//mainFrameView.addMenuPanel(homePageView);
-    		SellerHomePageController homePageController = new SellerHomePageController(mainFrameView,homePageView);
-
-    		/*
-        	LoginView loginView =  new LoginView(mainFrameView);
-    		mainFrameView.addNewPanel(loginView);	
-    		LoginController loginController = new LoginController(mainFrameView,loginView);
-    		System.out.println("login");
-    		 * */
-        }
-    }     
    
-    private class MyFavoritesButtonActionListener implements ActionListener {
+    private class MyProductsActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
         }
     }    
-    private class HelpContentsButtonActionListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-        }
-    }  
-    
-    private class HelpButtonActionListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-        }
-    }
-    private class SendFeedbackButtonActionListener implements ActionListener {
+
+    private class SendFeedbackActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
     		FeedbackView feedbackView = new FeedbackView(mainFrameView,menuView);
-    		//mainFrameView.addMenuPanel(feedbackView);
     		FeedbackController feedbackController = new FeedbackController(mainFrameView,feedbackView);
-
         }
     }
-/*    	public void actionPerformed(ActionEvent e) {
-    		HomePageView homePageView = new HomePageView(mainFrameView);
-    		mainFrameView.addMenuPanel(homePageView);*/
-    private class LogOutButtonActionListener implements ActionListener {
+
+    private class LogOutActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            int result = JOptionPane.showConfirmDialog(mainFrameView,"Sure? You want to exit?", "Swing Tester",
-                    JOptionPane.YES_NO_OPTION,
-                    JOptionPane.QUESTION_MESSAGE);
-                 if(result == JOptionPane.YES_OPTION){
-                    //mainFrame.setTitle("You selected: Yes");
-              	   beforeLoginView =  new BeforeLoginView(mainFrameView);
-              	  // mainFrameView.addNewPanel(beforeLoginView);
-              	 BeforeLoginController beforeLoginController = new BeforeLoginController(mainFrameView,beforeLoginView);
-
-                 }else if (result == JOptionPane.NO_OPTION){
-              	   //mainFrame.setTitle("Outfit Rating Platform");
-                 }else {
-              	   //mainFrame.setTitle("None selected");
-                 }
-        	
+            int result = JOptionPane.showConfirmDialog(mainFrameView,"Sure? You want to exit?", "Swing Tester", 
+            		JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        	if(result == JOptionPane.YES_OPTION){
+          	   	beforeLoginView =  new BeforeLoginView(mainFrameView);
+          	   	BeforeLoginController beforeLoginController = new BeforeLoginController(mainFrameView,beforeLoginView);
+        	}     	
         }
     }
 }

@@ -12,6 +12,8 @@ import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.JButton;
+import javax.swing.JList;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JMenu;
@@ -19,6 +21,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JTextPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 
 public class BuyerHomePageView extends JPanel implements Observer{
@@ -28,7 +31,8 @@ public class BuyerHomePageView extends JPanel implements Observer{
 	private MenuViewForBuyer menuView;
 	private BuyerHomePageView homePageView;
 	private User user;
-
+    JScrollPane scrollPane;
+    JList<String> jFavoriteList;
 	JButton viewAllUsersButton;
 	JButton viewCategoriesButton;
 	JButton myProfileButton; JButton seeAllCollectionButton; JButton trendsButton;JButton btn;
@@ -63,6 +67,14 @@ public class BuyerHomePageView extends JPanel implements Observer{
         addProductPanel = new JPanel();
         addProductPanel.setBounds(83, 196, 550, 150);
         addProductPanel.setLayout(null);
+
+        //scrollPane = new JScrollPane();
+       // scrollPane.setBounds(10, 76, 740, 214);
+        //add(scrollPane);
+
+        //jFavoriteList = new JList<>();
+        //scrollPane.setViewportView(jFavoriteList);
+        //showLists();
 	}
 
 	public void getCategories(ArrayList<IProduct> product, JMenu category) {
@@ -90,6 +102,7 @@ public class BuyerHomePageView extends JPanel implements Observer{
 			}
 		}		
 	}
+	
 	public void helperFinfProducts(ArrayList<IProduct> products, String productName, ArrayList<IProduct> productList) {
 		for(IProduct prd: products) {
 			if(prd.getName().equalsIgnoreCase(productName))
@@ -108,6 +121,7 @@ public class BuyerHomePageView extends JPanel implements Observer{
 			}
 		}
 	}
+	
 	public ArrayList<IProduct> findProducts(String productName) {
 		ArrayList<IProduct> products = DataHandler.getProductAndCategoriesAsAObject();
 		ArrayList<IProduct> productList  =new ArrayList<IProduct>();
@@ -212,11 +226,12 @@ public class BuyerHomePageView extends JPanel implements Observer{
         menuBar.setVisible(true);        
         getMainFrame().addNewPanel2(menuView);
         getMainFrame().addMenuPanel3(this);
+        
+        
 }
 	
 	public void showPanel(){
 		ArrayList<IProduct> products = DataHandler.getProductAndCategoriesAsAObject();
-
 	    menuBar = new JMenuBar();
         menuBar.setBackground(Color.WHITE);
         menuBar.setBounds(20, 31, 694, 22);
@@ -233,48 +248,29 @@ public class BuyerHomePageView extends JPanel implements Observer{
             }
             
 		}
-     /*   for(JMenu jm : menuList) {
-        	System.out.println(jm);
-        }
-*/
+
 	    mainFrameView.addNewPanel(this);
 
-      /*  viewCategoriesButton = new JButton("View Categories");
-        viewCategoriesButton.setBounds(31, 93, 202, 21);
-        add(viewCategoriesButton);
-        
-        seeAllCollectionButton = new JButton("See All Collections");
-        seeAllCollectionButton.setBounds(243, 93, 207, 21);
-        add(seeAllCollectionButton);
-        
-        myProfileButton = new JButton("My Profile");
-        myProfileButton.setBounds(460, 93, 195, 21);
-        add(myProfileButton);
-        
-       
-        trendsButton = new JButton("Sale Products");
-        trendsButton.setIcon(new ImageIcon("C:\\Users\\Gurcan\\eclipse-workspace\\G12_CENG431_HW3-v1\\src\\trends.png"));
-        trendsButton.setBounds(289, 178, 202, 21);
-        add(trendsButton);
-        
-        viewAllUsersButton = new JButton("View All Users");
-        viewAllUsersButton.setBounds(243, 141, 207, 21);
-        add(viewAllUsersButton);
-        */
 		this.setMainFrame(mainFrameView);  
         getMainFrame().addNewPanel2(menuView);
         getMainFrame().addMenuPanel3(this);
-        
-       
-        
-    /*    JTextPane txtpnKjslkhjk = new JTextPane();
-        txtpnKjslkhjk.setBounds(203, 233, 159, 158);
-        add(txtpnKjslkhjk);
-*/
-
 
 	}
-
+	
+   /* private void showLists() {
+		ArrayList<IProduct> products = DataHandler.getProductAndCategoriesAsAObject();
+		//ArrayList<IProduct> productList  =new ArrayList<IProduct>();
+        List<IProduct> productList = new ArrayList();
+        productList.addAll(user.getFavoriteList());
+        productList.addAll(products);
+        String[]productListsArr = new String[productList.size()];
+        int i = 0;
+        for(IProduct wl: productList){
+        	productListsArr[i] = "<html><body>" + wl.getName() + "<br>" + " " + "<br>" + "</span></body></html>}";
+            i++;
+        }
+        jFavoriteList.setListData(productListsArr);
+    }*/
 	public MainFrameView getMainFrame() {
 		return mainFrameView;
 	}
@@ -303,25 +299,9 @@ public class BuyerHomePageView extends JPanel implements Observer{
     }
 	
 	
-  /*  public void addViewAllUsersButtonActionListener(ActionListener actionListener){
-    	viewAllUsersButton.addActionListener(actionListener);
+    @Override
+    public void update(Observable o, Object arg) {
+        user = (User) o;
+       // showLists();
     }
-    public void addCreateCollectionButtonActionListener(ActionListener actionListener){
-    	viewCategoriesButton.addActionListener(actionListener);
-    }
-    public void addMyProfileButtonActionListener(ActionListener actionListener){
-    	myProfileButton.addActionListener(actionListener);
-    }
-    public void addSeeAllCollectionButtonActionListener(ActionListener actionListener){
-    	seeAllCollectionButton.addActionListener(actionListener);
-    }
-    public void addTrendsButtonActionListener(ActionListener actionListener){
-    	trendsButton.addActionListener(actionListener);
-    }*/
-
-	@Override
-	public void update(Observable o, Object arg) {
-		// TODO Auto-generated method stub
-		
-	}
 }

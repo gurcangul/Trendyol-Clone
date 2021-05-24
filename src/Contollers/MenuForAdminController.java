@@ -58,19 +58,6 @@ public class MenuForAdminController {
         public void actionPerformed(ActionEvent e) {
         }
     } 
-    private class LogOutActionListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-        	int result = JOptionPane.showConfirmDialog(mainFrameView,"Sure? You want to exit?", "Swing Tester",
-                    JOptionPane.YES_NO_OPTION,
-                    JOptionPane.QUESTION_MESSAGE);
-			if(result == JOptionPane.YES_OPTION){
-				beforeLoginView =  new BeforeLoginView(mainFrameView);
-				BeforeLoginController beforeLoginController = new BeforeLoginController(mainFrameView,beforeLoginView);			
-			 }else if (result == JOptionPane.NO_OPTION){
-			 }      	
-        }
-    } 
     private class ViewAllCategoryActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -96,6 +83,16 @@ public class MenuForAdminController {
         @Override
         public void actionPerformed(ActionEvent e) {
         }
-    }   
-       
+    } 
+    private class LogOutActionListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            int result = JOptionPane.showConfirmDialog(mainFrameView,"Sure? You want to exit?", "Swing Tester", 
+            		JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        	if(result == JOptionPane.YES_OPTION){
+          	   	beforeLoginView =  new BeforeLoginView(mainFrameView);
+          	   	BeforeLoginController beforeLoginController = new BeforeLoginController(mainFrameView,beforeLoginView);
+        	}     	
+        }
+    }       
 }

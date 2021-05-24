@@ -24,9 +24,9 @@ public class MenuViewForBuyer extends JPanel implements Observer {
 	private String userName;
 	private User user;
 
-	JMenu myProfile,home,store,help;
+	JMenu myProfileMenu, homeMenu, storeMenu, helpMenu;
 	JMenuBar menuBar;
-	JMenuItem helpContents, sendFeedback, logOut, about,shoppingCart, homePage, myFavorites;
+	JMenuItem sendFeedbackMenuItem, logOutMenuItem, aboutMenuItem, shoppingCartMenuItem, homePageMenuItem, myFavoritesMenuItem;
 	
 	public MenuViewForBuyer(MainFrameView mainFrameView,User user ) {
 		this.mainFrameView=mainFrameView;                
@@ -40,29 +40,29 @@ public class MenuViewForBuyer extends JPanel implements Observer {
 	    menuBar.setBounds(10, 10, 424, 22);
 	    add(menuBar);
 	
-	    home = new JMenu("Home");
-	    menuBar.add(home);
-	    homePage = new JMenuItem("Home Page");
-	    home.add(homePage);
+	    homeMenu = new JMenu("Home");
+	    menuBar.add(homeMenu);
+	    homePageMenuItem = new JMenuItem("Home Page");
+	    homeMenu.add(homePageMenuItem);
 	    
 
-	    myProfile = new JMenu("My Profile");
-	    menuBar.add(myProfile);
+	    myProfileMenu = new JMenu("My Profile");
+	    menuBar.add(myProfileMenu);
 	           
-	    shoppingCart = new JMenuItem("Shopping Cart");
-	    myProfile.add(shoppingCart);
+	    shoppingCartMenuItem = new JMenuItem("Shopping Cart");
+	    myProfileMenu.add(shoppingCartMenuItem);
 	    
-	    myFavorites = new JMenuItem("My Favorites");
-	    myProfile.add(myFavorites);		        
+	    myFavoritesMenuItem = new JMenuItem("My Favorites");
+	    myProfileMenu.add(myFavoritesMenuItem);		        
 	    JMenuItem generalAccountSettings = new JMenuItem("General Account Settings");
-	    myProfile.add(generalAccountSettings);
+	    myProfileMenu.add(generalAccountSettings);
 	    
-	    store = new JMenu("Store");
-	    store.setBackground(Color.WHITE);
-	    menuBar.add(store);
+	    storeMenu = new JMenu("Store");
+	    storeMenu.setBackground(Color.WHITE);
+	    menuBar.add(storeMenu);
 	    
 	    JMenuItem allCategories = new JMenuItem("All Categories");
-	    store.add(allCategories);
+	    storeMenu.add(allCategories);
 	    //User user = new User();
 	    //user.getserName
 	    String name="";
@@ -76,17 +76,17 @@ public class MenuViewForBuyer extends JPanel implements Observer {
     JMenu userName = new JMenu(name);
     menuBar.add(userName);
     
-    logOut = new JMenuItem("Log Out");
-    logOut.setIcon(new ImageIcon(MenuViewForBuyer.class.getResource("/back.png")));
-    userName.add(logOut);
-    help = new JMenu("Help");
-    menuBar.add(help);
+    logOutMenuItem = new JMenuItem("Log Out");
+    logOutMenuItem.setIcon(new ImageIcon(MenuViewForBuyer.class.getResource("/back.png")));
+    userName.add(logOutMenuItem);
+    helpMenu = new JMenu("Help");
+    menuBar.add(helpMenu);
   
-    sendFeedback = new JMenuItem("Send Feedback");    
-    help.add(sendFeedback);
+    sendFeedbackMenuItem = new JMenuItem("Send Feedback");    
+    helpMenu.add(sendFeedbackMenuItem);
  
-    about = new JMenuItem("About");
-    help.add(about);
+    aboutMenuItem = new JMenuItem("About");
+    helpMenu.add(aboutMenuItem);
   
     mainFrameView.addNewPanel(this);
 	}
@@ -127,36 +127,7 @@ public class MenuViewForBuyer extends JPanel implements Observer {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-	public void addMyProfileButton(ActionListener actionListener) {
-		myProfile.addActionListener(actionListener);		
-	}	
-	public void addHomeButton(ActionListener actionListener) {
-		home.addActionListener(actionListener);
-	}
-	public void addStoreButton(ActionListener actionListener) {
-		store.addActionListener(actionListener);		
-	}
-	public void addShoppingCartButton(ActionListener actionListener) {
-		shoppingCart.addActionListener(actionListener);		
-	}
-	public void addHomePageButton(ActionListener actionListener) {
-		homePage.addActionListener(actionListener);		
-	}
-	public void addMyFavoritesButton(ActionListener actionListener) {
-		myFavorites.addActionListener(actionListener);		
-	}
-	public void addHelpButton(ActionListener actionListener) {
-		help.addActionListener(actionListener);		
-	}
-	public void addSendFeedbackButton(ActionListener actionListener) {
-		sendFeedback.addActionListener(actionListener);		
-	}	
-	public void addLogOutButton(ActionListener actionListener) {
-		logOut.addActionListener(actionListener);		
-	}
-	public void addAboutButton(ActionListener actionListener) {
-		about.addActionListener(actionListener);		
-	}
+
 	@Override
 	public void update(Observable o, Object arg) {
 		// TODO Auto-generated method stub		
@@ -167,4 +138,25 @@ public class MenuViewForBuyer extends JPanel implements Observer {
 	public void setUser(User user) {
 		this.user = user;
 	}
+
+//	ActionListener actionListener
+	public void addSendFeedbackActionListener(ActionListener actionListener) {
+		sendFeedbackMenuItem.addActionListener(actionListener);		
+	}	
+	public void addAboutActionListener(ActionListener actionListener) {
+		aboutMenuItem.addActionListener(actionListener);		
+	}	
+	public void addLogOutActionListener(ActionListener actionListener) {
+		logOutMenuItem.addActionListener(actionListener);		
+	}
+	public void addShoppingCartActionListener(ActionListener actionListener) {
+		shoppingCartMenuItem.addActionListener(actionListener);		
+	}
+	public void addHomePageActionListener(ActionListener actionListener) {
+		homePageMenuItem.addActionListener(actionListener);		
+	}	
+	public void addMyFavoritesActionListener(ActionListener actionListener) {
+		myFavoritesMenuItem.addActionListener(actionListener);		
+	}	
+	
 }

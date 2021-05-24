@@ -15,7 +15,6 @@ public class FeedbackController {
     public FeedbackController(MainFrameView mainFrameView, FeedbackView feedbackView  ) {
     	this.mainFrameView=mainFrameView;
         this.feedbackView = feedbackView;
-        this.menuView=(JPanel) menuView;
-        
+        this.menuView=(JPanel) menuView;       
     }
 }

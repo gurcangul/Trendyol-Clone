@@ -4,8 +4,11 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.Random;
 
+import org.json.JSONException;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.*;
@@ -19,7 +22,7 @@ import User.UserFactory;
 
 
 
-public class DataHandler {//for create user object from the csv file 
+public class DataHandler  implements  Observer {//for create user object from the csv file 
 	static  ArrayList<User> userList = parseUsers();
 	static  ArrayList<IProduct> productAndCategories = new ArrayList<IProduct>();
 	
@@ -46,9 +49,10 @@ public class DataHandler {//for create user object from the csv file
 			String name = (String) productObject.get("name");
 	        String ID = (String) productObject.get("ID"); 
 	        String stok = (String) productObject.get("stock");
-	        
+	        String likes = (String) productObject.get("likes");
+
 	        User user = UserFinderHelper.findUserByUsername(userList, seller);
-	        IProduct product1 = new Product(Integer.parseInt(ID), name, Double.parseDouble(price), Integer.parseInt(stok), (Seller)user);
+	        IProduct product1 = new Product(Integer.parseInt(ID), name, Double.parseDouble(price), Integer.parseInt(stok),Integer.parseInt(likes), (Seller)user);
 	        product.add(product1);
 		}
 		else if(categoryObject != null) {			    
@@ -151,4 +155,31 @@ public class DataHandler {//for create user object from the csv file
 	public static ArrayList<IProduct> getProductAndCategoriesAsAObject() {
 		return productAndCategories;
 	}
+    public void putUser() throws IOException{
+    	Writer.csvUserWriter(userList);
+    }
+
+    public void putProduct() throws JSONException, IOException{
+    	Writer.jsonProductWriter(productAndCategories);
+    	
+    }
+    
+    // if any information related to observers change, update csv and JSON files 
+    @Override
+    public void update(Observable o, Object arg) {
+        if(o instanceof IProduct){
+        	IProduct product = (IProduct) o;
+            try {
+				putProduct();
+			} catch (JSONException e) {
+			} catch (IOException e) {
+			}
+        }else{
+            User user = (User) o;
+            try {
+				putUser();
+			} catch (IOException e) {
+			}
+        }
+    }
 }
