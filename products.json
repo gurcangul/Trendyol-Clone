@@ -99,13 +99,11 @@
 		                               "stock": "47",
 		                               "likes": "18"                                   
                                    
-                              }}
-		                    
-		                    
+                                      }}
 		                    ] }}
 	                    
 	                    
-               ]
+                    ]
                }}
           ]
      }},
@@ -131,21 +129,21 @@
 			          "productList": [
 			          			{"category": {
 							          "name": "Jeans",
-							          "ID": "17",
+							          "ID": "18",
 							          "productList": []   }},
 							    {"category": {
 							          "name": "Trousers",
-							          "ID": "18",
+							          "ID": "19",
 							          "productList": []   }}
 			          
 			          ]   }}, 
 			    {"category": {
 			          "name": "Shorts",
-			          "ID": "19",
+			          "ID": "20",
 			          "productList": [] }},  
 			    {"category": {
 			          "name": "Denim Jacket/ Leather Jacket",
-			          "ID": "20",
+			          "ID": "21",
 			          "productList": [
 			          			{"category": {
 							          "name": "Denim Jacket",
