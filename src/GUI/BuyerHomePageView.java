@@ -87,7 +87,6 @@ public class BuyerHomePageView extends JPanel implements Observer{
 
         scrollPane2 = new JScrollPane();
         scrollPane2.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-      //  scrollPane2.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
 
         panel = new JPanel();
         panel.setAlignmentY(Component.BOTTOM_ALIGNMENT);
