@@ -91,27 +91,8 @@ public class BuyerHomePageView extends JPanel implements Observer{
 
         panel = new JPanel();
         panel.setAlignmentY(Component.BOTTOM_ALIGNMENT);
-        //panel.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
         panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
-        
-       /* panel_1 = new JPanel();
-        panel.add(panel_1);
-        
-        JPanel panel_2 = new JPanel();
-        panel.add(panel_2);
-        */
-        //panel.setLayout(new GridLayout(0, 1, 0, 0));
-        //panel.setLayout(new GridLayout(1, 0, 0, 0));
-
-        
-       //ViewProductPanel(5, "");
-        /*jFavoriteList = new JList<>();
-        scrollPane.setViewportView(jFavoriteList);*/
-       // showLists();
-	}
-	
-	
-	
+      	
 	public static ArrayList<IProduct> getProductList() {
 		return productList;
 	}
